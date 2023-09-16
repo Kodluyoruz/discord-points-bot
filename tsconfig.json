@@ -1,0 +1,35 @@
+{
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "lib": ["es2020"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "outDir": "./build",
+    "typeRoots": ["node_modules/@types", "src/@types"],
+    "paths": {
+      "@discord-point-bot/utils": ["src/utils/index.ts"],
+      "@discord-point-bot/models": ["src/models/index.ts"],
+      "@discord-point-bot/components": ["src/components/index.ts"],
+      "@discord-point-bot/events": ["src/events/index.ts"],
+      "@discord-point-bot/commands": ["src/commands/index.ts"],
+      "@translation": ["src/translations/translation.ts"],
+      "@config": ["src/config/config.ts"]
+    },
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "incremental": true,
+    "target": "es2020"
+  },
+  "include": ["src"]
+}
