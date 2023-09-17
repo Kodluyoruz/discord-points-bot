@@ -5,26 +5,23 @@ import {
   ButtonStyle,
   ComponentType,
   EmbedBuilder,
-  PermissionFlagsBits,
   SlashCommandBuilder,
 } from 'discord.js';
+import i18next from 'i18next';
 
 export const SlashPing: DiscordType.ISlashCommand = {
-  data: new SlashCommandBuilder()
-    .setName('kurulum')
-    .setDescription('Kurulum menüsünü açar.')
-    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
-  execute: async ({ client, interaction }) => {
+  data: new SlashCommandBuilder().setName('ping').setDescription('Ping testi menüsünü açar.'),
+  execute: async ({ client, interaction, lang }) => {
     const row = new ActionRowBuilder<ButtonBuilder>({
       components: [
         new ButtonBuilder({
           custom_id: 'okey',
-          label: 'Onaylıyorum',
+          label: i18next.t('common.accept', { lng: lang }),
           style: ButtonStyle.Success,
         }),
         new ButtonBuilder({
           custom_id: 'cancel',
-          label: 'Onaylamıyorum',
+          label: i18next.t('common.decline', { lng: lang }),
           style: ButtonStyle.Danger,
         }),
       ],

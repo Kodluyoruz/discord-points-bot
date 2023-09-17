@@ -1,5 +1,9 @@
 {
   "ping": {
     "success": "successful"
+  },
+  "common": {
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }

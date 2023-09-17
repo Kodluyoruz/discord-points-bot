@@ -1,5 +1,9 @@
 {
   "ping": {
     "success": "başarılı"
+  },
+  "common": {
+    "accept": "Onayla",
+    "decline": "Reddet"
   }
 }

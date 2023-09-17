@@ -6,7 +6,7 @@ export const InteractionCreate: DiscordType.IEvent = {
     if (interaction.isCommand()) {
       const command = client.slashCommands.get(interaction.commandName);
 
-      command.execute({ client, interaction });
+      command.execute({ client, interaction, lang: interaction.locale });
     }
   },
 };

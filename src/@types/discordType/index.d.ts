@@ -2,7 +2,7 @@ import {
   CacheType,
   ChatInputCommandInteraction,
   ClientEvents,
-  Interaction,
+  Locale,
   Message,
   MessageContextMenuCommandInteraction,
   SlashCommandBuilder,
@@ -29,6 +29,7 @@ declare global {
         | ChatInputCommandInteraction<CacheType>
         | MessageContextMenuCommandInteraction<CacheType>
         | UserContextMenuCommandInteraction<CacheType>;
+      lang: Locale;
     }
 
     export type EventKeys = keyof ClientEvents;
