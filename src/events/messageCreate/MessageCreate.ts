@@ -1,7 +1,8 @@
 import { config } from '@config';
+import { Events } from 'discord.js';
 
 export const MessageCreate: DiscordType.IEvent = {
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   execute: (client, [message]: DiscordType.ArgsOf<'messageCreate'>) => {
     const prefix = config.PREFIX;
     if (message.author.bot || !message.guild || !message.content.startsWith(prefix)) return;
