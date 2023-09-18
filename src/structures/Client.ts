@@ -6,10 +6,26 @@ import { config } from '@config';
 import { ActivityType, Collection, Client as Core, GatewayIntentBits } from 'discord.js';
 import { map } from 'lodash';
 import { connect } from 'mongoose';
+import { createLogger, format, transports } from 'winston';
 
 export class Client extends Core {
   commands = new Collection<string, DiscordType.ICommand>();
   slashCommands = new Collection<string, DiscordType.ISlashCommand>();
+  logger = createLogger({
+    format: format.combine(
+      format.timestamp({ format: 'DD-MM-YYYY HH:mm:ss' }),
+      format.colorize({
+        all: true,
+        colors: { info: 'green', error: 'red', warn: 'yellow', debug: 'blue' },
+      }),
+      format.printf((info) => `[${info.timestamp}] ${info.level}: ${info.message}`),
+    ),
+    transports: [
+      new transports.Console(),
+      new transports.File({ filename: 'logs/error.log', level: 'error' }),
+      new transports.File({ filename: 'logs/combined.log' }),
+    ],
+  });
 
   constructor() {
     super({
@@ -20,6 +36,7 @@ export class Client extends Core {
 
   private async loadCommands() {
     const commands: DiscordType.ICommand[] = [Ping];
+
     await Promise.all(
       map(commands, async (command) => this.commands.set(command.usages[0], command)),
     );
