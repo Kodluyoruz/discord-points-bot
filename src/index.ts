@@ -9,8 +9,8 @@ initI18next();
 client.connect();
 
 process.on('unhandledRejection', (error: Error) => {
-  console.log(`${error.name}: ${error.message}`);
+  client.logger.info(`${error.name}: ${error.message}`);
 });
 process.on('uncaughtException', (error: Error) => {
-  console.log(`${error.name}: ${error.message}`);
+  client.logger.info(`${error.name}: ${error.message}`);
 });

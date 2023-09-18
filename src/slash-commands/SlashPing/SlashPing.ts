@@ -53,7 +53,7 @@ export const SlashPing: DiscordType.ISlashCommand = {
         }
         collector.stop('SUCCESS');
       } catch (error) {
-        console.log(error);
+        client.logger.error(error);
       }
     });
 
