@@ -30,7 +30,7 @@ Everyone contributing to our project should refrain from judging or harming othe
 
 Everyone contributing to our project should adhere to the principle of "teaching the uninformed" in their approach to sharing knowledge and teaching. Each of our project participants may have different interests, experiences, and knowledge levels. Therefore, everyone contributing to our project should pay special attention not only to successful students but also to struggling, demotivated, or nearly demotivated young people who need support.
 
-### 6. Fearless Asking of Questions
+### 6. Asking Questions Freely
 
 Everyone contributing to our project has the freedom to ask questions without hesitation, anytime and about any subject. Additionally, providing clear and understandable answers to questions is important for the development of our project.
 
