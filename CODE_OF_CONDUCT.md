@@ -1,8 +1,8 @@
-## Kodluyoruz Açık Kaynak | Davranış Kuralları
+# Kodluyoruz Açık Kaynak | Davranış Kuralları
 
-Bu belge Kodluyoruz’un açık kaynak projelerine katkı sağlayanlar arasında kabul edilmiş kuralları tanımlamaktadır. 
+Bu belge Kodluyoruz’un açık kaynak projelerine katkı sağlayanlar arasında kabul edilmiş kuralları tanımlamaktadır.
 
-### Neden Bir Davranış Kurallarına İhtiyaç Duyuyoruz?
+## Neden Bir Davranış Kurallarına İhtiyaç Duyuyoruz?
 
 Bu Davranış Kuralları (Code of Conduct), rahat, huzurlu, korkusuz ve üretken bir topluluk inşaa edebilmemize yardımcı olmak için tasarlanmıştır. Amacı; topluluğumuza bir takım gereksiz kurallar yüklemek, "kötü" insanlara cezalar uygulamak ya da geçmişte bir takım yanlış yapılmış uygulamaları düzeltmeye çalışmak değildir. Burada yazılmış kurallara uyulmayan ve/veya daha kötü şartlarda çalışmak durumunda kalmış insanlarla bir araya geldiğimizde de yine harika bir topluluk ortaya koyabilmeyi amaçlamaktadır.
 
@@ -52,9 +52,9 @@ Projemize katkıda bulunan herkes, aşağıdaki davranışları sergilememelidir
 - Diğer katkıda bulunanların işlerini engelleyen davranışlar
 - Etik olmayan veya yasadışı davranışlar
 
-### Kodluyoruz Genel Topluluk Kuralları
+## Kodluyoruz Genel Topluluk Kuralları
 
-Ayrıca, projemize katkıda bulunan herkesin, [Kodluyoruz Davranış Kuralları'na](https://github.com/Kodluyoruz/Code-Of-Conduct) da uygun davranması gerekmektedir. Bu kurallar, tüm Kodluyoruz topluluğu için geçerlidir ve topluluğumuzda birbirimize saygı göstererek ve etik kurallara uygun davranarak harika bir ortam yaratmayı amaçlamaktadır. 
+Ayrıca, projemize katkıda bulunan herkesin, [Kodluyoruz Davranış Kuralları'na](https://github.com/Kodluyoruz/Code-Of-Conduct) da uygun davranması gerekmektedir. Bu kurallar, tüm Kodluyoruz topluluğu için geçerlidir ve topluluğumuzda birbirimize saygı göstererek ve etik kurallara uygun davranarak harika bir ortam yaratmayı amaçlamaktadır.
 
 ## Kuralların Uygulanması
 
