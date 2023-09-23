@@ -1,8 +1,8 @@
-## Kodluyoruz Open Source | Code of Conduct
+# Kodluyoruz Open Source | Code of Conduct
 
 This document defines the rules accepted among contributors to Kodluyoruz's open-source projects.
 
-### Why Do We Need a Code of Conduct?
+## Why Do We Need a Code of Conduct?
 
 This Code of Conduct is designed to help us build a welcoming, peaceful, fearless, and productive community. Its purpose is not to impose unnecessary rules on our community, apply penalties to "bad" individuals, or try to rectify past wrongdoings. Instead, it aims to enable us to create a great community even when we come together with individuals who may not have adhered to these written rules and may have had to work in less-than-ideal conditions.
 
@@ -52,18 +52,14 @@ Everyone contributing to our project should not exhibit the following behaviors:
 - Behaviors that obstruct the work of other contributors
 - Unethical or illegal behaviors
 
-### Kodluyoruz General Community Rules
+## Kodluyoruz General Community Rules
 
 In addition, everyone contributing to our project must also adhere to the [Kodluyoruz Code of Conduct](https://github.com/Kodluyoruz/Code-Of-Conduct). These rules are applicable to the entire Kodluyoruz community and aim to create a great environment by promoting mutual respect and ethical conduct.
 
-### Enforcement of Rules
+## Enforcement of Rules
 
 Behaviors that do not adhere to these rules can be reported by contributors to our project. Complaints about behaviors that do not adhere to the rules will be reviewed by the responsible parties of our project, and appropriate measures will be taken if deemed necessary.
 
-###  Conclusion
+## Conclusion
 
 This document aims to encourage everyone contributing to our open-source project to act respectfully and ethically towards each other. By adhering to these rules, we can contribute to the development of our project while creating a comfortable, peaceful, and productive community.
-
-
-
-
