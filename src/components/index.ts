@@ -1,1 +1,1 @@
- 
+export { pointInfoEmbed } from './pointInfoEmbed';

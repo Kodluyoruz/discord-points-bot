@@ -1,1 +1,1 @@
-export { SlashPing } from './SlashPing/SlashPing';
+export { PointInfo } from './pointInfo/PointInfo';
