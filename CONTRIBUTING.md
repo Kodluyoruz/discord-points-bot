@@ -21,7 +21,7 @@ Discord Puan Botu projesine katkıda bulunmak isterseniz, aşağıdaki talimatla
 - Lütfen pull request'inizi açmadan önce son değişikliklerinizi [rebase](https://git-scm.com/docs/git-rebase) yapın.
 - Lütfen pull request'inize açıklayıcı bir başlık ve açıklama ekleyin.
 - Lütfen pull request'inizle birlikte sadece değişikliklerinizi gönderin. Lütfen gereksiz dosyaları göndermeyin.
-- Lütfen yeni pull request oluştururken aşağıdaki commit standarltarına uymayı unutmayın.
+- Lütfen yeni pull request oluştururken aşağıdaki commit standartlarına uymayı unutmayın.
 - Lütfen varsa yapılan güncellemeyi içeren issue'i pull requestinize etiketlemeyi unutmayınız.
 
 - ### [Commit Standartları](https://www.conventionalcommits.org/en/v1.0.0/)
