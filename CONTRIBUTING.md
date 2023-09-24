@@ -24,7 +24,9 @@ Discord Puan Botu projesine katkıda bulunmak isterseniz, aşağıdaki talimatla
 - Lütfen yeni pull request oluştururken aşağıdaki commit standartlarına uymayı unutmayın.
 - Lütfen varsa yapılan güncellemeyi içeren issue'i pull requestinize etiketlemeyi unutmayınız.
 
-- ### [Commit Standartları](https://www.conventionalcommits.org/en/v1.0.0/)
+- ### Commit Standartları
+
+  ##### Commit mesajlarının biçimini belirleyen **Conventional Commits** isimli kural setini kullanmaktayız. Bu konudaki detaylar için linki inceleyebilirsiniz. [Bknz. Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
   
   | PR Etiketi | Commit Türü |
   | --- | --- |
