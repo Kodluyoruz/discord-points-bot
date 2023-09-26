@@ -10,7 +10,6 @@
     "stepByStep": "Skip Steps",
     "complete": "Complete"
   },
-
   "pointInfos": {
     "title": "How Do I Earn Points?",
     "author": "{{name}} Scoring Bot",
@@ -32,5 +31,8 @@
     "step6": {
       "description": "Invite Your Friends and Earn **100 POINTS**!\n\nYou can invite your friends to the system using your referral code. When your friend enters by using the **!referral** command, both you and your friend can earn extra points."
     }
+  },
+  "userPoints": {
+    "description": "Dear **{{name}}**, in the points system between {{period}}, your total points you have achieved so far is\n**[{{points}} points, and you are ranked {{place}}!](https://kodluyoruz.org)**"
   }
 }

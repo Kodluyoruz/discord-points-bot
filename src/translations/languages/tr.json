@@ -10,7 +10,6 @@
     "stepByStep": "Adımları Atla",
     "complete": "Tamamla"
   },
-
   "pointInfos": {
     "title": "Nasıl Puan Kazanırım?",
     "author": "{{name}} Puanlama Botu",
@@ -32,5 +31,8 @@
     "step6": {
       "description": "Arkadasını Davet Et **100 PUAN** kazan!\n\nReferans kodun ile sisteme arkadaslarını davet edebilirsin. Arkadasın **!referans** komutunu kullanarak giris yaptıgında sen ve arkadasin ekstra puan kazanabilirsiniz."
     }
+  },
+  "userPoints": {
+    "description": "Sevgili **{{name}}**,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   }
 }
