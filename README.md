@@ -5,11 +5,7 @@
 [English version 🇺🇸]()
 
 ## Proje Hakkında
-Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırlanmış Discord puan botu, Discord sunucularında kullanılmak üzere özelleştirilebilir,
-kullanıcı dostu ve otomatik bir puanlama sistemi oluşturmaktır. Bu puanlama sistemi, sunucuda
-bulunan üyelerin etkinliklerdeki katılımlarını izlemek, aktif üyeleri ödüllendirmek ve topluluk
-deneyimini geliştirmeye yardımcı olan bir araçtır. Sunucu yöneticilerinin bu işlemlerdeki süreçlerini
-kolaylaştırmaya destek olacaktır.
+Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırlanmış Discord puan botu, Discord sunucularında kullanılmak üzere özelleştirilebilir, kullanıcı dostu ve otomatik bir puanlama sistemi oluşturmaktır. Bu puanlama sistemi, sunucuda bulunan üyelerin etkinliklerdeki katılımlarını izlemek, aktif üyeleri ödüllendirmek ve topluluk deneyimini geliştirmeye yardımcı olan bir araçtır. Sunucu yöneticilerinin bu işlemlerdeki süreçlerini kolaylaştırmaya destek olacaktır.
 
 ## Başlarken
 
@@ -19,7 +15,7 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit exce
 ### Kurulum
 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit excepturi impedit beatae cum labore explicabo autem, nostrum quasi ab? Nobis et accusantium, ducimus nulla dolorum minima culpa fugit corporis alias nostrum corrupti beatae unde assumenda maiores odio reprehenderit necessitatibus. Voluptas maxime sit perspiciatis, inventore similique blanditiis suscipit. Deserunt.
 
-### Versiyonlar (Ops)
+### Versiyonlar
 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit excepturi impedit beatae cum labore explicabo autem, nostrum quasi ab? Nobis et accusantium, ducimus nulla dolorum minima culpa fugit corporis alias nostrum corrupti beatae unde assumenda maiores odio reprehenderit necessitatibus.
 
 ## Görseller
@@ -31,7 +27,7 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit exce
   - [Başlarken](#başlarken)
     - [Gereksinimler](#gereksinimler)
     - [Kurulum](#kurulum)
-    - [Versiyonlar (Ops)](#versiyonlar-ops)
+    - [Versiyonlar](#versiyonlar)
   - [Görseller](#görseller)
   - [İçerik Tablosu](#i̇çerik-tablosu)
   - [Özellikler](#özellikler)
