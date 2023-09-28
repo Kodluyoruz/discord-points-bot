@@ -12,7 +12,7 @@ If you want to contribute to the Discord Points Bot project, follow the instruct
 
 ## Code Standards
 
-- Please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) for code standards.
+- Please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) Code Standards.
 - Make sure your code is readable and understandable.
 - Avoid unnecessary code repetition.
 
