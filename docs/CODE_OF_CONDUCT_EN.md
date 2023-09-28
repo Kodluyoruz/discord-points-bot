@@ -58,8 +58,8 @@ In addition, everyone contributing to our project must also adhere to the [Kodlu
 
 ## Enforcement of Rules
 
-Behaviors that do not adhere to these rules can be reported by contributors to our project. Complaints about behaviors that do not adhere to the rules will be reviewed by the responsible parties of our project, and appropriate measures will be taken if deemed necessary.
+Behaviors that do not adhere to these rules can be reported by contributors to our project. Complaints about behaviors that do not adhere to the rules will be reviewed by the responsible parties of our project and appropriate measures will be taken if deemed necessary.
 
 ## Conclusion
 
-This document aims to encourage everyone contributing to our open-source project to act respectfully and ethically towards each other. By adhering to these rules, we can contribute to the development of our project while creating a comfortable, peaceful, and productive community.
+This document aims to encourage everyone contributing to our open-source project to act respectfully and ethically towards each other. By adhering to these rules, we can contribute to the development of our project while creating a comfortable, peaceful and productive community.
