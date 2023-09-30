@@ -1,9 +1,7 @@
 {
   "files.eol": "\n",
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "i18n-ally.localesPaths": [
-    "src/translations/languages"
-  ],
+  "i18n-ally.localesPaths": ["src/translations/languages"],
   "i18n-ally.sourceLanguage": "tr",
   "i18n-ally.keystyle": "nested"
 }

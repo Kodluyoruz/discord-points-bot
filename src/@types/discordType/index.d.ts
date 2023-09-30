@@ -1,4 +1,8 @@
+import { ButtonCustomId, SelectMenuCustomId } from '@discord-point-bot/constants';
+
 import {
+  AnySelectMenuInteraction,
+  ButtonInteraction,
   CacheType,
   ChatInputCommandInteraction,
   ClientEvents,
@@ -12,17 +16,6 @@ import { Client } from 'src/structures/Client';
 
 declare global {
   namespace DiscordType {
-    export interface ICommand {
-      usages: string[];
-      execute: (commandArgs: CommandArgs) => Promise<unknown> | unknown;
-    }
-
-    export interface CommandArgs {
-      client: Client;
-      message: Message;
-      args: string[];
-    }
-
     export interface SlashCommandArgs {
       client: Client;
       interaction:
@@ -38,6 +31,33 @@ declare global {
     export interface ISlashCommand {
       data: SlashCommandBuilder;
       execute: (slashCommandArgs: SlashCommandArgs) => Promise<void> | void;
+    }
+
+    export interface ICommand {
+      usages: string[];
+      execute: (commandArgs: {
+        client: Client;
+        message: Message;
+        args: string[];
+      }) => Promise<unknown> | unknown;
+    }
+
+    export interface IButton {
+      customId: keyof typeof ButtonCustomId;
+      execute: (buttondArgs: {
+        client: Client;
+        interaction: ButtonInteraction;
+        lang: Locale;
+      }) => Promise<unknown> | unknown;
+    }
+
+    export interface ISelectMenu {
+      customId: keyof typeof SelectMenuCustomId;
+      execute: (buttondArgs: {
+        client: Client;
+        interaction: AnySelectMenuInteraction;
+        lang: Locale;
+      }) => Promise<unknown> | unknown;
     }
 
     export interface IEvent {
