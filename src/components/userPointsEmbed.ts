@@ -1,4 +1,4 @@
-import translation from '@translation';
+import t from '@translation';
 import { EmbedBuilder } from 'discord.js';
 import { Client } from 'src/structures/Client';
 
@@ -16,7 +16,7 @@ type UserPointsData = {
 
 export const userPointsEmbed = ({ client, userData, period }: UserPointsEmbedProps) => {
   const embed = new EmbedBuilder().setColor(0x5865f2).setDescription(
-    translation('userPoints.description', {
+    t('userPoints.description', {
       name: userData.displayName,
       points: userData.points,
       place: userData.place,

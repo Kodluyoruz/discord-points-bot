@@ -13,23 +13,28 @@
   "pointInfos": {
     "title": "Nasıl Puan Kazanırım?",
     "author": "{{name}} Puanlama Botu",
-    "step1": {
-      "description": "Kanallardan Mesaj Atarak **5 PUAN** Kazanabilirsin!\n\nSohbet baslatmak ve topluluk üyelerimizin arasındaki etkileşimin artması en önemli önceliklerimizden biri! Belirli sartlara uyan her mesaj icin puan kazanacaksın!"
-    },
-    "step2": {
-      "description": "Kendini Tanıt **35 PUAN** Kazan!\n\nBirbirimizi tanımak, network’ümüzü genisletmek, hatta belki deprojelerimiz icin grup arkadasları bulmak! Bunun için kendini tanıtmanın cok onemli oldugunu dusunuyoruz.\n\n**#kendini-tanıt** kanalından kendini tanıtmayı unutma!"
-    },
-    "step3": {
-      "description": "Soru Sormayı Unutma! Soru sorarak **40 PUAN** Kazanabilirsin.\n\n**#soru-cevap** kanalından topluluk üyelerimizin sorularını sorabilecegi bir alanımız var. Buradan sordugun her soru icin puan kazanacaksın."
-    },
-    "step4": {
-      "description": "Bilgini paylasmaktan cekinme **50 PUANI** Kap!\n\nKodluyoruz’un en temel degerlerinden biri paylasmak! Bu ilke dogrultusunda sen de diger topluluk üyelerine yardımcı olabilecek kaynaklar paylastıgın takdirde puan toplayacaksın.\n\nBu paylaşımlarını **#showcase** kanalından yapabilirsin."
-    },
-    "step5": {
-      "description": "Sesli Odalarda Arkadaslarınla Ol! Dakika başına **2 PUAN** kazan\n\nSesli odalarda arkadaslarınla birlikte aktif olarak gecirdigin her dakika icin puan kazanacaksın!"
-    },
-    "step6": {
-      "description": "Arkadasını Davet Et **100 PUAN** kazan!\n\nReferans kodun ile sisteme arkadaslarını davet edebilirsin. Arkadasın **!referans** komutunu kullanarak giris yaptıgında sen ve arkadasin ekstra puan kazanabilirsiniz."
+    "step": [
+      {
+        "description": "Kanallardan Mesaj Atarak **5 PUAN** Kazanabilirsin!\n\nSohbet baslatmak ve topluluk üyelerimizin arasındaki etkileşimin artması en önemli önceliklerimizden biri! Belirli sartlara uyan her mesaj icin puan kazanacaksın!"
+      },
+      {
+        "description": "Kendini Tanıt **35 PUAN** Kazan!\n\nBirbirimizi tanımak, network’ümüzü genisletmek, hatta belki deprojelerimiz icin grup arkadasları bulmak! Bunun için kendini tanıtmanın cok onemli oldugunu dusunuyoruz.\n\n**#kendini-tanıt** kanalından kendini tanıtmayı unutma!"
+      },
+      {
+        "description": "Soru Sormayı Unutma! Soru sorarak **40 PUAN** Kazanabilirsin.\n\n**#soru-cevap** kanalından topluluk üyelerimizin sorularını sorabilecegi bir alanımız var. Buradan sordugun her soru icin puan kazanacaksın."
+      },
+      {
+        "description": "Bilgini paylasmaktan cekinme **50 PUANI** Kap!\n\nKodluyoruz’un en temel degerlerinden biri paylasmak! Bu ilke dogrultusunda sen de diger topluluk üyelerine yardımcı olabilecek kaynaklar paylastıgın takdirde puan toplayacaksın.\n\nBu paylaşımlarını **#showcase** kanalından yapabilirsin."
+      },
+      {
+        "description": "Sesli Odalarda Arkadaslarınla Ol! Dakika başına **2 PUAN** kazan\n\nSesli odalarda arkadaslarınla birlikte aktif olarak gecirdigin her dakika icin puan kazanacaksın!"
+      },
+      {
+        "description": "Arkadasını Davet Et **100 PUAN** kazan!\n\nReferans kodun ile sisteme arkadaslarını davet edebilirsin. Arkadasın **!referans** komutunu kullanarak giris yaptıgında sen ve arkadasin ekstra puan kazanabilirsiniz."
+      }
+    ],
+    "command": {
+      "description": "Mevcut puan durumunuzu hakkında bilgi verir."
     }
   },
   "userPoints": {

@@ -1,4 +1,4 @@
-import i18next, { TFunction } from 'i18next';
+import i18next from 'i18next';
 
 const translation = i18next.t;
 

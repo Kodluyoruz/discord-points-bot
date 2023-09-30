@@ -34,6 +34,15 @@ export class Client extends Core {
     });
   }
 
+  private errorHandleInit() {
+    process.on('unhandledRejection', (error: Error) => {
+      this.logger.error(`${error.name}: ${error.message}`);
+    });
+    process.on('uncaughtException', (error: Error) => {
+      this.logger.error(`${error.name}: ${error.message}`);
+    });
+  }
+
   private async loadCommands() {
     const commands: DiscordType.ICommand[] = [Ping];
 
@@ -52,6 +61,8 @@ export class Client extends Core {
   }
 
   private async loadEvents() {
+    this.errorHandleInit();
+
     const events: DiscordType.IEvent[] = [Ready, MessageCreate, InteractionCreate];
 
     await Promise.all(

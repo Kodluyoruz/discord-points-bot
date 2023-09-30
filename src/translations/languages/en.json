@@ -13,23 +13,28 @@
   "pointInfos": {
     "title": "How Do I Earn Points?",
     "author": "{{name}} Scoring Bot",
-    "step1": {
-      "description": "Earn **5 POINTS** by Sending Messages in Channels!\n\nStarting conversations and increasing interaction among our community members is one of our top priorities! You will earn points for each message that meets specific criteria!"
-    },
-    "step2": {
-      "description": "Introduce Yourself and Earn **35 POINTS**!\n\nGetting to know each other, expanding our network, and maybe finding group members for our projects! We believe that introducing yourself is very important for this. Don't forget to introduce yourself in the **#introduce-yourself** channel!"
-    },
-    "step3": {
-      "description": "Don't Forget to Ask Questions! You can Earn **40 POINTS** by Asking Questions.\n\nWe have a dedicated **#qna** channel where community members can ask their questions. You will earn points for every question you ask here."
-    },
-    "step4": {
-      "description": "Don't Hesitate to Share Your Knowledge and Get **50 POINTS**!\n\nSharing is one of the core values of Kodluyoruz! If you share resources that can help other community members, you will collect points. You can make these contributions in the **#showcase** channel."
-    },
-    "step5": {
-      "description": "Hang Out with Your Friends in Voice Rooms! Earn **2 POINTS** per Minute.\n\nYou will earn points for every minute you spend actively in voice rooms with your friends!"
-    },
-    "step6": {
-      "description": "Invite Your Friends and Earn **100 POINTS**!\n\nYou can invite your friends to the system using your referral code. When your friend enters by using the **!referral** command, both you and your friend can earn extra points."
+    "step": [
+      {
+        "description": "Earn **5 POINTS** by Sending Messages in Channels!\n\nStarting conversations and increasing interaction among our community members is one of our top priorities! You will earn points for each message that meets specific criteria!"
+      },
+      {
+        "description": "Introduce Yourself and Earn **35 POINTS**!\n\nGetting to know each other, expanding our network, and maybe finding group members for our projects! We believe that introducing yourself is very important for this. Don't forget to introduce yourself in the **#introduce-yourself** channel!"
+      },
+      {
+        "description": "Don't Forget to Ask Questions! You can Earn **40 POINTS** by Asking Questions.\n\nWe have a dedicated **#qna** channel where community members can ask their questions. You will earn points for every question you ask here."
+      },
+      {
+        "description": "Don't Hesitate to Share Your Knowledge and Get **50 POINTS**!\n\nSharing is one of the core values of Kodluyoruz! If you share resources that can help other community members, you will collect points. You can make these contributions in the **#showcase** channel."
+      },
+      {
+        "description": "Hang Out with Your Friends in Voice Rooms! Earn **2 POINTS** per Minute.\n\nYou will earn points for every minute you spend actively in voice rooms with your friends!"
+      },
+      {
+        "description": "Invite Your Friends and Earn **100 POINTS**!\n\nYou can invite your friends to the system using your referral code. When your friend enters by using the **!referral** command, both you and your friend can earn extra points."
+      }
+    ],
+    "command": {
+      "description": "Provides information about your current points status."
     }
   },
   "userPoints": {
