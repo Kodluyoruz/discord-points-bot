@@ -8,7 +8,12 @@
     "next": "Next {{first}}/{{second}} >",
     "back": "< Previous {{first}}/{{second}}",
     "stepByStep": "Skip Steps",
-    "complete": "Complete"
+    "complete": "Complete",
+    "document": "Documentation",
+    "setting": "Settings",
+    "setup": "Setup",
+    "edit": "Edit",
+    "continue": "Continue"
   },
   "pointInfos": {
     "title": "How Do I Earn Points?",
@@ -39,5 +44,45 @@
   },
   "userPoints": {
     "description": "Dear **{{name}}**, in the points system between {{period}}, your total points you have achieved so far is\n**[{{points}} points, and you are ranked {{place}}!](https://kodluyoruz.org)**"
+  },
+  "setup": {
+    "firstEntry": {
+      "author": "{{name}} Point Bot",
+      "title": "Welcome to the {{name}} Point Bot Help Menu",
+      "description": "You can read the documentation and start the setup using the buttons below before getting started."
+    },
+    "period": {
+      "selected": "Period Selected",
+      "placeholder": "Select the Period",
+      "title": "Point List Disclosure Period",
+      "description": "Description will come here",
+      "periods": {
+        "weekly": "Weekly",
+        "twoWeeks": "2 weeks",
+        "monthly": "Monthly"
+      }
+    },
+    "logChannel": {
+      "selected": "Log Channel Selected",
+      "placeholder": "Select the Log Channel",
+      "title": "Select the Channel for Logs",
+      "description": "Description will come here"
+    },
+    "adminChannel": {
+      "selected": "Admin Channel Selected",
+      "placeholder": "Select the Admin Channel",
+      "title": "Select the Admin Channel",
+      "description": "Description will come here"
+    },
+    "done": {
+      "label": "Go to Admin Channel",
+      "title": "Setup Completed",
+      "description": "You can continue to other settings from the admin channel."
+    }
+  },
+  "settings": {
+    "pointUnit": "Add New Point Unit",
+    "menu": "Settings Menu",
+    "description": "Description will come here"
   }
 }

@@ -8,7 +8,12 @@
     "next": "Sonraki {{first}}/{{second}} >",
     "back": "< Önceki {{first}}/{{second}}",
     "stepByStep": "Adımları Atla",
-    "complete": "Tamamla"
+    "complete": "Tamamla",
+    "document": "Dökümantasyon",
+    "setting": "Ayarlar",
+    "setup": "Kurulum",
+    "edit": "Düzenle",
+    "continue": "Devam Et"
   },
   "pointInfos": {
     "title": "Nasıl Puan Kazanırım?",
@@ -39,5 +44,45 @@
   },
   "userPoints": {
     "description": "Sevgili **{{name}}**,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+  },
+  "setup": {
+    "firstEntry": {
+      "author": "{{name}} Puanlama Botu",
+      "title": "{{name}} Puanlama Botu Yardım Menüsüne",
+      "description": "Aşağıdaki butonları kullanarak kuruluma başlamdan önce\ndökümanı okuyabilir ve kuruluma başlayabilirsiniz."
+    },
+    "period": {
+      "selected": "Periyot Seçildi",
+      "placeholder": "Periyodu Seçiniz",
+      "title": "Puan Listesinin Açıklanma Periyodu",
+      "description": "Açıklama gelecek",
+      "periods": {
+        "weekly": "Weekly",
+        "twoWeeks": "2 weeks",
+        "monthly": "Monthly"
+      }
+    },
+    "logChannel": {
+      "selected": "Log Kanalı Seçildi.",
+      "placeholder": "Log Kanalını Seçiniz.",
+      "title": "Logların Düşeceği Odayı Seçin.",
+      "description": "Açıklama gelecek"
+    },
+    "adminChannel": {
+      "selected": "Yönetim Kanalı Seçildi.",
+      "placeholder": "Yönetim Kanalını Seçiniz.",
+      "title": "Yönetim Kanalını Seçin.",
+      "description": "Açıklama gelecek"
+    },
+    "done": {
+      "label": "Admin Kanalına git",
+      "title": "Kurulum Tamamlandı",
+      "description": "Admin kanalından diğer ayarlara devam edebilrisiniz."
+    }
+  },
+  "settings": {
+    "pointUnit": "Yeni Puan Birimi Ekle",
+    "menu": "Ayarlar Menüsü",
+    "description": "bu kısma açıklama gelecektir"
   }
 }
