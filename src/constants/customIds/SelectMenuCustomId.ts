@@ -1,0 +1,5 @@
+export enum SelectMenuCustomId {
+  ADMIN_CHANNEL = 'ADMIN_CHANNEL',
+  POINT_PERIOD = 'POINT_PERIOD',
+  LOG_CHANNEL = 'LOG_CHANNEL',
+}
