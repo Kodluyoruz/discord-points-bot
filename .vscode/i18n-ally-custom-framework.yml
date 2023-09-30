@@ -33,6 +33,5 @@ refactorTemplates:
   - translation("$1")
   - translation("$1", { lang })
 
-
 # If set to true, only enables this custom framework (will disable all built-in frameworks)
 monopoly: true
