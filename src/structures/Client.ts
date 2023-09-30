@@ -12,13 +12,7 @@ import {
   SetupPeriodSelectMenu,
 } from '@discord-point-bot/components';
 import { GuildCreate, InteractionCreate, MessageCreate, Ready } from '@discord-point-bot/events';
-import {
-  PointInfo,
-  Settings,
-  Setup,
-  SlashPing,
-  UserPoints,
-} from '@discord-point-bot/slash-commands';
+import { PointInfo, Settings, Setup, UserPoints } from '@discord-point-bot/slash-commands';
 
 import { config } from '@config';
 import { ActivityType, Collection, Client as Core, GatewayIntentBits } from 'discord.js';
@@ -85,13 +79,7 @@ export class Client extends Core {
   }
 
   private async loadSlashCommands() {
-    const slashCommands: DiscordType.ISlashCommand[] = [
-      SlashPing,
-      Setup,
-      Settings,
-      PointInfo,
-      UserPoints,
-    ];
+    const slashCommands: DiscordType.ISlashCommand[] = [Setup, Settings, PointInfo, UserPoints];
 
     await Promise.all(
       map(slashCommands, async (slashCommand) =>
