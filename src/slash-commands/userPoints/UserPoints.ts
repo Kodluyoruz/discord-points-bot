@@ -1,4 +1,5 @@
 import { userPointsEmbed } from '@discord-point-bot/components';
+
 import { SlashCommandBuilder } from 'discord.js';
 
 export const UserPoints: DiscordType.ISlashCommand = {
