@@ -6,7 +6,6 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "project": "discord-points-bot/tsconfig.json",
   "ignorePatterns": ["**/*.js"],
   "plugins": ["@typescript-eslint"],
   "extends": [
