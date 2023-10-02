@@ -13,7 +13,7 @@ export const GuildCreate: DiscordType.IEvent = {
     if (channel) {
       const { embed, row } = await setupEmbed({ guild, lang: guild.preferredLocale });
 
-      channel.send({ embeds: [embed], components: [row] });
+      await channel.send({ embeds: [embed], components: [row] });
     }
   },
 };

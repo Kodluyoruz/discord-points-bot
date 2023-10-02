@@ -10,6 +10,6 @@ export const Settings: DiscordType.ISlashCommand = {
   execute: async ({ client, interaction, lang }) => {
     const { embed, row } = await settingsAdminEmbed({ client, guild: interaction.guild, lang });
 
-    interaction.reply({ embeds: [embed], components: [row], ephemeral: true });
+    await interaction.reply({ embeds: [embed], components: [row], ephemeral: true });
   },
 };
