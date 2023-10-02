@@ -1,4 +1,4 @@
-import { Events, InteractionType } from 'discord.js';
+import { Events } from 'discord.js';
 
 export const InteractionCreate: DiscordType.IEvent = {
   name: Events.InteractionCreate,
