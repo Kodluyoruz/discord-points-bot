@@ -6,19 +6,19 @@ import translation from '@translation';
 import { setupCustomButtonEmbed } from './setupCustomButtonEmbed';
 
 export const SetupPeriodSelectMenu: DiscordType.ISelectMenu = {
-  customId: SelectMenuCustomId.POINT_PERIOD,
+  customId: SelectMenuCustomId.point_period,
   execute: async ({ client, interaction, lang }) => {
     const [pointPeriod] = interaction.values;
 
     await GuildSettingsModel.findOneAndUpdate(
       { guildId: interaction.guildId },
-      { pointPeriod },
+      { 'point.period': pointPeriod },
       { upsert: true },
     );
 
     const { newEmbed, row } = setupCustomButtonEmbed({
-      nextButon: { customId: ButtonCustomId.SETUP_DONE },
-      backButon: { customId: ButtonCustomId.EDIT_POINT_PERIOD },
+      nextButon: { customId: ButtonCustomId.setup.done },
+      backButon: { customId: ButtonCustomId.setup.point_period.edit },
       embed: {
         oldEmbed: interaction.message.embeds[0],
         title: translation('setup.period.selected', { lang }),
@@ -29,6 +29,6 @@ export const SetupPeriodSelectMenu: DiscordType.ISelectMenu = {
 
     await interaction.deferUpdate();
 
-    interaction.editReply({ components: [row], embeds: [newEmbed] });
+    await interaction.editReply({ components: [row], embeds: [newEmbed] });
   },
 };

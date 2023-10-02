@@ -7,23 +7,25 @@ import { channelMention } from 'discord.js';
 import { setupCustomButtonEmbed } from './setupCustomButtonEmbed';
 
 export const SetupAdminSelectMenu: DiscordType.ISelectMenu = {
-  customId: SelectMenuCustomId.ADMIN_CHANNEL,
+  customId: SelectMenuCustomId.admin_channel,
   execute: async ({ client, interaction, lang }) => {
     const [channelId] = interaction.values;
 
-    const guildSetting = await GuildSettingsModel.findOneAndUpdate(
+    const settings = await GuildSettingsModel.findOneAndUpdate(
       { guildId: interaction.guildId },
       { adminChannelId: channelId },
       { upsert: true, new: true },
     );
 
-    const { pointPeriod } = guildSetting || {};
+    const { point } = settings || {};
 
-    const customId = !pointPeriod ? ButtonCustomId.POINT_PERIOD : ButtonCustomId.SETUP_DONE;
+    const customId = !point?.channelId
+      ? ButtonCustomId.setup.point_period.add
+      : ButtonCustomId.setup.done;
 
     const { newEmbed, row } = setupCustomButtonEmbed({
       nextButon: { customId: customId },
-      backButon: { customId: ButtonCustomId.EDIT_ADMIN_CHANNEL },
+      backButon: { customId: ButtonCustomId.setup.admin_channel.edit },
       embed: {
         oldEmbed: interaction.message.embeds[0],
         title: translation('setup.adminChannel.selected', { lang }),
@@ -34,6 +36,6 @@ export const SetupAdminSelectMenu: DiscordType.ISelectMenu = {
 
     await interaction.deferUpdate();
 
-    interaction.editReply({ components: [row], embeds: [newEmbed] });
+    await interaction.editReply({ components: [row], embeds: [newEmbed] });
   },
 };

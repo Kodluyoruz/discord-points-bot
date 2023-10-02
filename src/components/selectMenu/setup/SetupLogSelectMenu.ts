@@ -7,27 +7,27 @@ import { channelMention } from 'discord.js';
 import { setupCustomButtonEmbed } from './setupCustomButtonEmbed';
 
 export const SetupLogSelectMenu: DiscordType.ISelectMenu = {
-  customId: SelectMenuCustomId.LOG_CHANNEL,
+  customId: SelectMenuCustomId.log_channel,
   execute: async ({ interaction, lang }) => {
     const [channelId] = interaction.values;
 
-    const guildSetting = await GuildSettingsModel.findOneAndUpdate(
+    const settings = await GuildSettingsModel.findOneAndUpdate(
       { guildId: interaction.guildId },
       { logChannelId: channelId },
       { upsert: true, new: true },
     );
 
-    const { adminChannelId, pointPeriod } = guildSetting || {};
+    const { adminChannelId, point } = settings || {};
 
     const customId = !adminChannelId
-      ? ButtonCustomId.ADMIN_CHANNEL
-      : !pointPeriod
-      ? ButtonCustomId.POINT_PERIOD
-      : ButtonCustomId.SETUP_DONE;
+      ? ButtonCustomId.setup.admin_channel.add
+      : !point?.channelId
+      ? ButtonCustomId.setup.point_period.add
+      : ButtonCustomId.setup.done;
 
     const { newEmbed, row } = setupCustomButtonEmbed({
       nextButon: { customId: customId },
-      backButon: { customId: ButtonCustomId.EDIT_LOG_CHANNEL },
+      backButon: { customId: ButtonCustomId.setup.log_channel.edit },
       embed: {
         oldEmbed: interaction.message.embeds[0],
         title: translation('setup.logChannel.selected', { lang }),
@@ -38,6 +38,6 @@ export const SetupLogSelectMenu: DiscordType.ISelectMenu = {
 
     await interaction.deferUpdate();
 
-    interaction.editReply({ components: [row], embeds: [newEmbed] });
+    await interaction.editReply({ components: [row], embeds: [newEmbed] });
   },
 };

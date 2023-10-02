@@ -15,12 +15,12 @@ type SettingsAdminEmbed = { client: Client; guild: Guild; lang: Locale };
 
 export const settingsAdminEmbed = async ({ guild, client, lang }: SettingsAdminEmbed) => {
   const settingsButton = new ButtonBuilder()
-    .setCustomId(ButtonCustomId.SETTINGS)
+    .setCustomId(ButtonCustomId.settings)
     .setStyle(ButtonStyle.Secondary)
     .setLabel(translation('common.setting', { lang }));
 
   const newPointUnitButton = new ButtonBuilder()
-    .setCustomId(ButtonCustomId.NEW_POINT_UNIT_ADD)
+    .setCustomId(ButtonCustomId.point_unit.add)
     .setStyle(ButtonStyle.Success)
     .setLabel(translation('settings.pointUnit', { lang }));
 
