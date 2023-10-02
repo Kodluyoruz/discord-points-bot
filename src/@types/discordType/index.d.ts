@@ -42,13 +42,15 @@ declare global {
       }) => Promise<unknown> | unknown;
     }
 
+    export interface ButtonArgs {
+      client: Client;
+      interaction: ButtonInteraction;
+      lang: Locale;
+    }
+
     export interface IButton {
       customId: keyof typeof ButtonCustomId;
-      execute: (buttondArgs: {
-        client: Client;
-        interaction: ButtonInteraction;
-        lang: Locale;
-      }) => Promise<unknown> | unknown;
+      execute: (buttondArgs: ButtonArgs) => Promise<unknown> | unknown;
     }
 
     export interface ISelectMenu {

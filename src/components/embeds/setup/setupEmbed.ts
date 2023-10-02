@@ -1,5 +1,4 @@
 import { ButtonCustomId } from '@discord-point-bot/constants';
-import { GuildSettingsModel } from '@discord-point-bot/models';
 
 import translation from '@translation';
 import {
@@ -22,7 +21,7 @@ export const setupEmbed = async ({ guild, lang }: SetupEmbedProps) => {
       url: 'https://www.example.com',
     },
     {
-      customId: ButtonCustomId.SETUP_START,
+      customId: ButtonCustomId.setup.start,
       label: translation('common.setup', { lang }),
       style: ButtonStyle.Success,
     },

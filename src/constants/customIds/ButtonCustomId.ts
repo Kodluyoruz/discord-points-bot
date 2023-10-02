@@ -1,11 +1,31 @@
-export enum ButtonCustomId {
-  ADMIN_CHANNEL = 'ADMIN_CHANNEL',
-  SETUP_START = 'SETUP_START',
-  SETUP_DONE = 'SETUP_DONE',
-  EDIT_ADMIN_CHANNEL = 'EDIT_ADMIN_CHANNEL',
-  EDIT_LOG_CHANNEL = 'EDIT_LOG_CHANNEL',
-  EDIT_POINT_PERIOD = 'EDIT_POINT_PERIOD',
-  POINT_PERIOD = 'POINT_PERIOD',
-  SETTINGS = 'SETTINGS',
-  NEW_POINT_UNIT_ADD = 'NEW_POINT_UNIT_ADD',
-}
+export const ButtonCustomId = {
+  setup: {
+    admin_channel: {
+      add: 'setup/admin_channel/add',
+      edit: 'setup/admin_channel/edit',
+    },
+    log_channel: {
+      add: 'setup/log_channel/add',
+      edit: 'setup/log_channel/edit',
+    },
+    info_channel: {
+      add: 'setup/info_channel/add',
+      edit: 'setup/info_channel/edit',
+    },
+    point_channel: {
+      add: 'setup/period_channel/add',
+      edit: 'setup/period_channel/edit',
+    },
+    point_period: {
+      add: 'setup/point_period/add',
+      edit: 'setup/point_period/edit',
+    },
+    start: 'setup/start',
+    done: 'setup/done',
+  },
+  point_unit: {
+    add: 'point/unit/add',
+    edit: 'point/unit/edit',
+  },
+  settings: 'settings',
+} as const;

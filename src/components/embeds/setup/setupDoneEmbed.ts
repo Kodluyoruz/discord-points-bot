@@ -1,25 +1,21 @@
 import { GuildSettingsModel } from '@discord-point-bot/models';
 
 import translation from '@translation';
-import { ButtonStyle, Guild, Locale, TextChannel } from 'discord.js';
-import { Client } from 'src/structures/Client';
+import { ButtonStyle, TextChannel } from 'discord.js';
 
 import { settingsAdminEmbed } from '../settings/settingsAdminEmbed';
 import { setupCustumEmbed } from './setupCustumEmbed';
 
-type SetupDoneEmbedProps = { client: Client; guild: Guild; lang: Locale };
-
-export const setupDoneEmbed = async ({ guild, client, lang }: SetupDoneEmbedProps) => {
-  const guildSetting = await GuildSettingsModel.findOne({ guildId: guild.id })
-    .select('adminChannelId')
-    .lean();
+export const setupDoneEmbed = async ({ client, interaction, lang }: DiscordType.ButtonArgs) => {
+  const { guild } = interaction;
+  const settings = await GuildSettingsModel.findOne({ guildId: guild.id }, 'adminChannelId').lean();
 
   const { newEmbed, row } = await setupCustumEmbed({
     client,
     guild,
     button: {
       url:
-        guild.channels.cache.get(guildSetting.adminChannelId).url ||
+        guild.channels.cache.get(settings?.adminChannelId)?.url ||
         `https://discord.com/channels/${guild.id}`,
       style: ButtonStyle.Link,
       label: translation('setup.done.label', { lang }),
@@ -31,12 +27,12 @@ export const setupDoneEmbed = async ({ guild, client, lang }: SetupDoneEmbedProp
     },
   });
 
-  const channel = guild.channels.cache.get(guildSetting.adminChannelId) as TextChannel;
+  const channel = guild.channels.cache.get(settings?.adminChannelId) as TextChannel;
 
   if (channel) {
     const { embed, row } = await settingsAdminEmbed({ client, guild, lang });
 
-    channel.send({ components: [row], embeds: [embed] });
+    await channel.send({ components: [row], embeds: [embed] });
   }
 
   return { embed: newEmbed, row };

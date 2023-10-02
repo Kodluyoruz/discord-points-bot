@@ -1,5 +1,5 @@
-export enum SelectMenuCustomId {
-  ADMIN_CHANNEL = 'ADMIN_CHANNEL',
-  POINT_PERIOD = 'POINT_PERIOD',
-  LOG_CHANNEL = 'LOG_CHANNEL',
-}
+export const SelectMenuCustomId = {
+  admin_channel: 'admin_channel',
+  point_period: 'point_period',
+  log_channel: 'log_channel',
+} as const;
