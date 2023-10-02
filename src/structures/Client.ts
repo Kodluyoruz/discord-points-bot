@@ -1,14 +1,8 @@
 import { Ping } from '@discord-point-bot/commands';
 import {
-  SetupAdminButton,
   SetupAdminSelectMenu,
-  SetupButton,
-  SetupDoneButton,
-  SetupEditAdminChannelButton,
-  SetupEditLogChannelButton,
-  SetupEditPeriodButton,
+  SetupButtonRoutes,
   SetupLogSelectMenu,
-  SetupPeriodButton,
   SetupPeriodSelectMenu,
 } from '@discord-point-bot/components';
 import { GuildCreate, InteractionCreate, MessageCreate, Ready } from '@discord-point-bot/events';
@@ -49,14 +43,7 @@ export class Client extends Core {
     });
   }
 
-  private errorHandleInit() {
-    process.on('unhandledRejection', (error: Error) => {
-      this.logger.error(`${error.name}: ${error.message}`);
-    });
-    process.on('uncaughtException', (error: Error) => {
-      this.logger.error(`${error.name}: ${error.message}`);
-    });
-  }
+  private errorHandleInit() {}
 
   private async loadCommands() {
     const commands: DiscordType.ICommand[] = [Ping];
@@ -89,15 +76,7 @@ export class Client extends Core {
   }
 
   private async loadButtons() {
-    const buttons: DiscordType.IButton[] = [
-      SetupButton,
-      SetupEditLogChannelButton,
-      SetupAdminButton,
-      SetupEditAdminChannelButton,
-      SetupPeriodButton,
-      SetupEditPeriodButton,
-      SetupDoneButton,
-    ];
+    const buttons: DiscordType.IButton[] = [SetupButtonRoutes];
 
     await Promise.all(map(buttons, async (button) => this.buttons.set(button.customId, button)));
   }

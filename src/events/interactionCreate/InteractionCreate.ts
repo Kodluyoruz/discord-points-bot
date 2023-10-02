@@ -8,7 +8,8 @@ export const InteractionCreate: DiscordType.IEvent = {
 
       command.execute({ client, interaction, lang: interaction.locale });
     } else if (interaction.isButton()) {
-      const button = client.buttons.get(interaction.customId);
+      const [customId] = interaction.customId.split('/');
+      const button = client.buttons.get(customId);
 
       if (button) {
         button.execute({ client, interaction, lang: interaction.locale });
