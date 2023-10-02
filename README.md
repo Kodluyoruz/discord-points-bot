@@ -60,7 +60,27 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit exce
 
 ## Özellikler 🖥️
 
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit excepturi impedit beatae cum labore explicabo autem, nostrum quasi ab? Nobis et accusantium, ducimus nulla dolorum minima culpa fugit corporis alias nostrum corrupti beatae unde assumenda maiores odio reprehenderit necessitatibus.
+### Kullanıcı
+
+- ⚡ **Bot Rehberi** - Nasıl puan kazanacağına dair özel ayarlanmış rehber ile sistem hakkında bilgi sahibi olunabilir.
+- ⚡  **Kolayca Katılabilme** - Puan sistemine kolayca dahil olup, puan kazanmaya hızlıca başlanabilir.
+- ⚡ **Puan Kazanma** - Mesaj atma, arkadaş davet etme, sesli kanalda bulunma gibi pek çok farklı eylem ile puan kazanabilirsiniz.
+- ⚡ **Puan Durumu** - Özel tasarlanmış UI sayesinde kullanıcı anlık puan durumuna ve sıralamasına kolayca ulaşabilir.
+- ⚡ **Kullanıcı Etkinliği** - Kullanıcı istatistik kartı ile kişisel olarak sunucudaki etkinlik takip edilebilir, sunucu rankı, mesaj istatistiği ve ses aktivitesine ulaşılabilir. 
+- ⚡ **Dinamik Bildirimler** - Dinamik bildirimler sayesinde puan durumunuzla alakalı bilgilendirmeleri kolayca takip edebilir, puan aktivitenizden haberdar olabilirsiniz. 
+- ...
+ 
+
+### Moderasyon
+
+- ⚡ **Kolay Kurulum** - Bot sunucuya dahil edildikten sonra yönergeler takip edilerek kolay ve hızlı kurulum gerçekleştirilebilir.  
+- ⚡ **Dinamik Yapı** - Standart puan türü olarak sesli, mesaj, davet ile puan kazanmanın dışında moderatör tarafından özelleştirilebilir.
+- ⚡ **Dil Desteği** - Mevcut diller arasında Türkçe ve İngilizce ile çoklu dil desteği sağlanabilir.
+- ⚡ **Puan Yönetimi** - Kötüye kullanım durumunda moderatör tarafından kullanıcının puanına müdahale edilebilir. 
+- ⚡ **Periyot Yönetimi** - Moderatör tarafından sıralama farklı periyotlar halinde listelenebilir.
+- ...
+
+
 <p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
 
 ## Katkı Sağlayanlar 👩‍💻
