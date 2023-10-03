@@ -4,7 +4,15 @@
 
 ![banner](docs/images/BANNER.png)
 
-<p align="center"><a href="docs/README_EN.md">English version 🇺🇸</a></p>
+#
+
+<div align= center>
+<a href = "./docs/README_EN.md">
+<img height=60 src="./docs/images/english.png">
+</a>
+</div>
+
+#
 
 ## Proje Hakkında 📜
 
@@ -33,6 +41,8 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit exce
 ## İçerik Tablosu 📑
 
 - [Kodluyoruz Discord Puan Botu](#kodluyoruz-discord-puan-botu)
+- [](#)
+- [](#-1)
   - [Proje Hakkında 📜](#proje-hakkında-)
   - [Başlarken 📌](#başlarken-)
     - [Gereksinimler](#gereksinimler)

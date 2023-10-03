@@ -4,7 +4,15 @@
 
 ![banner](../docs/images/BANNER.png)
 
-<p align="center"><a href="../README.md">Turkish version 🇹🇷</a></p>
+#
+
+<div align= center>
+<a href = "./docs/README_EN.md">
+<img height=60 src="../docs/images/turkce.png">
+</a>
+</div>
+
+#
 
 ## About the Project 📜
 Kodluyoruz team and Kodluyoruz Open Source volunteers have prepared a Discord points bot that is customizable, user-friendly and creates an automatic scoring system to be used on Discord servers. This scoring system is a tool to track the participation of members in activities on the server, reward active members, and help improve the community experience. It will assist server administrators in streamlining these processes.
@@ -32,6 +40,8 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit exce
 ## Table of Contents 📑
 
 - [Kodluyoruz Discord Points Bot](#kodluyoruz-discord-points-bot)
+- [](#)
+- [](#-1)
   - [About the Project 📜](#about-the-project-)
   - [Getting Started 📌](#getting-started-)
     - [Requirements](#requirements)
