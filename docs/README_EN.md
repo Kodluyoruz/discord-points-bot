@@ -7,7 +7,7 @@
 #
 
 <div align= center>
-<a href = "./docs/README_EN.md">
+<a href = "../README.md">
 <img height=60 src="../docs/images/turkce.png">
 </a>
 </div>
