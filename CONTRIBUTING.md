@@ -27,22 +27,22 @@ Discord Puan Botu projesine katkıda bulunmak isterseniz, aşağıdaki talimatla
 - ### Commit Standartları
 
   ##### Commit mesajlarının biçimini belirleyen **Conventional Commits** isimli kural setini kullanmaktayız. Bu konudaki detaylar için linki inceleyebilirsiniz. [Bknz. Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-  
-  | PR Etiketi | Commit Türü |
-  | --- | --- |
-  | feat: | Yeni bir özellik eklediğinizde |
-  | fix: | Bir hata düzelttiğinizde |
-  | docs: | Dökümantasyon ile ilgili değişiklikler yaptığınızda |
-  | style: | Kod stilini veya biçimini düzelttiğinizde |
-  | refactor: | Kodu yeniden düzenlendiğinizde, ancak işlevi değiştirmediğinizde |
-  | test: | Testler ile ilgili değişiklikler yaptığınızda |
-  | chore: | Genel olarak kodlama ile ilgili olmayan görevleri yaptığınızda |
+
+  | PR Etiketi | Commit Türü                                                      |
+  | ---------- | ---------------------------------------------------------------- |
+  | feat:      | Yeni bir özellik eklediğinizde                                   |
+  | fix:       | Bir hata düzelttiğinizde                                         |
+  | docs:      | Dökümantasyon ile ilgili değişiklikler yaptığınızda              |
+  | style:     | Kod stilini veya biçimini düzelttiğinizde                        |
+  | refactor:  | Kodu yeniden düzenlendiğinizde, ancak işlevi değiştirmediğinizde |
+  | test:      | Testler ile ilgili değişiklikler yaptığınızda                    |
+  | chore:     | Genel olarak kodlama ile ilgili olmayan görevleri yaptığınızda   |
 
 - #### Yeni pull request başlıklarınızı aşağıdaki formüle göre isimlendiriniz
 
 > ```md
 > <PR Etiketi>: <değişiklik açıklaması>
->```
+> ```
 
 ## İletişim
 
