@@ -20,18 +20,18 @@ Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırla
 
 ## İçerik Tablosu 📑
 
-- [Proje Hakkında 📜](#proje-hakkında-)
-- [Başlarken 📌](#başlarken-)
+- [Proje Hakkında 📜](#proje-hakkında-📜)
+- [Başlarken 📌](#başlarken-📌)
   - [Gereksinimler](#gereksinimler)
   - [Kurulum](#kurulum)
   - [Versiyonlar](#versiyonlar)
-- [Görseller 📷](#görseller-)
-- [İçerik Tablosu 📑](#i̇çerik-tablosu-)
-- [Özellikler 🖥️](#özellikler-️)
-- [Katkı Sağlayanlar 👩‍💻](#katkı-sağlayanlar-)
-- [Davranış Kuralları 🎯](#davranış-kuralları-)
-- [Katkıda Bulunma 👨‍💻](#katkıda-bulunma-)
-- [Lisans ©](#lisans-)
+- [Görseller 📷](#görseller-📷)
+- [İçerik Tablosu 📑](#i̇çerik-tablosu-📑)
+- [Özellikler 🖥️](#özellikler-️🖥️)
+- [Katkı Sağlayanlar 👩‍💻](#katkı-sağlayanlar-👩‍💻)
+- [Davranış Kuralları 🎯](#davranış-kuralları-🎯)
+- [Katkıda Bulunma 👨‍💻](#katkıda-bulunma-👨‍💻)
+- [Lisans ©](#lisans-©)
 
 <p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
 
@@ -39,15 +39,45 @@ Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırla
 
 ### Gereksinimler
 
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit excepturi impedit beatae cum labore explicabo autem, nostrum quasi ab? Nobis et accusantium, ducimus nulla dolorum minima culpa fugit corporis alias nostrum corrupti beatae unde assumenda maiores odio reprehenderit necessitatibus. Voluptas maxime sit perspiciatis, inventore similique blanditiis suscipit. Deserunt.
+[Discord.js](https://discord.js.org/#/) v14.13.0 için [TypeScript](https://www.typescriptlang.org/) v5.2.2, [Node.js](https://nodejs.org/en/download) v20.6.1 veya daha yeni bir sürümü gereklidir.
+
+Projenin verilerinin kaydedilmesi için [MongoDB](https://www.mongodb.com/) veritabanını ihtiyaç duyar. Botun çalışması için [Discord Developer Portal](https://discord.com/developers/applications) üzerinden bir bot oluşturulmalıdır. Discord botu oluşturma ile alakalı detaylı bilgi için [Discord Bot Uygulaması Talimatları](./docs/BotKaydi.md) dökümanına göz atabilirsiniz.
 
 ### Kurulum
 
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit excepturi impedit beatae cum labore explicabo autem, nostrum quasi ab? Nobis et accusantium, ducimus nulla dolorum minima culpa fugit corporis alias nostrum corrupti beatae unde assumenda maiores odio reprehenderit necessitatibus. Voluptas maxime sit perspiciatis, inventore similique blanditiis suscipit. Deserunt.
+Projenin kullanımı ve çalıştırılması hakkında daha fazla bilgi için aşağıdaki yazıyı okuyabilirsiniz.
+
+Node.js'in LTS sürümü veya daha yüksek bir sürümünün yüklü olduğundan emin olun. Node.js yüklü değilse, aşağıdaki web sitesini ziyaret ederek indirin ve kurun: https://nodejs.org/en/
+
+MongoDB'nin yüklü olduğundan emin olun. MongoDB yüklü değilse, aşağıdaki web sitesini ziyaret ederek indirin ve kurun: https://www.mongodb.com/
+
+Dilerseniz mevcut bir MongoDB veritabanı kullanabilirsiniz. MongoDB veritabanı oluşturmak için [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) kullanabilirsiniz.
+
+Bu projeyi klonlayın veya proje sayfasından "Code" butonu altındaki "Download ZIP" butonuna tıklayarak projeyi cihazınıza indirin ve zip dosyasının içeriğini çalışma dizininize aktarın. Klonlamak için aşağıdaki komutu kullanın:
+
+```bash
+git clone https://github.com/Kodluyoruz/discord-points-bot
+```
+
+Konsola `yarn install` veya `npm install` yazarak gerekli bağımlılıkları yükleyin.
+
+`.env` dosyası oluşturun ve `BOT_TOKEN` adında bir değişken oluşturarak botunuzun token'ını atayın. Token'ınızı Discord Developer Portal'dan alabilirsiniz. MongoDB veritabanı için, `DBACCESS` adında bir değişken oluşturarak MongoDB bağlantı cümlesini atayın. Ayar dosyanızı aşağıdaki gibi oluşturabilirsiniz:
+
+```sh
+BOT_TOKEN=discord-bot-tokeninizi-buraya-yazin
+DBACCESS=mongodb+srv://kullanici-adi:sifre@example.com/tablo-adi
+```
+
+Botunuzu çalıştırmak için konsolda `yarn start` ya da `npm start` komutunu yazın.
 
 ### Versiyonlar
 
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit excepturi impedit beatae cum labore explicabo autem, nostrum quasi ab? Nobis et accusantium, ducimus nulla dolorum minima culpa fugit corporis alias nostrum corrupti beatae unde assumenda maiores odio reprehenderit necessitatibus.
+| Teknoloji  | Versiyonlar |
+| ---------- | ----------- |
+| discord.js | v14.13.0    |
+| i18next    | v23.5.1     |
+| Mongoose   | v7.5.1      |
+| Winston    | v3.10.0     |
 
 <p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
 
