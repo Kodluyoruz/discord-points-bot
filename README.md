@@ -1,4 +1,3 @@
-<a name="readme-top"></a>
 
 # Kodluyoruz Discord Puan Botu
 
@@ -20,18 +19,20 @@ Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırla
 
 ## İçerik Tablosu 📑
 
-- [Proje Hakkında 📜](#proje-hakkında-📜)
-- [Başlarken 📌](#başlarken-📌)
+- [Proje Hakkında 📜](#proje-hakkında-)
+- [Başlarken 📌](#başlarken-)
+
   - [Gereksinimler](#gereksinimler)
   - [Kurulum](#kurulum)
   - [Versiyonlar](#versiyonlar)
-- [Görseller 📷](#görseller-📷)
-- [İçerik Tablosu 📑](#i̇çerik-tablosu-📑)
-- [Özellikler 🖥️](#özellikler-️🖥️)
-- [Katkı Sağlayanlar 👩‍💻](#katkı-sağlayanlar-👩‍💻)
-- [Davranış Kuralları 🎯](#davranış-kuralları-🎯)
-- [Katkıda Bulunma 👨‍💻](#katkıda-bulunma-👨‍💻)
-- [Lisans ©](#lisans-©)
+
+- [Görseller 📷](#görseller-)
+- [İçerik Tablosu 📑](#i̇çerik-tablosu-)
+- [Özellikler 🖥️](#özellikler-️)
+- [Katkı Sağlayanlar 👩‍💻](#katkı-sağlayanlar-)
+- [Davranış Kuralları 🎯](#davranış-kuralları-)
+- [Katkıda Bulunma 👨‍💻](#katkıda-bulunma-)
+- [Lisans ©](#lisans-)
 
 <p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
 
@@ -39,7 +40,7 @@ Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırla
 
 ### Gereksinimler
 
-[Discord.js](https://discord.js.org/#/) v14.13.0 için [TypeScript](https://www.typescriptlang.org/) v5.2.2, [Node.js](https://nodejs.org/en/download) v20.6.1 veya daha yeni bir sürümü gereklidir.
+[Discord.js](https://discord.js.org/#/) v14.13.0 için [TypeScript](https://www.typescriptlang.org/) v5.2.2, [Node.js](https://nodejs.org/en/download) v16.11.0 veya daha yeni bir sürümü gereklidir.
 
 Projenin verilerinin kaydedilmesi için [MongoDB](https://www.mongodb.com/) veritabanını ihtiyaç duyar. Botun çalışması için [Discord Developer Portal](https://discord.com/developers/applications) üzerinden bir bot oluşturulmalıdır. Discord botu oluşturma ile alakalı detaylı bilgi için [Discord Bot Uygulaması Talimatları](./docs/BotKaydi.md) dökümanına göz atabilirsiniz.
 
@@ -47,9 +48,9 @@ Projenin verilerinin kaydedilmesi için [MongoDB](https://www.mongodb.com/) veri
 
 Projenin kullanımı ve çalıştırılması hakkında daha fazla bilgi için aşağıdaki yazıyı okuyabilirsiniz.
 
-Node.js'in LTS sürümü veya daha yüksek bir sürümünün yüklü olduğundan emin olun. Node.js yüklü değilse, aşağıdaki web sitesini ziyaret ederek indirin ve kurun: https://nodejs.org/en/
+Node.js'in LTS sürümü veya daha yüksek bir sürümünün yüklü olduğundan emin olun. Node.js yüklü değilse, aşağıdaki web sitesini ziyaret ederek indirin ve kurun: <https://nodejs.org/en/>
 
-MongoDB'nin yüklü olduğundan emin olun. MongoDB yüklü değilse, aşağıdaki web sitesini ziyaret ederek indirin ve kurun: https://www.mongodb.com/
+MongoDB'nin yüklü olduğundan emin olun. MongoDB yüklü değilse, aşağıdaki web sitesini ziyaret ederek indirin ve kurun: <https://www.mongodb.com/>
 
 Dilerseniz mevcut bir MongoDB veritabanı kullanabilirsiniz. MongoDB veritabanı oluşturmak için [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) kullanabilirsiniz.
 
