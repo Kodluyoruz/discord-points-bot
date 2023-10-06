@@ -1,0 +1,1 @@
+export { IUserPoint } from './IUserPoint';
