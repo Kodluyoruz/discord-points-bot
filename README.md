@@ -1,3 +1,4 @@
+<a name="readme-top"></a>
 
 # Kodluyoruz Discord Puan Botu
 
