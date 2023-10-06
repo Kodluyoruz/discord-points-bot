@@ -26,8 +26,9 @@ Kodluyoruz team and Kodluyoruz Open Source volunteers have prepared a Discord po
   - [Installation](#installation)
   - [Versions](#versions)
 - [Screenshots 📷](#screenshots-)
-- [Table of Contents 📑](#table-of-contents-)
 - [Features 🖥️](#features-️)
+  - [User](#user)
+  - [Moderation](#moderation)
 - [Contributors 👩‍💻](#contributors-)
 - [Code of Conduct 🎯](#code-of-conduct-)
 - [Contributing 👨‍💻](#contributing-)
@@ -39,19 +40,52 @@ Kodluyoruz team and Kodluyoruz Open Source volunteers have prepared a Discord po
 
 ### Requirements
 
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit excepturi impedit beatae cum labore explicabo autem, nostrum quasi ab? Nobis et accusantium, ducimus nulla dolorum minima culpa fugit corporis alias nostrum corrupti beatae unde assumenda maiores odio reprehenderit necessitatibus. Voluptas maxime sit perspiciatis, inventore similique blanditiis suscipit. Deserunt.
+[Discord.js](https://discord.js.org/#/) v14.13.0 requires [TypeScript](https://www.typescriptlang.org/) v5.2.2 and [Node.js](https://nodejs.org/en/download) v16.11.0 or newer.
+
+To store project data, it requires [MongoDB](https://www.mongodb.com/) database. To make the bot work, you need to create a bot on the [Discord Developer Portal](https://discord.com/developers/applications). For detailed information on creating a Discord bot, you can refer to the [Discord Bot Application Instructions](./docs/BotKaydi.md) document.
 
 ### Installation
 
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit excepturi impedit beatae cum labore explicabo autem, nostrum quasi ab? Nobis et accusantium, ducimus nulla dolorum minima culpa fugit corporis alias nostrum corrupti beatae unde assumenda maiores odio reprehenderit necessitatibus. Voluptas maxime sit perspiciatis, inventore similique blanditiis suscipit. Deserunt.
+For more information on how to use and run the project, you can read the following text.
+
+Make sure you have Node.js installed, preferably the LTS version or a newer one. If Node.js is not installed, you can download and install it from the following website: <https://nodejs.org/en/>
+
+Ensure that MongoDB is installed. If MongoDB is not installed, you can download and install it from the following website: <https://www.mongodb.com/>
+
+You can also use an existing MongoDB database. To create a MongoDB database, you can use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+
+Clone this project or download it to your device by clicking the "Download ZIP" button under the "Code" button on the project page and extract the contents of the zip file to your working directory. To clone it, you can use the following command:
+
+```bash
+git clone https://github.com/Kodluyoruz/discord-points-bot
+```
+
+In the console, run `yarn install` or `npm install` to install the required dependencies.
+
+Create a `.env` file and create a variable named `BOT_TOKEN` to assign your bot's token. You can obtain your token from the Discord Developer Portal. For the MongoDB database, create a variable named `DBACCESS` and assign the MongoDB connection string. You can create your configuration file as follows:
+
+```sh
+BOT_TOKEN=your-discord-bot-token-goes-here
+DBACCESS=mongodb+srv://username:password@example.com/database-name
+```
+
+To run your bot, enter the following command in the console: `yarn start` or `npm start`.
 
 ### Versions
 
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis quos sit excepturi impedit beatae cum labore explicabo autem, nostrum quasi ab? Nobis et accusantium, ducimus nulla dolorum minima culpa fugit corporis alias nostrum corrupti beatae unde assumenda maiores odio reprehenderit necessitatibus.
+| Technology  | Versions   |
+| ----------- | ---------- |
+| discord.js  | v14.13.0   |
+| i18next     | v23.5.1    |
+| Mongoose    | v7.5.1     |
+| Winston     | v3.10.0    |
 
 <p align="right">(<a href="#readme-top"> back to top </a>)</p>
 
 ## Screenshots 📷
+
+![images1_en](images/image1_en.png)
+![images2_en](images/image2_en.png)
 
 <p align="right">(<a href="#readme-top"> back to top </a>)</p>
 

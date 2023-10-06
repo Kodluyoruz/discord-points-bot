@@ -21,14 +21,13 @@ Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırla
 
 - [Proje Hakkında 📜](#proje-hakkında-)
 - [Başlarken 📌](#başlarken-)
-
   - [Gereksinimler](#gereksinimler)
   - [Kurulum](#kurulum)
   - [Versiyonlar](#versiyonlar)
-
 - [Görseller 📷](#görseller-)
-- [İçerik Tablosu 📑](#i̇çerik-tablosu-)
 - [Özellikler 🖥️](#özellikler-️)
+  - [Kullanıcı](#kullanıcı)
+  - [Moderasyon](#moderasyon)
 - [Katkı Sağlayanlar 👩‍💻](#katkı-sağlayanlar-)
 - [Davranış Kuralları 🎯](#davranış-kuralları-)
 - [Katkıda Bulunma 👨‍💻](#katkıda-bulunma-)
@@ -83,6 +82,9 @@ Botunuzu çalıştırmak için konsolda `yarn start` ya da `npm start` komutunu 
 <p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
 
 ## Görseller 📷
+
+![image1](docs/images/image1.png)
+![image2](docs/images/image2.png)
 
 <p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
 
