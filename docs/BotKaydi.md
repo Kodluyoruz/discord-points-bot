@@ -1,5 +1,7 @@
 # Discord Bot Uygulaması Talimatları
 
+---
+
 <div align= center>
 <a href = "">
 <img height=60 src="./images/english.png">
