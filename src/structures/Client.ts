@@ -5,7 +5,13 @@ import {
   SetupLogSelectMenu,
   SetupPeriodSelectMenu,
 } from '@discord-point-bot/components';
-import { GuildCreate, InteractionCreate, MessageCreate, Ready } from '@discord-point-bot/events';
+import {
+  GuildCreate,
+  InteractionCreate,
+  MessageCreate,
+  Ready,
+  VoiceStateUpdate,
+} from '@discord-point-bot/events';
 import { PointInfo, Settings, Setup, UserPoints } from '@discord-point-bot/slash-commands';
 
 import { config } from '@config';
@@ -19,6 +25,7 @@ export class Client extends Core {
   slashCommands = new Collection<string, DiscordType.ISlashCommand>();
   buttons = new Collection<string, DiscordType.IButton>();
   selectMenus = new Collection<string, DiscordType.ISelectMenu>();
+  voices = new Collection<string, DiscordType.IVoice>();
 
   logger = createLogger({
     format: format.combine(
@@ -84,7 +91,13 @@ export class Client extends Core {
   private async loadEvents() {
     this.errorHandleInit();
 
-    const events: DiscordType.IEvent[] = [Ready, MessageCreate, InteractionCreate, GuildCreate];
+    const events: DiscordType.IEvent[] = [
+      Ready,
+      MessageCreate,
+      InteractionCreate,
+      GuildCreate,
+      VoiceStateUpdate,
+    ];
 
     await Promise.all(
       map(events, async (event) =>
