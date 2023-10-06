@@ -7,4 +7,6 @@ export interface IPointUnits extends Document {
   description: string;
   point: number;
   reply: boolean;
+  channels: string[];
+  ignoreRoles: string[];
 }
