@@ -16,6 +16,9 @@ import { Client } from 'src/structures/Client';
 
 declare global {
   namespace DiscordType {
+    export interface IVoice {
+      date: number;
+    }
     export interface SlashCommandArgs {
       client: Client;
       interaction:
