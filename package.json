@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@typescript-eslint/parser": "^6.7.0",
+    "date-fns": "^2.30.0",
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
     "envalid": "^8.0.0",
