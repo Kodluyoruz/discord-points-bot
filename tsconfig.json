@@ -20,7 +20,6 @@
       "@discord-point-bot/models": ["src/models/index.ts"],
       "@discord-point-bot/components": ["src/components/index.ts"],
       "@discord-point-bot/events": ["src/events/index.ts"],
-      "@discord-point-bot/commands": ["src/commands/index.ts"],
       "@discord-point-bot/slash-commands": ["src/slash-commands/index.ts"],
       "@discord-point-bot/constants": ["src/constants/index.ts"],
       "@translation": ["src/translations/translation.ts"],
