@@ -1,49 +1,27 @@
-# Katkıda Bulunma
+# Contributing
 
-Discord Puan Botu projesine katkıda bulunmak isterseniz, aşağıdaki talimatları izleyin.
+If you want to contribute to the Discord Points Bot project, follow the instructions below.
 
-## Kod Geliştirme
+## Code Development
 
-1. Bu projeyi klonlayın veya zip dosyası olarak indirin.
-2. Projeyi yerel bir dizine açın.
-3. Konsolu açın ve projenin bulunduğu dizine gidin.
-4. Gerekli paketleri yüklemek için konsola `npm install` yazın.
-5. Kodunuzu düzenlemek için bir metin editörü veya IDE kullanın.
+1. Clone this project or download it as a zip file.
+2. Extract the project to a local directory.
+3. Open your console and navigate to the directory where the project is located.
+4. To install the necessary packages, type `npm install` in the console.
+5. Use a text editor or IDE to edit your code.
 
-## Kod Standartları
+## Code Standards
 
-- Lütfen [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript) kod standartlarını takip edin.
-- Lütfen kodunuzu okunaklı ve anlaşılır hale getirin.
-- Lütfen gereksiz yere kod tekrarından kaçının.
+- Please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) Code Standards.
+- Make sure your code is readable and understandable.
+- Avoid unnecessary code repetition.
 
 ## Pull Request
 
-- Lütfen pull request'inizi açmadan önce son değişikliklerinizi [rebase](https://git-scm.com/docs/git-rebase) yapın.
-- Lütfen pull request'inize açıklayıcı bir başlık ve açıklama ekleyin.
-- Lütfen pull request'inizle birlikte sadece değişikliklerinizi gönderin. Lütfen gereksiz dosyaları göndermeyin.
-- Lütfen yeni pull request oluştururken aşağıdaki commit standartlarına uymayı unutmayın.
-- Lütfen varsa yapılan güncellemeyi içeren issue'i pull requestinize etiketlemeyi unutmayınız.
+- Before opening your pull request, perform a [rebase](https://git-scm.com/docs/git-rebase) to incorporate the latest changes.
+- Provide a descriptive title and description for your pull request.
+- Only include your changes with your pull request. Please do not include unnecessary files.
 
-- ### Commit Standartları
+## Contact
 
-  ##### Commit mesajlarının biçimini belirleyen **Conventional Commits** isimli kural setini kullanmaktayız. Bu konudaki detaylar için linki inceleyebilirsiniz. [Bknz. Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-
-  | PR Etiketi | Commit Türü                                                      |
-  | ---------- | ---------------------------------------------------------------- |
-  | feat:      | Yeni bir özellik eklediğinizde                                   |
-  | fix:       | Bir hata düzelttiğinizde                                         |
-  | docs:      | Dökümantasyon ile ilgili değişiklikler yaptığınızda              |
-  | style:     | Kod stilini veya biçimini düzelttiğinizde                        |
-  | refactor:  | Kodu yeniden düzenlendiğinizde, ancak işlevi değiştirmediğinizde |
-  | test:      | Testler ile ilgili değişiklikler yaptığınızda                    |
-  | chore:     | Genel olarak kodlama ile ilgili olmayan görevleri yaptığınızda   |
-
-- #### Yeni pull request başlıklarınızı aşağıdaki formüle göre isimlendiriniz
-
-> ```md
-> <PR Etiketi>: <değişiklik açıklaması>
-> ```
-
-## İletişim
-
-- Lütfen herhangi bir sorunuz veya sorgunuz için [proje sayfası](https://github.com/Kodluyoruz/discord-points-bot) üzerinden iletişime geçin.
+- For any questions or inquiries, please reach out through the [project page](https://github.com/Kodluyoruz/discord-points-bot).

@@ -1,65 +1,65 @@
-# Kodluyoruz Açık Kaynak | Davranış Kuralları
+# Kodluyoruz Open Source | Code of Conduct
 
-Bu belge Kodluyoruz’un açık kaynak projelerine katkı sağlayanlar arasında kabul edilmiş kuralları tanımlamaktadır.
+This document defines the rules accepted among contributors to Kodluyoruz's open-source projects.
 
-## Neden Bir Davranış Kurallarına İhtiyaç Duyuyoruz?
+## Why Do We Need a Code of Conduct?
 
-Bu Davranış Kuralları (Code of Conduct), rahat, huzurlu, korkusuz ve üretken bir topluluk inşaa edebilmemize yardımcı olmak için tasarlanmıştır. Amacı; topluluğumuza bir takım gereksiz kurallar yüklemek, "kötü" insanlara cezalar uygulamak ya da geçmişte bir takım yanlış yapılmış uygulamaları düzeltmeye çalışmak değildir. Burada yazılmış kurallara uyulmayan ve/veya daha kötü şartlarda çalışmak durumunda kalmış insanlarla bir araya geldiğimizde de yine harika bir topluluk ortaya koyabilmeyi amaçlamaktadır.
+This Code of Conduct is designed to help us build a welcoming, peaceful, fearless, and productive community. Its purpose is not to impose unnecessary rules on our community, apply penalties to "bad" individuals, or try to rectify past wrongdoings. Instead, it aims to enable us to create a great community even when we come together with individuals who may not have adhered to these written rules and may have had to work in less-than-ideal conditions.
 
-## Kurallar
+## Rules
 
-Projemize katkıda bulunan herkes aşağıdaki kurallara uymalıdır:
+Everyone contributing to our project must adhere to the following rules:
 
-### 1. Hoşgörü ve Saygı
+### 1. Tolerance and Respect
 
-Projemize katkıda bulunan herkes, tüm insanları hoşgörüyle karşılamalı ve saygı göstermelidir. Herhangi bir kişiyi, cinsiyeti, yaşam tarzı, ten rengi, etnik kökeni, inancı veya herhangi bir diğer özelliği nedeniyle ayırt etmemelidir.
+Everyone contributing to our project should welcome and respect all individuals without discrimination based on gender, lifestyle, skin color, ethnic origin, beliefs, or any other characteristic.
 
-### 2. Ayrımcılığı Reddetmek
+### 2. Reject Discrimination
 
-Projemize katkıda bulunan herkes, kişilerin rengi, maddi durumu, ırkı, dili-lehçesi, siyasi görüşü, inancı-inançsızlığı, cinsiyeti ve cinsel yönelimi nedeniyle birbirlerini ayrıştırmasını, gruplaşmasını ve bu doğrultuda tavır almasını kesin bir şekilde reddetmelidir.
+Everyone contributing to our project must unequivocally reject any form of discrimination or divisive actions based on people's color, financial status, race, language, political views, beliefs, gender, or sexual orientation.
 
-### 3. Ayrımcı ve Cinsiyetçi Söylemden Uzak Durmak
+### 3. Avoid Discriminatory and Sexist Language
 
-Projemize katkıda bulunan herkes, cinsiyet temelli eşitsizliği ortaya koyabilecek mahiyette olan her türlü söyleme ve eyleme kesin bir dille karşı çıkmalıdır.
+Everyone contributing to our project should strongly oppose any form of discourse and action that could perpetuate gender-based inequality.
 
-### 4. Bilgi Eksikliği İçin Suçlamamak
+### 4. No Blaming for Lack of Knowledge
 
-Projemize katkıda bulunan herkes, bir diğer kişiyi bilmediği bir konu yüzünden yargılamamalı ve kırmamaya özen göstermelidir. Herkesin farklı bilgi seviyeleri ve tecrübeleri olabilir. Bu nedenle, projemize katkıda bulunan herkes, birbirine yardımcı olmak ve birlikte öğrenmek için açık fikirli olmalıdır.
+Everyone contributing to our project should refrain from judging or harming others due to their lack of knowledge on a subject. Everyone may have different knowledge levels and experiences. Therefore, everyone contributing to our project should be open-minded, willing to help one another, and ready to learn together.
 
-### 5. Bilgi Paylaşımı ve Öğretme Yaklaşımı
+### 5. Sharing Knowledge and Teaching Approach
 
-Projemize katkıda bulunan herkes, bilgi paylaşımı ve öğretme yaklaşımında, "bilmeyene öğretmek" ilkesine bağlı kalmalıdır. Projemize katılan öğrencilerin her biri farklı ilgi, tecrübe ve bilgi seviyelerine sahip olabilir. Bu nedenle, projemize katkıda bulunan herkes, başarılı öğrencilerin yanı sıra odaklanmakta zorluk çeken, motivasyonunu kaybetmiş ya da kaybetme aşamasına gelmiş gençlere de özel bir ilgi göstermelidir.
+Everyone contributing to our project should adhere to the principle of "teaching the uninformed" in their approach to sharing knowledge and teaching. Each of our project participants may have different interests, experiences, and knowledge levels. Therefore, everyone contributing to our project should pay special attention not only to successful students but also to struggling, demotivated, or nearly demotivated young people who need support.
 
-### 6. Soru Sormaktan Çekinmemek
+### 6. Asking Questions Freely
 
-Projemize katkıda bulunan herkes, soru sorma özgürlüğüne sahiptir ve istedikleri zaman istedikleri soruyu sormaktan çekinmemelidirler. Aynı zamanda, sorulara açık ve anlaşılır bir şekilde cevap vermek, projemizin gelişimine katkı sağlamak açısından önemlidir.
+Everyone contributing to our project has the freedom to ask questions without hesitation, anytime and about any subject. Additionally, providing clear and understandable answers to questions is important for the development of our project.
 
-### 7. Olumlu ve Yapıcı Olmak
+### 7. Be Positive and Constructive
 
-Projemize katkıda bulunan herkes, eleştirilerini yapıcı bir şekilde sunmalı ve olumlu bir tutum sergilemelidir. Olumsuz eleştiriler yerine, projeye katkı sağlayabilecek öneriler sunmak ve bu önerilerin tartışılmasına katkıda bulunmak daha faydalı olacaktır.
+Everyone contributing to our project should present their criticisms in a constructive manner and exhibit a positive attitude. Instead of negative critiques, offering suggestions that can contribute to the project and participating in the discussion of these suggestions would be more beneficial.
 
-### 8. Gizlilik ve Telif Haklarına Saygı Göstermek
+### 8. Respect Privacy and Copyrights
 
-Projemize katkıda bulunan herkes, projenin gizliliği ve telif haklarına saygı göstermelidir. Projemize katkıda bulunanların, projemizde kullanılan materyallerin telif haklarına uygun olmasını sağlamak amacıyla, yalnızca açık kaynak lisansları kullanmaları gerekmektedir.
+Everyone contributing to our project should respect project confidentiality and copyrights. To ensure that materials used in our project comply with copyright laws, contributors should only use open-source licenses.
 
-### 9. Kabul Edilemez Davranışlar
+### 9. Unacceptable Behavior
 
-Projemize katkıda bulunan herkes, aşağıdaki davranışları sergilememelidir:
+Everyone contributing to our project should not exhibit the following behaviors:
 
-- Şiddet, taciz, saldırganlık veya tehdit içeren davranışlar
-- Kişisel saldırılar veya hakaretler
-- Kişisel bilgi isteme veya paylaşma
-- Diğer katkıda bulunanların işlerini engelleyen davranışlar
-- Etik olmayan veya yasadışı davranışlar
+- Behaviors involving violence, harassment, aggression, or threats
+- Personal attacks or insults
+- Requesting or sharing personal information
+- Behaviors that obstruct the work of other contributors
+- Unethical or illegal behaviors
 
-## Kodluyoruz Genel Topluluk Kuralları
+## Kodluyoruz General Community Rules
 
-Ayrıca, projemize katkıda bulunan herkesin, [Kodluyoruz Davranış Kuralları'na](https://github.com/Kodluyoruz/Code-Of-Conduct) da uygun davranması gerekmektedir. Bu kurallar, tüm Kodluyoruz topluluğu için geçerlidir ve topluluğumuzda birbirimize saygı göstererek ve etik kurallara uygun davranarak harika bir ortam yaratmayı amaçlamaktadır.
+In addition, everyone contributing to our project must also adhere to the [Kodluyoruz Code of Conduct](https://github.com/Kodluyoruz/Code-Of-Conduct). These rules are applicable to the entire Kodluyoruz community and aim to create a great environment by promoting mutual respect and ethical conduct.
 
-## Kuralların Uygulanması
+## Enforcement of Rules
 
-Bu kurallara uymayan davranışlar, projemize katkıda bulunanlar tarafından bildirilebilir. Kurallara uymayan davranışlarla ilgili şikayetler, projemizin sorumluları tarafından incelenecek ve gerekli görüldüğü takdirde uygun önlemler alınacaktır.
+Behaviors that do not adhere to these rules can be reported by contributors to our project. Complaints about behaviors that do not adhere to the rules will be reviewed by the responsible parties of our project and appropriate measures will be taken if deemed necessary.
 
-## Sonuç
+## Conclusion
 
-Bu belge, açık kaynak projemize katkıda bulunan herkesin, birbirine saygılı ve etik kurallara uygun hareket etmesini amaçlamaktadır. Bu kurallara uyarak, projemizin gelişimine katkı sağlayabilir, aynı zamanda rahat, huzurlu ve üretken bir topluluk oluşturabiliriz.
+This document aims to encourage everyone contributing to our open-source project to act respectfully and ethically towards each other. By adhering to these rules, we can contribute to the development of our project while creating a comfortable, peaceful and productive community.

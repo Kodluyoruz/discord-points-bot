@@ -1,121 +1,120 @@
-<a name="readme-top"></a>
+<a  name="readme-top"></a>
 
-# Kodluyoruz Discord Puan Botu
+# Kodluyoruz Discord Points Bot
 
-![banner](docs/images/BANNER.png)
+![banner](./docs/images/BANNER.png)
 
 ---
 
-<div align= center>
-<a href = "./docs/README_EN.md">
-<img height=60 src="./docs/images/english.png">
+<div  align= center>
+<a href = "./docs/README_TR.md">
+<img height=60 src="./docs/images/turkce.png">
 </a>
 </div>
 
 ---
 
-## Proje Hakkında 📜
+## About the Project 📜
 
-Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırlanmış Discord puan botu, Discord sunucularında kullanılmak üzere özelleştirilebilir, kullanıcı dostu ve otomatik bir puanlama sistemi oluşturmaktır. Bu puanlama sistemi, sunucuda bulunan üyelerin etkinliklerdeki katılımlarını izlemek, aktif üyeleri ödüllendirmek ve topluluk deneyimini geliştirmeye yardımcı olan bir araçtır. Sunucu yöneticilerinin bu işlemlerdeki süreçlerini kolaylaştırmaya destek olacaktır.
+Kodluyoruz team and Kodluyoruz Open Source volunteers have prepared a Discord points bot that is customizable, user-friendly and creates an automatic scoring system to be used on Discord servers. This scoring system is a tool to track the participation of members in activities on the server, reward active members, and help improve the community experience. It will assist server administrators in streamlining these processes.
 
-## İçerik Tablosu 📑
+## Table of Contents 📑
 
-- [Proje Hakkında 📜](#proje-hakkında-)
-- [Başlarken 📌](#başlarken-)
-  - [Gereksinimler](#gereksinimler)
-  - [Kurulum](#kurulum)
-  - [Versiyonlar](#versiyonlar)
-- [Görseller 📷](#görseller-)
-- [Özellikler 🖥️](#özellikler-️)
-  - [Kullanıcı](#kullanıcı)
-  - [Moderasyon](#moderasyon)
-- [Katkı Sağlayanlar 👩‍💻](#katkı-sağlayanlar-)
-- [Davranış Kuralları 🎯](#davranış-kuralları-)
-- [Katkıda Bulunma 👨‍💻](#katkıda-bulunma-)
-- [Lisans ©](#lisans-)
+- [About the Project 📜](#about-the-project-)
+- [Getting Started 📌](#getting-started-)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Versions](#versions)
+- [Screenshots 📷](#screenshots-)
+- [Features 🖥️](#features-️)
+  - [User](#user)
+  - [Moderation](#moderation)
+- [Contributors 👩‍💻](#contributors-)
+- [Code of Conduct 🎯](#code-of-conduct-)
+- [Contributing 👨‍💻](#contributing-)
+- [License ©](#license-)
 
-<p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
+<p align="right">(<a href="#readme-top"> back to top </a>)</p>
 
-## Başlarken 📌
+## Getting Started 📌
 
-### Gereksinimler
+### Requirements
 
-[Discord.js](https://discord.js.org/#/) v14.13.0 için [TypeScript](https://www.typescriptlang.org/) v5.2.2, [Node.js](https://nodejs.org/en/download) v16.11.0 veya daha yeni bir sürümü gereklidir.
+[Discord.js](https://discord.js.org/#/) v14.13.0 requires [TypeScript](https://www.typescriptlang.org/) v5.2.2 and [Node.js](https://nodejs.org/en/download) v16.11.0 or newer.
 
-Projenin verilerinin kaydedilmesi için [MongoDB](https://www.mongodb.com/) veritabanını ihtiyaç duyar. Botun çalışması için [Discord Developer Portal](https://discord.com/developers/applications) üzerinden bir bot oluşturulmalıdır. Discord botu oluşturma ile alakalı detaylı bilgi için [Discord Bot Uygulaması Talimatları](./docs/BotKaydi.md) dökümanına göz atabilirsiniz.
+To store project data, it requires [MongoDB](https://www.mongodb.com/) database. To make the bot work, you need to create a bot on the [Discord Developer Portal](https://discord.com/developers/applications). For detailed information on creating a Discord bot, you can refer to the [Discord Bot Application Instructions](./docs/BotRegistration.md) document.
 
-### Kurulum
+### Installation
 
-Projenin kullanımı ve çalıştırılması hakkında daha fazla bilgi için aşağıdaki yazıyı okuyabilirsiniz.
+For more information on how to use and run the project, you can read the following text.
 
-Node.js'in LTS sürümü veya daha yüksek bir sürümünün yüklü olduğundan emin olun. Node.js yüklü değilse, aşağıdaki web sitesini ziyaret ederek indirin ve kurun: <https://nodejs.org/en/>
+Make sure you have Node.js installed, preferably the LTS version or a newer one. If Node.js is not installed, you can download and install it from the following website: <https://nodejs.org/en/>
 
-MongoDB'nin yüklü olduğundan emin olun. MongoDB yüklü değilse, aşağıdaki web sitesini ziyaret ederek indirin ve kurun: <https://www.mongodb.com/>
+Ensure that MongoDB is installed. If MongoDB is not installed, you can download and install it from the following website: <https://www.mongodb.com/>
 
-Dilerseniz mevcut bir MongoDB veritabanı kullanabilirsiniz. MongoDB veritabanı oluşturmak için [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) kullanabilirsiniz.
+You can also use an existing MongoDB database. To create a MongoDB database, you can use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
-Bu projeyi klonlayın veya proje sayfasından "Code" butonu altındaki "Download ZIP" butonuna tıklayarak projeyi cihazınıza indirin ve zip dosyasının içeriğini çalışma dizininize aktarın. Klonlamak için aşağıdaki komutu kullanın:
+Clone this project or download it to your device by clicking the "Download ZIP" button under the "Code" button on the project page and extract the contents of the zip file to your working directory. To clone it, you can use the following command:
 
 ```bash
 git clone https://github.com/Kodluyoruz/discord-points-bot
 ```
 
-Konsola `yarn install` veya `npm install` yazarak gerekli bağımlılıkları yükleyin.
+In the console, run `yarn install` or `npm install` to install the required dependencies.
 
-`.env` dosyası oluşturun ve `BOT_TOKEN` adında bir değişken oluşturarak botunuzun token'ını atayın. Token'ınızı Discord Developer Portal'dan alabilirsiniz. MongoDB veritabanı için, `DBACCESS` adında bir değişken oluşturarak MongoDB bağlantı cümlesini atayın. Ayar dosyanızı aşağıdaki gibi oluşturabilirsiniz:
+Create a `.env` file and create a variable named `BOT_TOKEN` to assign your bot's token. You can obtain your token from the Discord Developer Portal. For the MongoDB database, create a variable named `DBACCESS` and assign the MongoDB connection string. You can create your configuration file as follows:
 
 ```sh
-BOT_TOKEN=discord-bot-tokeninizi-buraya-yazin
-DBACCESS=mongodb+srv://kullanici-adi:sifre@example.com/tablo-adi
+BOT_TOKEN=your-discord-bot-token-goes-here
+DBACCESS=mongodb+srv://username:password@example.com/database-name
 ```
 
-Botunuzu çalıştırmak için konsolda `yarn start` ya da `npm start` komutunu yazın.
+To run your bot, enter the following command in the console: `yarn start` or `npm start`.
 
-### Versiyonlar
+### Versions
 
-| Teknoloji  | Versiyonlar |
-| ---------- | ----------- |
-| discord.js | v14.13.0    |
-| i18next    | v23.5.1     |
-| Mongoose   | v7.5.1      |
-| Winston    | v3.10.0     |
+| Technology  | Versions   |
+| ----------- | ---------- |
+| discord.js  | v14.13.0   |
+| i18next     | v23.5.1    |
+| Mongoose    | v7.5.1     |
+| Winston     | v3.10.0    |
 
-<p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
+<p align="right">(<a href="#readme-top"> back to top </a>)</p>
 
-## Görseller 📷
+## Screenshots 📷
 
-![image1](docs/images/image1.png)
-![image2](docs/images/image2.png)
+![images1_en](docs/images/image1_en.png)
+![images2_en](docs/images/image2_en.png)
 
-<p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
+<p align="right">(<a href="#readme-top"> back to top </a>)</p>
 
-## Özellikler 🖥️
+## Features 🖥️
 
-### Kullanıcı
+### User
 
-- ⚡ **Bot Rehberi** - Nasıl puan kazanacağına dair özel ayarlanmış rehber ile sistem hakkında bilgi sahibi olunabilir.
-- ⚡ **Kolayca Katılabilme** - Puan sistemine kolayca dahil olup, puan kazanmaya hızlıca başlanabilir.
-- ⚡ **Puan Kazanma** - Mesaj atma, arkadaş davet etme, sesli kanalda bulunma gibi pek çok farklı eylem ile puan kazanabilirsiniz.
-- ⚡ **Puan Durumu** - Özel tasarlanmış UI sayesinde kullanıcı anlık puan durumuna ve sıralamasına kolayca ulaşabilir.
-- ⚡ **Kullanıcı Etkinliği** - Kullanıcı istatistik kartı ile kişisel olarak sunucudaki etkinlik takip edilebilir, sunucu rankı, mesaj istatistiği ve ses aktivitesine ulaşılabilir.
-- ⚡ **Dinamik Bildirimler** - Dinamik bildirimler sayesinde puan durumunuzla alakalı bilgilendirmeleri kolayca takip edebilir, puan aktivitenizden haberdar olabilirsiniz.
+- ⚡ **Bot Guide** - You can become familiar with the system with a specially tailored guide on how to earn points.
+- ⚡ **Easy Join** - You can easily join the point system and start earning points quickly.
+- ⚡ **Earning Points** - You can earn points through various actions such as sending messages, inviting friends and being in voice channels.
+- ⚡ **Point Status** - Through a specially designed UI, you can easily access real-time point status and ranking of users.
+- ⚡ **User Activity** - With the user statistics card, you can personally track your activity on the server, including server rank, message statistics, and voice activity.
+- ⚡ **Dynamic Notifications** - You can easily follow notifications related to your point status and stay informed about your point activity.
 - ...
 
-### Moderasyon
+### Moderation
 
-- ⚡ **Kolay Kurulum** - Bot sunucuya dahil edildikten sonra yönergeler takip edilerek kolay ve hızlı kurulum gerçekleştirilebilir.
-- ⚡ **Dinamik Yapı** - Standart puan türü olarak sesli, mesaj, davet ile puan kazanmanın dışında moderatör tarafından özelleştirilebilir.
-- ⚡ **Dil Desteği** - Mevcut diller arasında Türkçe ve İngilizce ile çoklu dil desteği sağlanabilir.
-- ⚡ **Puan Yönetimi** - Kötüye kullanım durumunda moderatör tarafından kullanıcının puanına müdahale edilebilir.
-- ⚡ **Periyot Yönetimi** - Moderatör tarafından sıralama farklı periyotlar halinde listelenebilir.
+- ⚡ **Easy Setup** - After adding the bot to the server, you can easily and quickly set it up by following the instructions.
+- ⚡ **Dynamic Structure** - In addition to earning points with standard types such as voice, message, and invitation, it can be customized by the moderator.
+- ⚡ **Language Support** - Multi-language support can be provided with Turkish and English.
+- ⚡ **Point Management** - In case of abuse, the moderator can intervene in the user's points.
+- ⚡ **Period Management** - The ranking can be listed in different periods by the moderator.
 - ...
 
-<p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Katkı Sağlayanlar 👩‍💻
+## Contributors 👩‍💻
 
-Katkıda bulunduğunuz için teşekkür ederiz. Katkıda bulunan herkesi takdir ediyoruz.
-
+Thank you for contributions. We appreciate everyone who contributes.
 <table>
   <tbody>
     <tr>
@@ -165,6 +164,7 @@ Katkıda bulunduğunuz için teşekkür ederiz. Katkıda bulunan herkesi takdir 
         <a href="https://github.com/furkanulutas0"><img
             src="https://avatars.githubusercontent.com/u/92738122?v=4" width="100px;" alt="Furkan Ulutaş" />
           <br /><sub><b>Furkan Ulutaş</b></sub></a><br />
+        <span title="Reviewer">👀</span>
         <span title="Documentation">📖</span>
       </td>
     </tr>
@@ -220,18 +220,18 @@ Katkıda bulunduğunuz için teşekkür ederiz. Katkıda bulunan herkesi takdir 
   </tbody>
 </table>
 
-<p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
+<p align="right">(<a href="#readme-top"> back to top </a>)</p>
 
-## Davranış Kuralları 🎯
+## Code of Conduct 🎯
 
-Bu toplulukta herkes için güvenli ve saygılı bir ortam sağlamak için [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) dosyasındaki kurallara uymanızı rica ederiz.
+To ensure a safe and respectful environment for everyone in this community, we kindly ask you to adhere to the rules in the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file.
 
-## Katkıda Bulunma 👨‍💻
+## Contributing 👨‍💻
 
-Projeye katkıda bulunmak istiyorsanız, lütfen [CONTRIBUTING.md](CONTRIBUTING.md) dosyasını okuyun. Bu dosyada, projeye nasıl katkıda bulunabileceğiniz, kod yazma ve hata ayıklama talimatları, geri bildirim gönderme yönergeleri ve diğer konular yer alır.
+If you would like to contribute to the project, please read the [CONTRIBUTING.md](CONTRIBUTING.md) file. This document contains information on how you can contribute to the project, coding and debugging instructions, feedback submission guidelines and other topics.
 
-## Lisans ©
+## License ©
 
-Bu proje [MIT](https://choosealicense.com/licenses/mit/) lisansı altında lisanslanmıştır. Bu lisansın detayları için [LICENSE](LICENSE) dosyasına bakabilirsiniz.
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license. You can find details of this license in the [LICENSE](LICENSE) file.
 
-<p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>
+<p align="right">(<a href="#readme-top"> back to top </a>)</p>
