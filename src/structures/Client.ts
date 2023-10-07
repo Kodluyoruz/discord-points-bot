@@ -1,4 +1,3 @@
-import { Ping } from '@discord-point-bot/commands';
 import {
   SetupAdminSelectMenu,
   SetupButtonRoutes,
@@ -21,7 +20,6 @@ import { connect } from 'mongoose';
 import { createLogger, format, transports } from 'winston';
 
 export class Client extends Core {
-  commands = new Collection<string, DiscordType.ICommand>();
   slashCommands = new Collection<string, DiscordType.ISlashCommand>();
   buttons = new Collection<string, DiscordType.IButton>();
   selectMenus = new Collection<string, DiscordType.ISelectMenu>();
@@ -50,15 +48,7 @@ export class Client extends Core {
     });
   }
 
-  private errorHandleInit() {}
-
-  private async loadCommands() {
-    const commands: DiscordType.ICommand[] = [Ping];
-
-    await Promise.all(
-      map(commands, async (command) => this.commands.set(command.usages[0], command)),
-    );
-  }
+  private errorHandleInit() { }
 
   private async loadSelectMenu() {
     const selectMenus: DiscordType.ISelectMenu[] = [
@@ -109,7 +99,6 @@ export class Client extends Core {
   async connect() {
     await Promise.all([
       connect(config.DBACCESS),
-      this.loadCommands(),
       this.loadSlashCommands(),
       this.loadButtons(),
       this.loadSelectMenu(),

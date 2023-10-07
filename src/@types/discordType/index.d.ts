@@ -7,7 +7,6 @@ import {
   ChatInputCommandInteraction,
   ClientEvents,
   Locale,
-  Message,
   MessageContextMenuCommandInteraction,
   SlashCommandBuilder,
   UserContextMenuCommandInteraction,
@@ -22,9 +21,9 @@ declare global {
     export interface SlashCommandArgs {
       client: Client;
       interaction:
-        | ChatInputCommandInteraction<CacheType>
-        | MessageContextMenuCommandInteraction<CacheType>
-        | UserContextMenuCommandInteraction<CacheType>;
+      | ChatInputCommandInteraction<CacheType>
+      | MessageContextMenuCommandInteraction<CacheType>
+      | UserContextMenuCommandInteraction<CacheType>;
       lang: Locale;
     }
 
@@ -34,15 +33,6 @@ declare global {
     export interface ISlashCommand {
       data: SlashCommandBuilder;
       execute: (slashCommandArgs: SlashCommandArgs) => Promise<void> | void;
-    }
-
-    export interface ICommand {
-      usages: string[];
-      execute: (commandArgs: {
-        client: Client;
-        message: Message;
-        args: string[];
-      }) => Promise<unknown> | unknown;
     }
 
     export interface ButtonArgs {
