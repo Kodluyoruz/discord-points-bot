@@ -1,4 +1,4 @@
-<a  name="readme-top"></a>
+<a name="readme-top"></a>
 
 # Kodluyoruz Discord Points Bot
 
@@ -6,8 +6,8 @@
 
 ---
 
-<div  align= center>
-<a href = "./docs/README_TR.md">
+<div align="center">
+<a href="./docs/README_TR.md">
 <img height=60 src="./docs/images/turkce.png">
 </a>
 </div>
@@ -224,11 +224,11 @@ Thank you for contributions. We appreciate everyone who contributes.
 
 ## Code of Conduct 🎯
 
-To ensure a safe and respectful environment for everyone in this community, we kindly ask you to adhere to the rules in the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file.
+To ensure a safe and respectful environment for everyone in this community, we kindly ask you to adhere to the rules in the [CODE_OF_CONDUCT.md](/docs/CODE_OF_CONDUCT.md) file.
 
 ## Contributing 👨‍💻
 
-If you would like to contribute to the project, please read the [CONTRIBUTING.md](CONTRIBUTING.md) file. This document contains information on how you can contribute to the project, coding and debugging instructions, feedback submission guidelines and other topics.
+If you would like to contribute to the project, please read the [CONTRIBUTING.md](/docs/CONTRIBUTING.md) file. This document contains information on how you can contribute to the project, coding and debugging instructions, feedback submission guidelines and other topics.
 
 ## License ©
 

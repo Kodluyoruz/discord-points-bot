@@ -42,7 +42,7 @@ Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırla
 
 [Discord.js](https://discord.js.org/#/) v14.13.0 için [TypeScript](https://www.typescriptlang.org/) v5.2.2, [Node.js](https://nodejs.org/en/download) v16.11.0 veya daha yeni bir sürümü gereklidir.
 
-Projenin verilerinin kaydedilmesi için [MongoDB](https://www.mongodb.com/) veritabanını ihtiyaç duyar. Botun çalışması için [Discord Developer Portal](https://discord.com/developers/applications) üzerinden bir bot oluşturulmalıdır. Discord botu oluşturma ile alakalı detaylı bilgi için [Discord Bot Uygulaması Talimatları](../docs/BotKaydi.md) dökümanına göz atabilirsiniz.
+Projenin verilerinin kaydedilmesi için [MongoDB](https://www.mongodb.com/) veritabanını ihtiyaç duyar. Botun çalışması için [Discord Developer Portal](https://discord.com/developers/applications) üzerinden bir bot oluşturulmalıdır. Discord botu oluşturma ile alakalı detaylı bilgi için [Discord Bot Uygulaması Talimatları](../docs/BotRegistration_TR.md) dökümanına göz atabilirsiniz.
 
 ### Kurulum
 
