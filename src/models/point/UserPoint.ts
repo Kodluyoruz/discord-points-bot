@@ -1,21 +1,21 @@
 import { endOfDay, startOfDay } from 'date-fns';
-import { isEmpty } from 'lodash';
 import { Model, Schema, Types, model } from 'mongoose';
 
 import { PointUnitType, PointUnitsModel } from '../pointUnits';
 import { IUserPoint } from './dto';
 
-type PointAddProps = {
+interface IUserPointModel extends Model<IUserPoint> {
+  pointAdd(props: AddPointProps): Promise<void>;
+}
+
+type AddPointProps = {
   guildId: string;
   userId: string;
   type: keyof typeof PointUnitType;
   value: number;
-  channelId: string;
+  channelId?: string;
+  categoryId?: string;
 };
-
-interface IUserPointModel extends Model<IUserPoint & Document> {
-  pointAdd(props: PointAddProps): Promise<IUserPoint | null>;
-}
 
 const UserPointSchema = new Schema(
   {
@@ -29,14 +29,25 @@ const UserPointSchema = new Schema(
     timestamps: true,
     toJSON: { virtuals: true },
     statics: {
-      async pointAdd({ guildId, userId, type, value, channelId }: PointAddProps) {
-        const pointUnit = await PointUnitsModel.findOne({ type, channels: { $in: channelId } })
+      async pointAdd({ guildId, userId, type, value, channelId, categoryId }: AddPointProps) {
+        const channelIds = [guildId, channelId, categoryId];
+        const pointTypeList: Record<PointUnitType, { channelIds?: string[]; value: number }> = {
+          [PointUnitType.VOICE]: { channelIds, value: Number((value / 1000).toFixed(1)) },
+          [PointUnitType.TEXT]: { channelIds, value },
+          [PointUnitType.INVITE]: { value },
+        };
+
+        const { value: newValue, channelIds: ids } = pointTypeList[type];
+
+        const pointUnit = await PointUnitsModel.findOne({
+          type,
+          channels: { $in: ids },
+          ignoreChannels: { $nin: ids },
+        })
           .select({ point: 1, _id: 1 })
           .lean();
 
-        const newValue = type === PointUnitType.VOICE ? Number((value / 1000).toFixed(1)) : value;
-
-        if (isEmpty(pointUnit) || newValue < 1) {
+        if (!pointUnit || newValue < 1) {
           return;
         }
 
