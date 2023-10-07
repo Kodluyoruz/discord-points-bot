@@ -7,6 +7,8 @@ import {
   pointPeriodEmbed,
   setupDoneEmbed,
 } from 'src/components/embeds';
+import { infoChannelEmbed } from 'src/components/embeds/setup/infoChannelEmbed';
+import { pointChannelEmbed } from 'src/components/embeds/setup/pointChannelEmbed';
 
 import { SetupStartButton } from './SetupStartButton';
 
@@ -23,5 +25,7 @@ export const setupRoutes: SetupRoutes[] = [
   { custumId: 'admin_channel', execute: adminChannelEmbed },
   { custumId: 'log_channel', execute: logChannelEmbed },
   { custumId: 'point_period', execute: pointPeriodEmbed },
+  { custumId: 'info_channel', execute: infoChannelEmbed },
+  { custumId: 'point_channel', execute: pointChannelEmbed },
   { custumId: 'done', execute: setupDoneEmbed },
 ];

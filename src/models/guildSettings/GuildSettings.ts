@@ -10,7 +10,7 @@ const GuildSettingsSchema = new Schema(
     infoChannelId: { type: String },
     point: {
       period: { type: String },
-      ChannelId: { type: String },
+      channelId: { type: String },
     },
   },
   { timestamps: true, toJSON: { virtuals: true } },

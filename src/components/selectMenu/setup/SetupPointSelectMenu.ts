@@ -6,33 +6,29 @@ import { channelMention } from 'discord.js';
 
 import { setupCustomButtonEmbed } from './setupCustomButtonEmbed';
 
-export const SetupAdminSelectMenu: DiscordType.ISelectMenu = {
-  customId: SelectMenuCustomId.admin_channel,
+export const SetupPointSelectMenu: DiscordType.ISelectMenu = {
+  customId: SelectMenuCustomId.point_channel,
   execute: async ({ client, interaction, lang }) => {
     const [channelId] = interaction.values;
 
     const settings = await GuildSettingsModel.findOneAndUpdate(
       { guildId: interaction.guildId },
-      { adminChannelId: channelId },
+      { 'point.channelId': channelId },
       { upsert: true, new: true },
     );
 
-    const { point, infoChannelId } = settings || {};
+    const { point } = settings || {};
 
-    const customId = !infoChannelId
-      ? ButtonCustomId.setup.info_channel.add
-      : !point?.channelId
-      ? ButtonCustomId.setup.point_channel.add
-      : !point?.period
+    const customId = !point?.period
       ? ButtonCustomId.setup.point_period.add
       : ButtonCustomId.setup.done;
 
     const { newEmbed, row } = setupCustomButtonEmbed({
       nextButon: { customId: customId },
-      backButon: { customId: ButtonCustomId.setup.admin_channel.edit },
+      backButon: { customId: ButtonCustomId.setup.point_channel.edit },
       embed: {
         oldEmbed: interaction.message.embeds[0],
-        title: translation('setup.adminChannel.selected', { lang }),
+        title: translation('setup.pointChannel.selected', { lang }),
         description: channelMention(channelId),
       },
       lang,

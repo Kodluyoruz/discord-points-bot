@@ -1,14 +1,18 @@
+import { ButtonCustomId } from '@discord-point-bot/constants';
 import { GuildSettingsModel } from '@discord-point-bot/models';
 
 import translation from '@translation';
-import { ButtonStyle, TextChannel } from 'discord.js';
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, TextChannel } from 'discord.js';
 
+import { pointInfoEmbed } from '../point/pointInfoEmbed';
 import { settingsAdminEmbed } from '../settings/settingsAdminEmbed';
 import { setupCustumEmbed } from './setupCustumEmbed';
 
 export const setupDoneEmbed = async ({ client, interaction, lang }: DiscordType.ButtonArgs) => {
   const { guild } = interaction;
-  const settings = await GuildSettingsModel.findOne({ guildId: guild.id }, 'adminChannelId').lean();
+  const settings = await GuildSettingsModel.findOne({ guildId: guild.id })
+    .select('adminChannelId infoChannelId')
+    .lean();
 
   const { newEmbed, row } = await setupCustumEmbed({
     client,
@@ -27,12 +31,23 @@ export const setupDoneEmbed = async ({ client, interaction, lang }: DiscordType.
     },
   });
 
-  const channel = guild.channels.cache.get(settings?.adminChannelId) as TextChannel;
+  const adminChannel = guild.channels.cache.get(settings?.adminChannelId) as TextChannel;
+  const infoChannel = guild.channels.cache.get(settings?.infoChannelId) as TextChannel;
 
-  if (channel) {
+  if (adminChannel) {
     const { embed, row } = await settingsAdminEmbed({ client, guild, lang });
 
-    await channel.send({ components: [row], embeds: [embed] });
+    await adminChannel.send({ components: [row], embeds: [embed] });
+  }
+
+  if (infoChannel) {
+    const { embed, next } = await pointInfoEmbed({ client });
+
+    next.setLabel(translation('Göster')).setCustomId(ButtonCustomId.info.point);
+
+    const row = new ActionRowBuilder<ButtonBuilder>().addComponents(next);
+
+    await infoChannel.send({ components: [row], embeds: [embed] });
   }
 
   return { embed: newEmbed, row };
