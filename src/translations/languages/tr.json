@@ -2,6 +2,19 @@
   "ping": {
     "success": "başarılı"
   },
+  "pointUnit": {
+    "title": "Kodluyoruz Puanlama Botu",
+    "description": "**Puan Birimlerine Hoşgeldiniz**\n\nMerhaba sevgili moderatörümüz,\nPuan birimi üzerinden Kodluyoruz'a deger katan kullanicilarn arasinda sosyal ve kültürel paylasimi arttirmayi saglayacak puanlama sistemlerini düzenleyebilirsin.",
+    "author": "{{name}} Puanlama Botu",
+    "command": {
+      "description": "Puan Bildirimi Oluşturma"
+    },
+    "common": {
+      "roomSelection": "Oda Seçimine Dön",
+      "addUnit": "Yeni Puan Birimi Ekle",
+      "infoUnit": "Puan Birimlerini Gör"
+    }
+  },
   "common": {
     "accept": "Onayla",
     "decline": "Reddet",

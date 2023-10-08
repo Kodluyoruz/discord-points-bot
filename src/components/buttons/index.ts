@@ -5,3 +5,4 @@ export { SetupEditAdminChannelButton } from './setup/SetupEditAdminChannelButton
 export { SetupEditPeriodButton } from './setup/SetupEditPeriodButton';
 export { SetupPeriodButton } from './setup/SetupPeriodButton';
 export { SetupDoneButton } from './setup/SetupDoneButton';
+export { AddUnitButton } from './pointUnit/AddUnitButton';
