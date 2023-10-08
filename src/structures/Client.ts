@@ -1,4 +1,5 @@
 import {
+  AddUnitButton,
   InfoPointButton,
   SetupAdminSelectMenu,
   SetupButtonRoutes,
@@ -14,7 +15,7 @@ import {
   Ready,
   VoiceStateUpdate,
 } from '@discord-point-bot/events';
-import { PointInfo, Settings, Setup, UserPoints } from '@discord-point-bot/slash-commands';
+import { PointInfo, Settings, Setup, UserPoints,PointUnit} from '@discord-point-bot/slash-commands';
 
 import { config } from '@config';
 import { ActivityType, Collection, Client as Core, GatewayIntentBits } from 'discord.js';
@@ -68,7 +69,7 @@ export class Client extends Core {
   }
 
   private async loadSlashCommands() {
-    const slashCommands: DiscordType.ISlashCommand[] = [Setup, Settings, PointInfo, UserPoints];
+    const slashCommands: DiscordType.ISlashCommand[] = [Setup, Settings, PointInfo, UserPoints, PointUnit];
 
     await Promise.all(
       map(slashCommands, async (slashCommand) =>
@@ -78,7 +79,7 @@ export class Client extends Core {
   }
 
   private async loadButtons() {
-    const buttons: DiscordType.IButton[] = [SetupButtonRoutes, InfoPointButton];
+    const buttons: DiscordType.IButton[] = [SetupButtonRoutes, InfoPointButton,AddUnitButton];
 
     await Promise.all(map(buttons, async (button) => this.buttons.set(button.customId, button)));
   }
