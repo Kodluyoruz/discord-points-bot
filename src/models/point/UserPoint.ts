@@ -1,4 +1,5 @@
 import { endOfDay, startOfDay } from 'date-fns';
+import { isEmpty } from 'lodash';
 import { Model, Schema, Types, model } from 'mongoose';
 
 import { PointUnitType, PointUnitsModel } from '../pointUnits';
@@ -6,6 +7,7 @@ import { IUserPoint } from './dto';
 
 interface IUserPointModel extends Model<IUserPoint> {
   pointAdd(props: AddPointProps): Promise<void>;
+  showGlobalOrUserPoint(props: ShowGlobalOrUserPoint): Promise<ShowGlobalOrUserPointResult>;
 }
 
 type AddPointProps = {
@@ -29,11 +31,6 @@ interface ShowGlobalOrUserPointResult {
   rank: number;
   start: Date;
   end: Date;
-}
-
-interface IUserPointModel extends Model<IUserPoint & Document> {
-  pointAdd(props: PointAddProps): Promise<void>;
-  showGlobalOrUserPoint(props: ShowGlobalOrUserPoint): Promise<ShowGlobalOrUserPointResult>;
 }
 
 const UserPointSchema = new Schema(
@@ -60,7 +57,7 @@ const UserPointSchema = new Schema(
         const { value: newValue, channelIds: ids } = pointTypeList[type];
 
         const pointUnit = await PointUnitsModel.findOne({
-          guildId
+          guildId,
           type,
           channels: { $in: ids },
           ignoreChannels: { $nin: ids },

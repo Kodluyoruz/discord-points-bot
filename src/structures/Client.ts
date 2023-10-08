@@ -1,7 +1,6 @@
 import {
   AddUnitButton,
   InfoButtonRoutes,
-  InfoPointButton,
   SetupAdminSelectMenu,
   SetupButtonRoutes,
   SetupInfoSelectMenu,
@@ -92,12 +91,7 @@ export class Client extends Core {
   }
 
   private async loadButtons() {
-    const buttons: DiscordType.IButton[] = [
-      SetupButtonRoutes,
-      InfoPointButton,
-      AddUnitButton,
-      InfoButtonRoutes,
-    ];
+    const buttons: DiscordType.IButton[] = [SetupButtonRoutes, AddUnitButton, InfoButtonRoutes];
 
     await Promise.all(map(buttons, async (button) => this.buttons.set(button.customId, button)));
   }
