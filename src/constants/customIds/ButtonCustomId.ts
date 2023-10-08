@@ -24,8 +24,8 @@ export const ButtonCustomId = {
     done: 'setup/done',
   },
   point_unit: {
-    add: 'point/unit/add',
-    edit: 'point/unit/edit',
+    add: 'point_unit/add',
+    edit: 'point_unit/edit',
   },
   settings: 'settings',
 

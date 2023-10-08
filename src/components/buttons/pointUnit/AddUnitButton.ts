@@ -1,17 +1,7 @@
-import { ButtonCustomId } from '@discord-point-bot/constants';
-import { GuildSettingsModel } from '@discord-point-bot/models';
 import { ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js';
-
-import {
-  setupAdminEmbed,
-  setupDoneEmbed,
-  setupLogEmbed,
-  setupPeriodEmbed,
-} from 'src/components/embeds';
-
 export const AddUnitButton: DiscordType.IButton = {
-  customId: ButtonCustomId.ADD_UNIT,
-  execute: async ({ client, interaction, lang }) => {
+  customId: "point_unit",
+  execute: async ({  interaction }) => {
 		const modal = new ModalBuilder()
 			.setCustomId('myModal')
 			.setTitle('My Modal');

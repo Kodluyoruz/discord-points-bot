@@ -1,6 +1,6 @@
 import { ButtonCustomId } from '@discord-point-bot/constants';
 import t from '@translation';
-import { ButtonBuilder, ButtonStyle, EmbedBuilder, setPosition } from 'discord.js';
+import { ButtonBuilder, ButtonStyle, EmbedBuilder } from 'discord.js';
 import { Client } from 'src/structures/Client';
 
 type PointUnitProps = {
@@ -10,7 +10,7 @@ type PointUnitProps = {
 export const pointUnitEmbed = ({ client }: PointUnitProps) => {
   const [roomSelection,addUnit,infoUnit] = [
     new ButtonBuilder().setCustomId('roomSelection').setStyle(ButtonStyle.Primary),
-    new ButtonBuilder().setCustomId(ButtonCustomId.ADD_UNIT).setStyle(ButtonStyle.Secondary),
+    new ButtonBuilder().setCustomId(ButtonCustomId.point_unit.add).setStyle(ButtonStyle.Secondary),
     new ButtonBuilder().setCustomId('infoUnit').setStyle(ButtonStyle.Secondary),
   ];
 
