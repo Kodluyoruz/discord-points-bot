@@ -1,8 +1,11 @@
 import {
+  InfoPointButton,
   SetupAdminSelectMenu,
   SetupButtonRoutes,
+  SetupInfoSelectMenu,
   SetupLogSelectMenu,
   SetupPeriodSelectMenu,
+  SetupPointSelectMenu,
 } from '@discord-point-bot/components';
 import {
   GuildCreate,
@@ -55,6 +58,8 @@ export class Client extends Core {
       SetupLogSelectMenu,
       SetupAdminSelectMenu,
       SetupPeriodSelectMenu,
+      SetupPointSelectMenu,
+      SetupInfoSelectMenu,
     ];
 
     await Promise.all(
@@ -73,7 +78,7 @@ export class Client extends Core {
   }
 
   private async loadButtons() {
-    const buttons: DiscordType.IButton[] = [SetupButtonRoutes];
+    const buttons: DiscordType.IButton[] = [SetupButtonRoutes, InfoPointButton];
 
     await Promise.all(map(buttons, async (button) => this.buttons.set(button.customId, button)));
   }

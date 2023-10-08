@@ -14,6 +14,7 @@ const PointUnitsSchema = new Schema(
     point: { type: Number, required: true },
     reply: { type: Boolean, default: false },
     channels: { type: [String], default: [] },
+    ignoreChannels: { type: [String], default: [] },
     ignoreRoles: { type: [String], default: [] },
   },
   { timestamps: true, toJSON: { virtuals: true } },

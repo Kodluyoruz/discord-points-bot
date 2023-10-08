@@ -5,7 +5,10 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
   name: Events.VoiceStateUpdate,
   execute: async (client, [oldState, newState]: DiscordType.ArgsOf<'voiceStateUpdate'>) => {
     const isMuted = newState.selfMute || newState.selfDeaf;
-    const [newChannelId, oldChannelId] = [oldState.channelId, newState.channelId];
+    const [
+      { id: oldChannelId, parentId: oldParentId },
+      { id: newChannelId, parentId: newParentId },
+    ] = [oldState.channel || {}, newState.channel || {}];
     const [guildId, userId] = [oldState.guild?.id, oldState.member?.id];
 
     if (
@@ -32,7 +35,7 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
     const voice = client.voices.get(oldState.id);
     const value = now - voice.date;
 
-    if (isMuted || (newChannelId && !oldChannelId)) {
+    if (isMuted || (!newChannelId && oldChannelId)) {
       client.voices.delete(oldState.id);
       await UserPointModel.pointAdd({
         guildId,
@@ -40,6 +43,7 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
         type: 'VOICE',
         value,
         channelId: oldChannelId,
+        categoryId: oldParentId,
       });
     } else if (newChannelId && oldChannelId && newChannelId !== oldChannelId) {
       client.voices.set(oldState.id, { date: now });
@@ -49,6 +53,7 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
         type: 'VOICE',
         value,
         channelId: newChannelId,
+        categoryId: newParentId,
       });
     }
   },

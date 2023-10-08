@@ -8,5 +8,6 @@ export interface IPointUnits extends Document {
   point: number;
   reply: boolean;
   channels: string[];
+  ignoreChannels: string[];
   ignoreRoles: string[];
 }

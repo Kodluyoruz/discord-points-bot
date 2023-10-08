@@ -41,12 +41,15 @@ export const PointInfo: DiscordType.ISlashCommand = {
 
     const row = new ActionRowBuilder<ButtonBuilder>().addComponents(cancel, next);
 
-    const question = await interaction.reply({
+    const question = await interaction.deferReply({ fetchReply: true });
+
+    await interaction.editReply({
       components: [row],
       embeds: [embed.setDescription(contents[0])],
     });
 
     const collector = question.createMessageComponentCollector({
+      filter: (i) => i.user.id === interaction.user.id && i.message.id === question.id,
       time: 1000 * 30,
       componentType: ComponentType.Button,
     });

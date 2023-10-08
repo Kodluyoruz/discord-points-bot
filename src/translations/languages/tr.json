@@ -74,6 +74,18 @@
       "title": "Yönetim Kanalını Seçin.",
       "description": "Açıklama gelecek"
     },
+    "infoChannel": {
+      "selected": "Bilgilendirme Kanalı Seçildi.",
+      "placeholder": "Bilgilendirme Kanalını Seçiniz.",
+      "title": "Bilgilendirme Kanalını Seçin.",
+      "description": "Açıklama gelecek"
+    },
+    "pointChannel": {
+      "selected": "Point Kanalı Seçildi.",
+      "placeholder": "Point Kanalını Seçiniz.",
+      "title": "Point Kanalını Seçin.",
+      "description": "Açıklama gelecek"
+    },
     "done": {
       "label": "Admin Kanalına git",
       "title": "Kurulum Tamamlandı",

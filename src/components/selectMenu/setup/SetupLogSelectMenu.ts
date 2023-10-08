@@ -17,11 +17,15 @@ export const SetupLogSelectMenu: DiscordType.ISelectMenu = {
       { upsert: true, new: true },
     );
 
-    const { adminChannelId, point } = settings || {};
+    const { adminChannelId, point, infoChannelId } = settings || {};
 
     const customId = !adminChannelId
       ? ButtonCustomId.setup.admin_channel.add
+      : !infoChannelId
+      ? ButtonCustomId.setup.info_channel.add
       : !point?.channelId
+      ? ButtonCustomId.setup.point_channel.add
+      : !point?.period
       ? ButtonCustomId.setup.point_period.add
       : ButtonCustomId.setup.done;
 

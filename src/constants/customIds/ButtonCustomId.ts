@@ -13,8 +13,8 @@ export const ButtonCustomId = {
       edit: 'setup/info_channel/edit',
     },
     point_channel: {
-      add: 'setup/period_channel/add',
-      edit: 'setup/period_channel/edit',
+      add: 'setup/point_channel/add',
+      edit: 'setup/point_channel/edit',
     },
     point_period: {
       add: 'setup/point_period/add',
@@ -28,4 +28,8 @@ export const ButtonCustomId = {
     edit: 'point/unit/edit',
   },
   settings: 'settings',
+
+  info: {
+    point: 'info/point',
+  },
 } as const;
