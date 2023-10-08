@@ -35,6 +35,7 @@ const UserPointSchema = new Schema(
           [PointUnitType.VOICE]: { channelIds, value: Number((value / 1000).toFixed(1)) },
           [PointUnitType.TEXT]: { channelIds, value },
           [PointUnitType.INVITE]: { value },
+          [PointUnitType.REPLY]: { channelIds, value },
         };
 
         const { value: newValue, channelIds: ids } = pointTypeList[type];
