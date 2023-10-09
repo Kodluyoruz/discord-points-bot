@@ -56,7 +56,7 @@
     }
   },
   "userPoints": {
-    "description": "Sevgili **{{name}}**,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+    "description": "Sevgili <@{{id}}>,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "setup": {
     "firstEntry": {
@@ -109,5 +109,10 @@
     "pointUnit": "Yeni Puan Birimi Ekle",
     "menu": "Ayarlar Menüsü",
     "description": "bu kısma açıklama gelecektir"
+  },
+  "info": {
+    "button": {
+      "howToEarnPoints": "Nasıl Puan Kazanırım?"
+    }
   }
 }

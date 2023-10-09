@@ -7,6 +7,7 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, TextChannel } from 'disco
 import { pointInfoEmbed } from '../point/pointInfoEmbed';
 import { settingsAdminEmbed } from '../settings/settingsAdminEmbed';
 import { setupCustumEmbed } from './setupCustumEmbed';
+import { setupInfoEmbed } from './setupInfoEmbed';
 
 export const setupDoneEmbed = async ({ client, interaction, lang }: DiscordType.ButtonArgs) => {
   const { guild } = interaction;
@@ -41,11 +42,7 @@ export const setupDoneEmbed = async ({ client, interaction, lang }: DiscordType.
   }
 
   if (infoChannel) {
-    const { embed, next } = await pointInfoEmbed({ client });
-
-    next.setLabel(translation('Göster')).setCustomId(ButtonCustomId.info.point);
-
-    const row = new ActionRowBuilder<ButtonBuilder>().addComponents(next);
+    const { embed, row } = await setupInfoEmbed({ client, interaction, lang });
 
     await infoChannel.send({ components: [row], embeds: [embed] });
   }
