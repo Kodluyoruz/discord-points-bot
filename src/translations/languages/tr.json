@@ -56,7 +56,7 @@
     }
   },
   "userPoints": {
-    "description": "Sevgili **{{name}}**,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+    "description": "Sevgili <@{{id}}>,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "setup": {
     "firstEntry": {
@@ -113,5 +113,10 @@
   "leaderboard": {
     "footer": "Kazananları tebrik eder, sıralamaya giren her arkadaşımızın çabası icin teşekkur ederiz.\n**Unutmayın bu sırada yer alacak olan yarın sizsiniz!**",
     "title": "{{period}} Kazananları"
+  },
+  "info": {
+    "button": {
+      "howToEarnPoints": "Nasıl Puan Kazanırım?"
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { endOfDay, startOfDay } from 'date-fns';
+import { isEmpty } from 'lodash';
 import { Model, Schema, Types, model } from 'mongoose';
 
 import { PointUnitType, PointUnitsModel } from '../pointUnits';
@@ -6,6 +7,7 @@ import { IUserPoint } from './dto';
 
 interface IUserPointModel extends Model<IUserPoint> {
   pointAdd(props: AddPointProps): Promise<void>;
+  showGlobalOrUserPoint(props: ShowGlobalOrUserPoint): Promise<ShowGlobalOrUserPointResult>;
 }
 
 type AddPointProps = {
@@ -16,6 +18,20 @@ type AddPointProps = {
   channelId?: string;
   categoryId?: string;
 };
+
+type ShowGlobalOrUserPoint = {
+  guildId: string;
+  userId?: string;
+  dates?: { start: Date; end: Date };
+};
+
+interface ShowGlobalOrUserPointResult {
+  userId: string;
+  totalPoints: number;
+  rank: number;
+  start: Date;
+  end: Date;
+}
 
 const UserPointSchema = new Schema(
   {
@@ -41,6 +57,7 @@ const UserPointSchema = new Schema(
         const { value: newValue, channelIds: ids } = pointTypeList[type];
 
         const pointUnit = await PointUnitsModel.findOne({
+          guildId,
           type,
           channels: { $in: ids },
           ignoreChannels: { $nin: ids },
@@ -65,6 +82,47 @@ const UserPointSchema = new Schema(
         };
 
         await this.findOneAndUpdate(filter, { $inc: { value: newValue }, point }, { upsert: true });
+      },
+      async showGlobalOrUserPoint({
+        guildId,
+        userId,
+        dates,
+      }: ShowGlobalOrUserPoint): Promise<ShowGlobalOrUserPointResult> {
+        const filterDate = !isEmpty(dates)
+          ? [{ $match: { guildId, createdAt: { $gte: dates.start, $lte: dates.end } } }]
+          : [];
+
+        const filterUser = userId ? [{ $match: { userId } }] : [];
+
+        const pipeline = [
+          ...filterDate,
+          {
+            $group: {
+              _id: '$userId',
+              totalPoints: { $sum: { $multiply: ['$point', '$value'] } },
+              start: { $min: '$createdAt' },
+              end: { $max: '$createdAt' },
+            },
+          },
+          { $sort: { totalPoints: -1 } },
+
+          { $group: { _id: null, data: { $push: '$$ROOT' } } },
+          { $unwind: { path: '$data', includeArrayIndex: 'rank' } },
+          {
+            $project: {
+              userId: '$data._id',
+              _id: 0,
+              totalPoints: '$data.totalPoints',
+              rank: { $add: ['$rank', 1] },
+              start: '$data.start',
+              end: '$data.end',
+            },
+          },
+          ...filterUser,
+        ];
+        const userPoints = await UserPointModel.aggregate(pipeline as any);
+
+        return userId ? userPoints[0] : userPoints;
       },
     },
   },

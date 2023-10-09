@@ -43,7 +43,7 @@
     }
   },
   "userPoints": {
-    "description": "Dear **{{name}}**, in the points system between {{period}}, your total points you have achieved so far is\n**[{{points}} points, and you are ranked {{place}}!](https://kodluyoruz.org)**"
+    "description": "Dear <@{{id}}>, in the points system between {{period}}, your total points you have achieved so far is\n**[{{points}} points, and you are ranked {{place}}!](https://kodluyoruz.org)**"
   },
   "setup": {
     "firstEntry": {

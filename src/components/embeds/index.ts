@@ -5,3 +5,4 @@ export { pointPeriodEmbed } from './setup/pointPeriodEmbed';
 export { setupDoneEmbed } from './setup/setupDoneEmbed';
 export { settingsAdminEmbed } from './settings/settingsAdminEmbed';
 export { leaderboardEmbed } from './leaderboard/leaderboardEmbed';
+export { setupInfoEmbed } from './setup/setupInfoEmbed';
