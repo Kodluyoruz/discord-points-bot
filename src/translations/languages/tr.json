@@ -109,5 +109,9 @@
     "pointUnit": "Yeni Puan Birimi Ekle",
     "menu": "Ayarlar Menüsü",
     "description": "bu kısma açıklama gelecektir"
+  },
+  "leaderboard": {
+    "footer": "Kazananları tebrik eder, sıralamaya giren her arkadaşımızın çabası icin teşekkur ederiz.\n**Unutmayın bu sırada yer alacak olan yarın sizsiniz!**",
+    "title": "{{period}} Kazananları"
   }
 }
