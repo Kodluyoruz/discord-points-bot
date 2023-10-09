@@ -21,6 +21,7 @@ import {
   Settings,
   Setup,
   UserPoints,
+  Leaderboard,
 } from '@discord-point-bot/slash-commands';
 
 import { config } from '@config';
@@ -81,6 +82,7 @@ export class Client extends Core {
       PointInfo,
       UserPoints,
       PointUnit,
+      Leaderboard,
     ];
 
     await Promise.all(
