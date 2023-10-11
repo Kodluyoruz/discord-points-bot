@@ -23,5 +23,11 @@ export const InteractionCreate: DiscordType.IEvent = {
         selectMenu.execute({ client, interaction, lang: interaction.locale });
       }
     }
+    else if(interaction.isModalSubmit()){
+      const modal = client.modals.get(interaction.customId);
+      if (modal) {
+        modal.execute({ client, interaction, lang: interaction.locale });
+      }
+    }
   },
 };

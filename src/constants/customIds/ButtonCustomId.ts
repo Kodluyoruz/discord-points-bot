@@ -26,9 +26,13 @@ export const ButtonCustomId = {
   point_unit: {
     add: 'point_unit/add',
     edit: 'point_unit/edit',
+    add_unit: {
+      scoring_name: 'point_unit/add_unit/scoring_name',
+      scoring_desc: 'point_unit/add_unit/scoring_desc',
+      point_score: 'point_unit/add_unit/point_score',
+    },
   },
   settings: 'settings',
-
   info: {
     point: 'info/point',
     global_point: 'info/global_point',
