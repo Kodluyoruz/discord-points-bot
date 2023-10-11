@@ -1,28 +1,6 @@
-import {
-  AddUnitButton,
-  InfoButtonRoutes,
-  SetupAdminSelectMenu,
-  SetupButtonRoutes,
-  SetupInfoSelectMenu,
-  SetupLogSelectMenu,
-  SetupPeriodSelectMenu,
-  SetupPointSelectMenu,
-} from '@discord-point-bot/components';
-import {
-  GuildCreate,
-  InteractionCreate,
-  MessageCreate,
-  Ready,
-  VoiceStateUpdate,
-} from '@discord-point-bot/events';
-import {
-  PointInfo,
-  PointUnit,
-  Settings,
-  Setup,
-  UserPoints,
-  Leaderboard,
-} from '@discord-point-bot/slash-commands';
+import { ButtonList, SelectMenuList } from '@discord-point-bot/components';
+import * as EventList from '@discord-point-bot/events';
+import * as SlashCommandList from '@discord-point-bot/slash-commands';
 
 import { config } from '@config';
 import { ActivityType, Collection, Client as Core, GatewayIntentBits } from 'discord.js';
@@ -62,13 +40,7 @@ export class Client extends Core {
   private errorHandleInit() {}
 
   private async loadSelectMenu() {
-    const selectMenus: DiscordType.ISelectMenu[] = [
-      SetupLogSelectMenu,
-      SetupAdminSelectMenu,
-      SetupPeriodSelectMenu,
-      SetupPointSelectMenu,
-      SetupInfoSelectMenu,
-    ];
+    const selectMenus: DiscordType.ISelectMenu[] = [...Object.values(SelectMenuList)];
 
     await Promise.all(
       map(selectMenus, async (selectMenu) => this.selectMenus.set(selectMenu.customId, selectMenu)),
@@ -76,14 +48,7 @@ export class Client extends Core {
   }
 
   private async loadSlashCommands() {
-    const slashCommands: DiscordType.ISlashCommand[] = [
-      Setup,
-      Settings,
-      PointInfo,
-      UserPoints,
-      PointUnit,
-      Leaderboard,
-    ];
+    const slashCommands: DiscordType.ISlashCommand[] = [...Object.values(SlashCommandList)];
 
     await Promise.all(
       map(slashCommands, async (slashCommand) =>
@@ -93,7 +58,7 @@ export class Client extends Core {
   }
 
   private async loadButtons() {
-    const buttons: DiscordType.IButton[] = [SetupButtonRoutes, AddUnitButton, InfoButtonRoutes];
+    const buttons: DiscordType.IButton[] = [...Object.values(ButtonList)];
 
     await Promise.all(map(buttons, async (button) => this.buttons.set(button.customId, button)));
   }
@@ -101,13 +66,7 @@ export class Client extends Core {
   private async loadEvents() {
     this.errorHandleInit();
 
-    const events: DiscordType.IEvent[] = [
-      Ready,
-      MessageCreate,
-      InteractionCreate,
-      GuildCreate,
-      VoiceStateUpdate,
-    ];
+    const events: DiscordType.IEvent[] = [...Object.values(EventList)];
 
     await Promise.all(
       map(events, async (event) =>
