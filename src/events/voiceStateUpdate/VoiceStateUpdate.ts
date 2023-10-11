@@ -33,7 +33,7 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
     }
 
     const voice = client.voices.get(oldState.id);
-    const value = now - voice.date;
+    const value = Math.floor((now - voice.date) / (1000 * 60));
 
     if (isMuted || (!newChannelId && oldChannelId)) {
       client.voices.delete(oldState.id);

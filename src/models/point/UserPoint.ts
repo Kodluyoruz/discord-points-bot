@@ -46,15 +46,17 @@ const UserPointSchema = new Schema(
     toJSON: { virtuals: true },
     statics: {
       async pointAdd({ guildId, userId, type, value, channelId, categoryId }: AddPointProps) {
-        const channelIds = [guildId, channelId, categoryId];
+        const channelIds = [guildId, channelId, categoryId].filter((channel) => !!channel);
         const pointTypeList: Record<PointUnitType, { channelIds?: string[]; value: number }> = {
-          [PointUnitType.VOICE]: { channelIds, value: Number((value / 1000).toFixed(1)) },
+          [PointUnitType.NONE]: { value: 0 },
+          [PointUnitType.VOICE]: { channelIds, value },
           [PointUnitType.TEXT]: { channelIds, value },
           [PointUnitType.INVITE]: { value },
           [PointUnitType.REPLY]: { channelIds, value },
         };
 
-        const { value: newValue, channelIds: ids } = pointTypeList[type];
+        const { value: newValue, channelIds: ids } =
+          pointTypeList[type] || pointTypeList[PointUnitType.NONE];
 
         const pointUnit = await PointUnitsModel.findOne({
           guildId,
@@ -88,9 +90,9 @@ const UserPointSchema = new Schema(
         userId,
         dates,
       }: ShowGlobalOrUserPoint): Promise<ShowGlobalOrUserPointResult> {
-        const filterDate = !isEmpty(dates)
-          ? [{ $match: { guildId, createdAt: { $gte: dates.start, $lte: dates.end } } }]
-          : [];
+        const filterDate = isEmpty(dates)
+          ? []
+          : [{ $match: { guildId, createdAt: { $gte: dates.start, $lte: dates.end } } }];
 
         const filterUser = userId ? [{ $match: { userId } }] : [];
 
