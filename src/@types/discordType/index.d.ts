@@ -8,6 +8,7 @@ import {
   ClientEvents,
   Locale,
   MessageContextMenuCommandInteraction,
+  ModalSubmitInteraction,
   SlashCommandBuilder,
   UserContextMenuCommandInteraction,
 } from 'discord.js';
@@ -41,6 +42,15 @@ declare global {
       lang: Locale;
     }
 
+    export interface IModalSubmit {
+      customId: string;
+      execute: (modalArgs: ModalArgs) => Promise<void> | void;
+    }
+    export interface ModalArgs {
+      client: Client;
+      interaction: ModalSubmitInteraction;
+      lang: Locale;
+    }
     export interface IButton {
       customId: keyof typeof ButtonCustomId;
       execute: (buttondArgs: ButtonArgs) => Promise<unknown> | unknown;

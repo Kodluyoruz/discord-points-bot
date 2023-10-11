@@ -29,12 +29,14 @@ import { ActivityType, Collection, Client as Core, GatewayIntentBits } from 'dis
 import { map } from 'lodash';
 import { connect } from 'mongoose';
 import { createLogger, format, transports } from 'winston';
+import { PointModalUnit } from 'src/components/modals';
 
 export class Client extends Core {
   slashCommands = new Collection<string, DiscordType.ISlashCommand>();
   buttons = new Collection<string, DiscordType.IButton>();
   selectMenus = new Collection<string, DiscordType.ISelectMenu>();
   voices = new Collection<string, DiscordType.IVoice>();
+  modals = new Collection<string, DiscordType.IModalSubmit>();
 
   logger = createLogger({
     format: format.combine(
@@ -97,7 +99,11 @@ export class Client extends Core {
 
     await Promise.all(map(buttons, async (button) => this.buttons.set(button.customId, button)));
   }
+  private async loadModals() {
+    const modals: DiscordType.IModalSubmit[] = [PointModalUnit];
 
+    await Promise.all(map(modals, async (modal) => this.modals.set(modal.customId, modal)));
+  }
   private async loadEvents() {
     this.errorHandleInit();
 
@@ -123,6 +129,7 @@ export class Client extends Core {
       this.loadButtons(),
       this.loadSelectMenu(),
       this.loadEvents(),
+      this.loadModals()
     ]);
 
     await this.login(config.BOT_TOKEN);
