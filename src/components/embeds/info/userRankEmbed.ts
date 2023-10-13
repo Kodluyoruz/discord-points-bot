@@ -1,8 +1,8 @@
-import { UserPointModel } from '@discord-point-bot/models';
+import { ShowGlobalOrUserPointResult, UserPointModel } from '@discord-point-bot/models';
 
 import t from '@translation';
 import { format } from 'date-fns';
-import { EmbedBuilder, userMention } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 
 export const userRankEmbed = async ({ interaction, lang }: DiscordType.ButtonArgs) => {
   const { id } = interaction.user;
@@ -11,7 +11,11 @@ export const userRankEmbed = async ({ interaction, lang }: DiscordType.ButtonArg
     userId: interaction.user.id,
   });
 
-  const { start = new Date(), rank: place = '?', totalPoints: points = 0 } = userPoint || {};
+  const {
+    start = new Date(),
+    rank: place = '?',
+    totalPoints: points = 0,
+  } = (userPoint || {}) as ShowGlobalOrUserPointResult;
 
   let setting = {};
 
