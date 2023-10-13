@@ -1,13 +1,15 @@
 import { endOfDay, startOfDay } from 'date-fns';
 import { isEmpty } from 'lodash';
-import { Model, Schema, Types, model } from 'mongoose';
+import { Model, PipelineStage, Schema, Types, model } from 'mongoose';
 
 import { PointUnitType, PointUnitsModel } from '../pointUnits';
-import { IUserPoint } from './dto';
+import { IUserPoint, ShowGlobalOrUserPointResult } from './dto';
 
 interface IUserPointModel extends Model<IUserPoint> {
   pointAdd(props: AddPointProps): Promise<void>;
-  showGlobalOrUserPoint(props: ShowGlobalOrUserPoint): Promise<ShowGlobalOrUserPointResult>;
+  showGlobalOrUserPoint(
+    props: ShowGlobalOrUserPoint,
+  ): Promise<ShowGlobalOrUserPointResult | ShowGlobalOrUserPointResult[]>;
 }
 
 type AddPointProps = {
@@ -23,21 +25,14 @@ type ShowGlobalOrUserPoint = {
   guildId: string;
   userId?: string;
   dates?: { start: Date; end: Date };
+  limit?: number;
 };
-
-interface ShowGlobalOrUserPointResult {
-  userId: string;
-  totalPoints: number;
-  rank: number;
-  start: Date;
-  end: Date;
-}
 
 const UserPointSchema = new Schema(
   {
     guildId: { type: String },
     userId: { type: String },
-    type: [{ type: Schema.Types.ObjectId, ref: 'PointUnits' }],
+    type: { type: Schema.Types.ObjectId, ref: 'PointUnits' },
     point: { type: Number },
     value: { type: Number },
   },
@@ -46,7 +41,9 @@ const UserPointSchema = new Schema(
     toJSON: { virtuals: true },
     statics: {
       async pointAdd({ guildId, userId, type, value, channelId, categoryId }: AddPointProps) {
-        const channelIds = [guildId, channelId, categoryId].filter((channel) => !!channel);
+        const channelIds = [guildId, channelId, categoryId].filter(
+          (channel) => !!channel,
+        ) as string[];
         const pointTypeList: Record<PointUnitType, { channelIds?: string[]; value: number }> = {
           [PointUnitType.NONE]: { value: 0 },
           [PointUnitType.VOICE]: { channelIds, value },
@@ -89,14 +86,18 @@ const UserPointSchema = new Schema(
         guildId,
         userId,
         dates,
-      }: ShowGlobalOrUserPoint): Promise<ShowGlobalOrUserPointResult> {
-        const filterDate = isEmpty(dates)
-          ? []
-          : [{ $match: { guildId, createdAt: { $gte: dates.start, $lte: dates.end } } }];
+        limit,
+      }: ShowGlobalOrUserPoint): Promise<
+        ShowGlobalOrUserPointResult | ShowGlobalOrUserPointResult[]
+      > {
+        const filterDate = !isEmpty(dates)
+          ? [{ $match: { guildId, createdAt: { $gte: dates.start, $lte: dates.end } } }]
+          : [];
 
         const filterUser = userId ? [{ $match: { userId } }] : [];
+        const _limit = limit ? [{ $limit: limit }] : [];
 
-        const pipeline = [
+        const pipeline: PipelineStage[] = [
           ...filterDate,
           {
             $group: {
@@ -121,8 +122,9 @@ const UserPointSchema = new Schema(
             },
           },
           ...filterUser,
+          ..._limit,
         ];
-        const userPoints = await UserPointModel.aggregate(pipeline as any);
+        const userPoints = await UserPointModel.aggregate(pipeline);
 
         return userId ? userPoints[0] : userPoints;
       },

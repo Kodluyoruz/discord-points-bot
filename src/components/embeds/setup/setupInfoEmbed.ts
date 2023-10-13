@@ -3,14 +3,14 @@ import { ButtonCustomId } from '@discord-point-bot/constants';
 import t from '@translation';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from 'discord.js';
 
-export const setupInfoEmbed = async ({ client, interaction, lang }: DiscordType.ButtonArgs) => {
+export const setupInfoEmbed = async ({ client }: DiscordType.ButtonArgs) => {
   const howToEarnPointsButton = new ButtonBuilder()
     .setCustomId(ButtonCustomId.info.point)
     .setLabel(t('info.button.howToEarnPoints'))
     .setStyle(ButtonStyle.Secondary);
 
   const showRank = new ButtonBuilder()
-    .setCustomId('ButtonCustomId.info.user.rank')
+    .setCustomId(ButtonCustomId.info.global_point)
     .setLabel(t('Genel Sıralamayı Gör'))
     .setStyle(ButtonStyle.Success);
 
