@@ -2,6 +2,8 @@ import { endOfDay, startOfDay } from 'date-fns';
 import { Guild } from 'discord.js';
 import { isEmpty } from 'lodash';
 import { Model, PipelineStage, Schema, Types, model } from 'mongoose';
+import { pointLog } from 'src/feature/logger/logger';
+import { Client } from 'src/structures/Client';
 
 import { PointUnitType, PointUnitsModel } from '../pointUnits';
 import { IUserPoint, ShowGlobalOrUserPointResult } from './dto';
@@ -76,14 +78,14 @@ const UserPointSchema = new Schema(
           channels: { $in: ids },
           ignoreChannels: { $nin: ids },
         })
-          .select({ point: 1, _id: 1 })
+          .select({ point: 1, _id: 1, sendLog: 1 })
           .lean();
 
         if (!pointUnit || newValue < 1) {
           return;
         }
 
-        const { _id, point } = pointUnit;
+        const { _id, point, sendLog } = pointUnit;
 
         const start = startOfDay(new Date());
         const end = endOfDay(new Date());
@@ -96,7 +98,12 @@ const UserPointSchema = new Schema(
           data,
         };
 
-        await this.findOneAndUpdate(filter, { $inc: { value: newValue }, point }, { upsert: true });
+        const object = await this.findOneAndUpdate(
+          filter,
+          { $inc: { value: newValue }, point },
+          { upsert: true },
+        );
+        if (sendLog) pointLog(guild.client as Client, guild, userId, object.id, value);
       },
 
       async getReferralData({ guildId, userId }: ReferralDataParams): Promise<ReferralDataResult> {

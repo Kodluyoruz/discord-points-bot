@@ -10,4 +10,5 @@ export interface IPointUnits extends Document {
   channels: string[];
   ignoreChannels: string[];
   ignoreRoles: string[];
+  sendLog: boolean;
 }
