@@ -8,7 +8,7 @@ import { setupCustomButtonEmbed } from './setupCustomButtonEmbed';
 
 export const SetupAdminSelectMenu: DiscordType.ISelectMenu = {
   customId: SelectMenuCustomId.admin_channel,
-  execute: async ({ client, interaction, lang }) => {
+  execute: async ({ client, interaction, lng }) => {
     const [channelId] = interaction.values;
 
     const settings = await GuildSettingsModel.findOneAndUpdate(
@@ -32,10 +32,10 @@ export const SetupAdminSelectMenu: DiscordType.ISelectMenu = {
       backButon: { customId: ButtonCustomId.setup.admin_channel.edit },
       embed: {
         oldEmbed: interaction.message.embeds[0],
-        title: translation('setup.adminChannel.selected', { lang }),
+        title: translation('setup.adminChannel.selected', { lng }),
         description: channelMention(channelId),
       },
-      lang,
+      lng,
     });
 
     await interaction.deferUpdate();

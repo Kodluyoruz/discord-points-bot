@@ -8,7 +8,7 @@ interface ReferralParams {
   client: Client;
   interaction: Interaction;
   selectedUser: UserResolvable;
-  lang: Locale;
+  lng: Locale;
 }
 
 async function addPoints(guild: Guild, userId: string, referrerId: string) {
@@ -33,7 +33,7 @@ type ReferralOutcome = 'default' | 'alreadyReferred' | 'userNotFound' | 'success
 type ReferralResult = { result: ReferralOutcome; description?: string; referrer?: GuildMember };
 
 export async function getOutcome(params: ReferralParams): Promise<ReferralResult> {
-  const { client, interaction, selectedUser, lang } = params;
+  const { client, interaction, selectedUser, lng } = params;
   const {
     guild,
     user: { id: userId },
@@ -67,7 +67,7 @@ export async function getOutcome(params: ReferralParams): Promise<ReferralResult
     referredCount,
     referrer: referrerMember,
     pointUnit,
-    lang,
+    lng,
   });
 
   return {
@@ -88,7 +88,7 @@ export function getDescription({
   referredCount,
   referrer,
   pointUnit,
-  lang,
+  lng,
 }: {
   result: string;
   code: string;
@@ -96,18 +96,18 @@ export function getDescription({
   referredCount: number;
   referrer: GuildMember;
   pointUnit: IPointUnits;
-  lang: string;
+  lng: string;
 }) {
   return t(`referral.embed.${result}`, {
     code,
     command: { id: command.applicationCommand?.id, name: command.data.name },
     referredCount,
-    referrer: referrer?.toString() || t('referral.embed.noReferral', { lang }),
+    referrer: referrer?.toString() || t('referral.embed.noReferral', { lng }),
     pointUnit: pointUnit ?? {
-      title: t('referral.embed.noPointUnit', { lang }),
-      description: t('referral.embed.noPointUnit', { lang }),
+      title: t('referral.embed.noPointUnit', { lng }),
+      description: t('referral.embed.noPointUnit', { lng }),
       point: 0,
     },
-    lang,
+    lng,
   });
 }

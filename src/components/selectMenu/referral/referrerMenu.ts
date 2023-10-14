@@ -6,7 +6,7 @@ import { getOutcome } from 'src/feature/referral/referral';
 
 export const referrerMenu: DiscordType.ISelectMenu<UserSelectMenuInteraction> = {
   customId: SelectMenuCustomId.referrer,
-  execute: async ({ client, interaction, lang }) => {
+  execute: async ({ client, interaction, lng }) => {
     const selectedUser = interaction.users.first();
     if (!selectedUser) {
       return;
@@ -18,10 +18,10 @@ export const referrerMenu: DiscordType.ISelectMenu<UserSelectMenuInteraction> = 
       client,
       interaction,
       selectedUser,
-      lang,
+      lng,
     });
 
-    const { embed, row } = referralComponents({ client, lang });
+    const { embed, row } = referralComponents({ client, lng });
     await interaction.editReply({
       embeds: [embed.setDescription(description)],
       components: referrer ? [] : [row],

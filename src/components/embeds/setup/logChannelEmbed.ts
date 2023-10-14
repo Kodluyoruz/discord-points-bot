@@ -5,7 +5,7 @@ import translation from '@translation';
 import { ChannelType } from 'discord.js';
 import { setupCustumEmbed } from 'src/components/embeds/setup/setupCustumEmbed';
 
-export const logChannelEmbed = async ({ client, interaction, lang }: DiscordType.ButtonArgs) => {
+export const logChannelEmbed = async ({ client, interaction, lng }: DiscordType.ButtonArgs) => {
   const { guild, customId } = interaction;
   const [root, pathname, action] = customId.split('/');
 
@@ -27,13 +27,13 @@ export const logChannelEmbed = async ({ client, interaction, lang }: DiscordType
     guild,
     menu: {
       customId: SelectMenuCustomId.log_channel,
-      placeholder: translation('setup.logChannel.placeholder', { lang }),
+      placeholder: translation('setup.logChannel.placeholder', { lng }),
       options,
     },
     embed: {
-      title: translation('setup.logChannel.title', { lang }),
-      author: { name: translation('setup.firstEntry.author', { name: guild.name, lang }) },
-      description: translation('setup.logChannel.description', { lang }),
+      title: translation('setup.logChannel.title', { lng }),
+      author: { name: translation('setup.firstEntry.author', { name: guild.name, lng }) },
+      description: translation('setup.logChannel.description', { lng }),
     },
   });
 

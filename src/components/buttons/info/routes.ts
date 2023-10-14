@@ -7,7 +7,7 @@ import { GlobalPoints } from './GlobalPoints';
 
 type SetupRoutes = {
   custumId: keyof (typeof ButtonCustomId)['info'];
-  execute: ({ client, interaction, lang }: DiscordType.ButtonArgs) => Promise<void>;
+  execute: ({ client, interaction, lng }: DiscordType.ButtonArgs) => Promise<void>;
 };
 
 export const setupRoutes: SetupRoutes[] = [

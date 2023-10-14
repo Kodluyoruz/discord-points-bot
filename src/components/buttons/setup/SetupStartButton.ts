@@ -3,7 +3,7 @@ import { GuildSettingsModel } from '@discord-point-bot/models';
 
 import { setupRoutes } from './routes';
 
-export const SetupStartButton = async ({ client, interaction, lang }: DiscordType.ButtonArgs) => {
+export const SetupStartButton = async ({ client, interaction, lng }: DiscordType.ButtonArgs) => {
   const settings = await GuildSettingsModel.findOne({ guildId: interaction.guild.id })
     .select('logChannelId adminChannelId point infoChannelId')
     .lean();
@@ -24,5 +24,5 @@ export const SetupStartButton = async ({ client, interaction, lang }: DiscordTyp
 
   const button = setupRoutes.find(({ custumId }) => custumId === subCustumId);
 
-  return await button.execute({ client, interaction: interaction, lang });
+  return await button.execute({ client, interaction: interaction, lng });
 };

@@ -4,7 +4,7 @@ import t from '@translation';
 import { format } from 'date-fns';
 import { EmbedBuilder } from 'discord.js';
 
-export const userRankEmbed = async ({ interaction, lang }: DiscordType.ButtonArgs) => {
+export const userRankEmbed = async ({ interaction, lng }: DiscordType.ButtonArgs) => {
   const { id } = interaction.user;
   const userPoint = await UserPointModel.showGlobalOrUserPoint({
     guildId: interaction.guildId,
@@ -20,7 +20,7 @@ export const userRankEmbed = async ({ interaction, lang }: DiscordType.ButtonArg
   let setting = {};
 
   try {
-    setting = { locale: { ...require(`date-fns/locale/${lang}`) } };
+    setting = { locale: { ...require(`date-fns/locale/${lng}`) } };
   } catch (error) {
     setting = {};
   }
@@ -31,7 +31,7 @@ export const userRankEmbed = async ({ interaction, lang }: DiscordType.ButtonArg
 
   const embed = new EmbedBuilder()
     .setColor(0x5865f2)
-    .setDescription(t('userPoints.description', { id, points, place, period, lang }));
+    .setDescription(t('userPoints.description', { id, points, place, period, lng }));
 
   await interaction.deferReply({ ephemeral: true, fetchReply: true });
 

@@ -4,7 +4,7 @@ import { SlashCommandBuilder } from 'discord.js';
 
 export const UserPoints: DiscordType.ISlashCommand = {
   data: new SlashCommandBuilder().setName('puan').setDescription('Puan durumunuzu gösterir.'),
-  execute: async ({ client, interaction, lang }) => {
+  execute: async ({ client, interaction, lng }) => {
     const member = interaction.inCachedGuild()
       ? interaction.member
       : await interaction.guild.members.fetch(interaction.user.id);

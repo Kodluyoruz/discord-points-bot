@@ -11,18 +11,18 @@ import {
 } from 'discord.js';
 import { map } from 'lodash';
 
-type SetupEmbedProps = { guild: Guild; lang: Locale };
+type SetupEmbedProps = { guild: Guild; lng: Locale };
 
-export const setupEmbed = async ({ guild, lang }: SetupEmbedProps) => {
+export const setupEmbed = async ({ guild, lng }: SetupEmbedProps) => {
   const buttonBuilders = [
     {
-      label: translation('common.document', { lang }),
+      label: translation('common.document', { lng }),
       style: ButtonStyle.Link,
       url: 'https://www.example.com',
     },
     {
       customId: ButtonCustomId.setup.start,
-      label: translation('common.setup', { lang }),
+      label: translation('common.setup', { lng }),
       style: ButtonStyle.Success,
     },
   ];
@@ -43,12 +43,12 @@ export const setupEmbed = async ({ guild, lang }: SetupEmbedProps) => {
 
   const embed = new EmbedBuilder()
     .setColor(0x0099ff)
-    .setTitle(translation('setup.firstEntry.title', { name: guild.name, lang }))
+    .setTitle(translation('setup.firstEntry.title', { name: guild.name, lng }))
     .setAuthor({
-      name: translation('setup.firstEntry.author', { name: guild.name, lang }),
+      name: translation('setup.firstEntry.author', { name: guild.name, lng }),
       iconURL: guild.iconURL(),
     })
-    .setDescription(translation('setup.firstEntry.description', { lang }))
+    .setDescription(translation('setup.firstEntry.description', { lng }))
     .setImage(
       'https://images-ext-2.discordapp.net/external/WS-JzDoRrF93ZfCjDPHRiJhj2TcvN1N1HV65tc4m-9A/https/github-production-user-asset-6210df.s3.amazonaws.com/39780/241442229-32cc8ae6-4423-4a4a-927f-bfaa34950035.png',
     );

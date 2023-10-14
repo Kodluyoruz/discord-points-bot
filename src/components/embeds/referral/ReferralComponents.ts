@@ -6,19 +6,19 @@ import { Client } from 'src/structures/Client';
 
 type referralProps = {
   client: Client;
-  lang: string;
+  lng: string;
 };
 
-export const referralComponents = ({ client, lang }: referralProps) => {
+export const referralComponents = ({ client, lng }: referralProps) => {
   const embed = new EmbedBuilder().setColor(0x0099ff).setAuthor({
-    name: t('referral.author', { name: client.user.displayName, lang }),
+    name: t('referral.author', { name: client.user.displayName, lng }),
     iconURL: client.user.displayAvatarURL({}),
   });
   const row = new ActionRowBuilder<UserSelectMenuBuilder>();
   row.addComponents(
     new UserSelectMenuBuilder()
       .setCustomId(SelectMenuCustomId.referrer)
-      .setPlaceholder(t('referral.embed.selectReferrer', { lang })),
+      .setPlaceholder(t('referral.embed.selectReferrer', { lng })),
   );
   return { embed, row };
 };

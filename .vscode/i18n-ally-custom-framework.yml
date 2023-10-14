@@ -31,8 +31,9 @@ scopeRangeRegex: "useTranslation\\(\\s*\\[?\\s*['\"`](.*?)['\"`]"
 # Optional: uncomment the following two lines to use
 
 refactorTemplates:
-  - translation("$1")
-  - translation("$1", { lang })
+  - translation('$1')
+  - translation('$1', { lng })
+  - localization('$1')
 
 # If set to true, only enables this custom framework (will disable all built-in frameworks)
 monopoly: true

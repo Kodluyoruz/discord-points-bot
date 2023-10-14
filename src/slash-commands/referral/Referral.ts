@@ -23,7 +23,7 @@ export const Referral: DiscordType.ISlashCommand = {
         .setMinLength(18)
         .setMaxLength(20),
     ),
-  async execute({ client, interaction, lang }) {
+  async execute({ client, interaction, lng }) {
     const selectedUser =
       interaction.options.getUser('user') || (interaction.options.get('code')?.value as string);
     await interaction.deferReply({ ephemeral: true });
@@ -32,10 +32,10 @@ export const Referral: DiscordType.ISlashCommand = {
       client,
       interaction,
       selectedUser,
-      lang,
+      lng,
     });
 
-    const { embed, row } = referralComponents({ client: client, lang });
+    const { embed, row } = referralComponents({ client: client, lng });
     await interaction.editReply({
       embeds: [embed.setDescription(description)],
       components: referrer ? [] : [row],
