@@ -1,4 +1,5 @@
 import { PointUnitType } from '@discord-point-bot/models';
+
 import { Events, TextChannel } from 'discord.js';
 import { UserPointModel } from 'src/models/point';
 
@@ -7,8 +8,8 @@ export const MessageCreate: DiscordType.IEvent = {
   execute: async (client, [message]: DiscordType.ArgsOf<'messageCreate'>) => {
     if (message.author.bot || !message.guild) return;
 
-    const [guildId, userId, channelId, categoryId] = [
-      message.guild.id,
+    const [guild, userId, channelId, categoryId] = [
+      message.guild,
       message.author.id,
       message.channel.id,
       (message.channel as TextChannel)?.parentId,
@@ -17,7 +18,7 @@ export const MessageCreate: DiscordType.IEvent = {
     const type = message.reference ? PointUnitType.REPLY : PointUnitType.TEXT;
 
     await UserPointModel.pointAdd({
-      guildId,
+      guild,
       userId,
       type,
       value: 1,

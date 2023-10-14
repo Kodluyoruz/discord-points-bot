@@ -1,7 +1,7 @@
 import { PointUnitType, UserPointModel } from '@discord-point-bot/models';
 
 import t from '@translation';
-import { GuildMember, Interaction, Locale, UserResolvable } from 'discord.js';
+import { Guild, GuildMember, Interaction, Locale, UserResolvable } from 'discord.js';
 import { Client } from 'src/structures/Client';
 
 interface ReferralParams {
@@ -11,9 +11,9 @@ interface ReferralParams {
   lang: Locale;
 }
 
-async function addPoints(guildId: string, userId: string, referrerId: string) {
+async function addPoints(guild: Guild, userId: string, referrerId: string) {
   const pointData = {
-    guildId,
+    guild,
     type: PointUnitType.INVITE,
     value: 1,
   };
@@ -35,11 +35,11 @@ type ReferralResult = { result: ReferralOutcome; description?: string; referrer?
 export async function getOutcome(params: ReferralParams): Promise<ReferralResult> {
   const { client, interaction, selectedUser, lang } = params;
   const {
-    guildId,
+    guild,
     user: { id: userId },
   } = interaction;
   const { referrerId, referredCount } = await UserPointModel.getReferralData({
-    guildId,
+    guildId: guild.id,
     userId,
   });
   let referrerMember = await getMember(interaction, referrerId);
@@ -54,7 +54,7 @@ export async function getOutcome(params: ReferralParams): Promise<ReferralResult
   } else if (!selectedMember || selectedMember.user.id === userId || selectedMember.user.bot) {
     result = 'userNotFound';
   } else {
-    await addPoints(guildId, userId, selectedMember.id);
+    await addPoints(guild, userId, selectedMember.id);
     referrerMember = selectedMember;
   }
 
