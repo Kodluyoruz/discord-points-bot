@@ -16,6 +16,7 @@ const PointUnitsSchema = new Schema(
     channels: { type: [String], default: [] },
     ignoreChannels: { type: [String], default: [] },
     ignoreRoles: { type: [String], default: [] },
+    sendLog: { type: Boolean, default: false },
   },
   { timestamps: true, toJSON: { virtuals: true } },
 );
