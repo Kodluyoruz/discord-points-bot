@@ -56,7 +56,25 @@
     }
   },
   "userPoints": {
-    "description": "Sevgili <@{{id}}>,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+  },
+  "reference": {
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n!referans komutuyla arkadasin {{member}}, Kodluyoruz'a katildi ve \n arkadasinla katacaklariniz icin heyecanliyiz. {{roomPoint}} puan kazandiniz! {{period}} arasindaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+  },
+  "soundRoom": {
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalinda gecirdiginiz süre {{spendingTime}}\nKodluyoruz'da gelismek/gelistirmek icin ayirdiginiz dakikalar bizim icin\ndegerli oldugu icin her dakika 2 puan olacak sekilde {{roomPoint}} kazandiniz!\n{{period}} arasindaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+  },
+  "transferOfInformation": {
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n#{{channel}} kanalinda paylasimlarinizla Kodluyoruz üyelerine\nkattiginiz deger icin tesekkur ederiz, {{roomPoint}} puan kazandiniz!{{period}} arasindaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+  },
+  "askQuestion": {
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalinda akliniza takilanlar icin iletisime gectiniz ve\n{{roomPoint}} kazandiniz!\n{{period}} arasindaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+  },
+  "introduceYourself": {
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalinda network baglangic adiminiz icin{{roomPoint}}\nkazandiniz!\n{{period}} arasindaki \n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+  },
+  "sendMessageToChannel": {
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalina attiginiz mesaj icin {{roomPoint}} kazandiniz!\n{{period}} arasindaki \n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "setup": {
     "firstEntry": {
