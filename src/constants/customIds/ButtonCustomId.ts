@@ -31,5 +31,9 @@ export const ButtonCustomId = {
 
   info: {
     point: 'info/point',
+    global_point: 'info/global_point',
+    user: {
+      rank: 'info/user/ramk',
+    },
   },
 } as const;

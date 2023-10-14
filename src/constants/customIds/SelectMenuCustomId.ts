@@ -4,4 +4,5 @@ export const SelectMenuCustomId = {
   point_channel: 'point_channel',
   point_period: 'point_period',
   log_channel: 'log_channel',
+  referrer: 'referrer',
 } as const;

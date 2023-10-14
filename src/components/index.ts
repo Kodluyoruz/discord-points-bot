@@ -3,6 +3,6 @@ export { userPointsEmbed } from './embeds/point/userPointsEmbed';
 export { referenceEmbed } from './embeds/reference/referenceEmbed';
 export { soundRoomEmbed } from './embeds/soundRoom/soundRoomEmbed';
 
+export * as ButtonList from './buttons';
 export * from './embeds';
-export * from './buttons';
-export * from './selectMenu';
+export * as SelectMenuList from './selectMenu';

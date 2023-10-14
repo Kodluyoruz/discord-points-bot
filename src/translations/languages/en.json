@@ -43,7 +43,7 @@
     }
   },
   "userPoints": {
-    "description": "Dear **{{name}}**, in the points system between {{period}}, your total points you have achieved so far is\n**[{{points}} points, and you are ranked {{place}}!](https://kodluyoruz.org)**"
+    "description": "Dear <@{{id}}>, in the points system between {{period}}, your total points you have achieved so far is\n**[{{points}} points, and you are ranked {{place}}!](https://kodluyoruz.org)**"
   },
   "setup": {
     "firstEntry": {
@@ -84,5 +84,26 @@
     "pointUnit": "Add New Point Unit",
     "menu": "Settings Menu",
     "description": "Description will come here"
+  },
+  "leaderboard": {
+    "footer": "We congratulate the winners and thank each of our friends for their efforts.\n**Remember, you are the one who will be in this row tomorrow!**",
+    "title": "{{period}} Winners"
+  },
+  "referral": {
+    "command": {
+      "description": "You can use this command for referral number operations.",
+      "code": "referral code",
+      "user": "referral",
+      "name": "referral"
+    },
+    "author": "{{name}} Scoring Bot",
+    "embed": {
+      "noReferral": "No Inviters",
+      "success": "You have accepted the invitation from {{- referrer}}.\n\n\n$t(referral.embed.default)",
+      "userNotFound": "Invitation code or user not found.\n\n\n$t(referral.embed.default)",
+      "default": "Your invitation code: `{{code}}`\n\n\nYour friends can use </{{command.name}}:{{command.id}}> with this invitation code and you and your friends can earn up to 100 points when they sign up with your invitation code.\n\n\nUser who invited you: {{- referrer}}\n\n\nNumber of users who accepted your invitation: {{referredCount}}",
+      "alreadyReferred": "You have already registered to the server with the reference of user {{- referrer}}.\n\n\n$t(referral.embed.default)",
+      "selectReferrer": "Select Inviter"
+    }
   }
 }
