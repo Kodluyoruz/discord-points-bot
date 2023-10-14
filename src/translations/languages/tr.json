@@ -48,7 +48,7 @@
         "description": "Sesli Odalarda Arkadaslarınla Ol! Dakika başına **2 PUAN** kazan\n\nSesli odalarda arkadaslarınla birlikte aktif olarak gecirdigin her dakika icin puan kazanacaksın!"
       },
       {
-        "description": "Arkadasını Davet Et **100 PUAN** kazan!\n\nReferans kodun ile sisteme arkadaslarını davet edebilirsin. Arkadasın **!referans** komutunu kullanarak giris yaptıgında sen ve arkadasin ekstra puan kazanabilirsiniz."
+        "description": "Arkadasını Davet Et **100 PUAN** kazan!\n\nDavet kodun ile sisteme arkadaslarını davet edebilirsin. Arkadasın **/davet** komutunu kullanarak giris yaptıgında sen ve arkadasin ekstra puan kazanabilirsiniz."
       }
     ],
     "command": {
@@ -118,5 +118,22 @@
     "button": {
       "howToEarnPoints": "Nasıl Puan Kazanırım?"
     }
+  },
+  "referral": {
+    "command": {
+      "description": "Referans işlemleri için bu komutu kullanabilirsiniz",
+      "code": "kullanıcı davet kodu",
+      "user": "davet eden kullanıcı",
+      "name": "referans"
+    },
+    "embed": {
+      "noReferral": "Davet Eden Kişi Yok",
+      "userNotFound": "Davet kodu yada kullanıcı bulunamadı.\n\n$t(referral.embed.default)",
+      "success": "{{- referrer}} kullanıcısının davetini kabul ettiniz.\n\n$t(referral.embed.default)",
+      "selectReferrer": "Davet Eden Kişiyi Seçin",
+      "default": "Davet kodunuz: `{{code}}`\n\nArkadaşlarınız bu davet koduyla </{{command.name}}:{{command.id}}> komutunu kullanabilir ve davet kodunuzla kaydolduklarında siz ve arkadaşlarınız 100'e puan kazanabilirsiniz.\n\nSizi davet eden kullanıcı: {{- referrer}}\n\nDavetinizi kabul eden kullanıcı sayısı: {{referredCount}}",
+      "alreadyReferred": "Sunucuya zaten {{- referrer}} kullanıcısının referansı ile kayıt olmuşsunuz.\n\n$t(referral.embed.default)"
+    },
+    "author": "{{name}} Puanlama Botu"
   }
 }

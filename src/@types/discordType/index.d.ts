@@ -2,6 +2,7 @@ import { ButtonCustomId, SelectMenuCustomId } from '@discord-point-bot/constants
 
 import {
   AnySelectMenuInteraction,
+  ApplicationCommand,
   ButtonInteraction,
   CacheType,
   ChatInputCommandInteraction,
@@ -21,9 +22,9 @@ declare global {
     export interface SlashCommandArgs {
       client: Client;
       interaction:
-      | ChatInputCommandInteraction<CacheType>
-      | MessageContextMenuCommandInteraction<CacheType>
-      | UserContextMenuCommandInteraction<CacheType>;
+        | ChatInputCommandInteraction<CacheType>
+        | MessageContextMenuCommandInteraction<CacheType>
+        | UserContextMenuCommandInteraction<CacheType>;
       lang: Locale;
     }
 
@@ -31,7 +32,8 @@ declare global {
     export type ArgsOf<K extends EventKeys> = ClientEvents[K];
 
     export interface ISlashCommand {
-      data: SlashCommandBuilder;
+      data: Omit<SlashCommandBuilder, 'addSubcommand' | 'addSubcommandGroup'>;
+      applicationCommand?: ApplicationCommand;
       execute: (slashCommandArgs: SlashCommandArgs) => Promise<void> | void;
     }
 
@@ -46,18 +48,23 @@ declare global {
       execute: (buttondArgs: ButtonArgs) => Promise<unknown> | unknown;
     }
 
-    export interface ISelectMenu {
+    export interface ISelectMenu<T extends AnySelectMenuInteraction = AnySelectMenuInteraction> {
       customId: keyof typeof SelectMenuCustomId;
       execute: (buttondArgs: {
         client: Client;
-        interaction: AnySelectMenuInteraction;
+        interaction: T;
         lang: Locale;
       }) => Promise<unknown> | unknown;
     }
 
     export interface IEvent {
       name: EventKeys;
-      execute: (client: Client, ...args: any[]) => Promise<void> | void;
+      execute: (client: Client, ...args: unknown[]) => Promise<void> | void;
     }
+
+    export type EditReplySupportedInteraction =
+      | CommandInteraction
+      | ModalSubmitInteraction
+      | MessageComponentInteraction;
   }
 }
