@@ -14,18 +14,18 @@ type CustomEmbedProps = {
   nextButon: ButtonProps;
   backButon: ButtonProps;
   embed: { oldEmbed: Embed; title: string; description: string };
-  lang: Locale;
+  lng: Locale;
 };
 
-export const setupCustomButtonEmbed = ({ embed, nextButon, backButon, lang }: CustomEmbedProps) => {
+export const setupCustomButtonEmbed = ({ embed, nextButon, backButon, lng }: CustomEmbedProps) => {
   const nextButton = new ButtonBuilder()
     .setCustomId(nextButon.customId)
-    .setLabel(translation('common.continue', { lang }))
+    .setLabel(translation('common.continue', { lng }))
     .setStyle(ButtonStyle.Success);
 
   const editButton = new ButtonBuilder()
     .setCustomId(backButon.customId)
-    .setLabel(translation('common.edit', { lang }))
+    .setLabel(translation('common.edit', { lng }))
     .setStyle(ButtonStyle.Secondary);
 
   const row = new ActionRowBuilder<ButtonBuilder>().setComponents(editButton, nextButton);

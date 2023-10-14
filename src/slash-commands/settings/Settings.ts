@@ -7,8 +7,8 @@ export const Settings: DiscordType.ISlashCommand = {
     .setName('settings')
     .setDescription('Setting Menüsünü Açar.')
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
-  execute: async ({ client, interaction, lang }) => {
-    const { embed, row } = await settingsAdminEmbed({ client, guild: interaction.guild, lang });
+  execute: async ({ client, interaction, lng }) => {
+    const { embed, row } = await settingsAdminEmbed({ client, guild: interaction.guild, lng });
 
     await interaction.reply({ embeds: [embed], components: [row], ephemeral: true });
   },

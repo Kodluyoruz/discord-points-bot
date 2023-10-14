@@ -5,7 +5,7 @@ import translation from '@translation';
 import { ChannelType } from 'discord.js';
 import { setupCustumEmbed } from 'src/components/embeds/setup/setupCustumEmbed';
 
-export const adminChannelEmbed = async ({ client, interaction, lang }: DiscordType.ButtonArgs) => {
+export const adminChannelEmbed = async ({ client, interaction, lng }: DiscordType.ButtonArgs) => {
   const { guild, customId } = interaction;
   const [root, pathname, action] = customId.split('/');
 
@@ -28,15 +28,15 @@ export const adminChannelEmbed = async ({ client, interaction, lang }: DiscordTy
     guild: guild,
     menu: {
       customId: SelectMenuCustomId.admin_channel,
-      placeholder: translation('setup.adminChannel.placeholder', { lang }),
+      placeholder: translation('setup.adminChannel.placeholder', { lng }),
       options: channels,
     },
     embed: {
-      title: translation('setup.adminChannel.title', { lang }),
+      title: translation('setup.adminChannel.title', { lng }),
       author: {
-        name: translation('setup.firstEntry.author', { name: guild.name, lang }),
+        name: translation('setup.firstEntry.author', { name: guild.name, lng }),
       },
-      description: translation('setup.adminChannel.description', { lang }),
+      description: translation('setup.adminChannel.description', { lng }),
     },
   });
 

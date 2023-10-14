@@ -8,7 +8,7 @@ import { setupCustomButtonEmbed } from './setupCustomButtonEmbed';
 
 export const SetupPointSelectMenu: DiscordType.ISelectMenu = {
   customId: SelectMenuCustomId.point_channel,
-  execute: async ({ client, interaction, lang }) => {
+  execute: async ({ client, interaction, lng }) => {
     const [channelId] = interaction.values;
 
     const settings = await GuildSettingsModel.findOneAndUpdate(
@@ -28,10 +28,10 @@ export const SetupPointSelectMenu: DiscordType.ISelectMenu = {
       backButon: { customId: ButtonCustomId.setup.point_channel.edit },
       embed: {
         oldEmbed: interaction.message.embeds[0],
-        title: translation('setup.pointChannel.selected', { lang }),
+        title: translation('setup.pointChannel.selected', { lng }),
         description: channelMention(channelId),
       },
-      lang,
+      lng,
     });
 
     await interaction.deferUpdate();

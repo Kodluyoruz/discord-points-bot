@@ -11,7 +11,7 @@ export const GuildCreate: DiscordType.IEvent = {
       guild.systemChannel || (guild.channels.cache.find(filter) as TextChannel);
 
     if (channel) {
-      const { embed, row } = await setupEmbed({ guild, lang: guild.preferredLocale });
+      const { embed, row } = await setupEmbed({ guild, lng: guild.preferredLocale });
 
       await channel.send({ embeds: [embed], components: [row] });
     }

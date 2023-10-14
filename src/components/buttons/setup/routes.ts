@@ -14,7 +14,7 @@ import { SetupStartButton } from './SetupStartButton';
 
 type SetupRoutes = {
   custumId: keyof (typeof ButtonCustomId)['setup'];
-  execute: ({ client, interaction, lang }: DiscordType.ButtonArgs) => Promise<{
+  execute: ({ client, interaction, lng }: DiscordType.ButtonArgs) => Promise<{
     embed: EmbedBuilder;
     row: ActionRowBuilder<StringSelectMenuBuilder | ButtonBuilder>;
   }>;

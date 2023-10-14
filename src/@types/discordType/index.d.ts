@@ -26,7 +26,7 @@ declare global {
         | ChatInputCommandInteraction<CacheType>
         | MessageContextMenuCommandInteraction<CacheType>
         | UserContextMenuCommandInteraction<CacheType>;
-      lang: Locale;
+      lng: Locale;
     }
 
     export type EventKeys = keyof ClientEvents;
@@ -41,7 +41,7 @@ declare global {
     export interface ButtonArgs {
       client: Client;
       interaction: ButtonInteraction;
-      lang: Locale;
+      lng: Locale;
     }
 
     export interface IModalSubmit {
@@ -51,7 +51,7 @@ declare global {
     export interface ModalArgs {
       client: Client;
       interaction: ModalSubmitInteraction;
-      lang: Locale;
+      lng: Locale;
     }
     export interface IButton {
       customId: keyof typeof ButtonCustomId;
@@ -63,7 +63,7 @@ declare global {
       execute: (buttondArgs: {
         client: Client;
         interaction: T;
-        lang: Locale;
+        lng: Locale;
       }) => Promise<unknown> | unknown;
     }
 

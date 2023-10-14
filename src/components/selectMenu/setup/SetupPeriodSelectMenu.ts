@@ -7,7 +7,7 @@ import { setupCustomButtonEmbed } from './setupCustomButtonEmbed';
 
 export const SetupPeriodSelectMenu: DiscordType.ISelectMenu = {
   customId: SelectMenuCustomId.point_period,
-  execute: async ({ client, interaction, lang }) => {
+  execute: async ({ client, interaction, lng }) => {
     const [pointPeriod] = interaction.values;
 
     await GuildSettingsModel.findOneAndUpdate(
@@ -21,10 +21,10 @@ export const SetupPeriodSelectMenu: DiscordType.ISelectMenu = {
       backButon: { customId: ButtonCustomId.setup.point_period.edit },
       embed: {
         oldEmbed: interaction.message.embeds[0],
-        title: translation('setup.period.selected', { lang }),
+        title: translation('setup.period.selected', { lng }),
         description: pointPeriod,
       },
-      lang,
+      lng,
     });
 
     await interaction.deferUpdate();

@@ -1,35 +1,23 @@
 import { pointInfoEmbed } from '@discord-point-bot/components';
 
-import t from '@translation';
+import t, { localization } from '@translation';
 import {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonInteraction,
   ComponentType,
-  LocaleString,
-  LocalizationMap,
   SlashCommandBuilder,
 } from 'discord.js';
-
-const LANGS: Array<LocaleString> = ['tr', 'en-US'];
-
-const descriptionLocalizations = LANGS.reduce(
-  (acc, item) => ({
-    ...acc,
-    [item]: t(`pointInfos.command.description`, { lang: item }),
-  }),
-  {} as LocalizationMap,
-);
 
 export const PointInfo: DiscordType.ISlashCommand = {
   data: new SlashCommandBuilder()
     .setName('point')
     .setDescription(t('pointInfos.command.description'))
-    .setDescriptionLocalizations(descriptionLocalizations),
-  execute: async ({ client, interaction, lang }) => {
+    .setDescriptionLocalizations(localization('pointInfos.command.description')),
+  execute: async ({ client, interaction, lng }) => {
     const NUM_STEPS = 6;
     const contents = Array.from({ length: NUM_STEPS }, (_, i) =>
-      t(`pointInfos.step.${i}.description`, { lang }),
+      t(`pointInfos.step.${i}.description`, { lng }),
     );
 
     const contentCount = contents.length;

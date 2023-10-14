@@ -5,7 +5,7 @@ import translation from '@translation';
 import { ChannelType } from 'discord.js';
 import { setupCustumEmbed } from 'src/components/embeds/setup/setupCustumEmbed';
 
-export const infoChannelEmbed = async ({ client, interaction, lang }: DiscordType.ButtonArgs) => {
+export const infoChannelEmbed = async ({ client, interaction, lng }: DiscordType.ButtonArgs) => {
   const { guild, customId } = interaction;
   const [root, pathname, action] = customId.split('/');
 
@@ -28,15 +28,15 @@ export const infoChannelEmbed = async ({ client, interaction, lang }: DiscordTyp
     guild: guild,
     menu: {
       customId: SelectMenuCustomId.info_channel,
-      placeholder: translation('setup.infoChannel.placeholder', { lang }),
+      placeholder: translation('setup.infoChannel.placeholder', { lng }),
       options: channels,
     },
     embed: {
-      title: translation('setup.infoChannel.title', { lang }),
+      title: translation('setup.infoChannel.title', { lng }),
       author: {
-        name: translation('setup.firstEntry.author', { name: guild.name, lang }),
+        name: translation('setup.firstEntry.author', { name: guild.name, lng }),
       },
-      description: translation('setup.infoChannel.description', { lang }),
+      description: translation('setup.infoChannel.description', { lng }),
     },
   });
 

@@ -16,7 +16,7 @@ import { Client } from 'src/structures/Client';
 type leaderboardEmbedProps = {
   client: Client;
   interaction: ButtonInteraction;
-  lang: Locale;
+  lng: Locale;
   dates?: { start: Date; end: Date };
   footer: string;
   title: string;
@@ -24,7 +24,7 @@ type leaderboardEmbedProps = {
 
 export const leaderboardEmbed = async ({
   interaction,
-  lang,
+  lng,
   dates,
   footer,
   title,
@@ -56,7 +56,7 @@ export const leaderboardEmbed = async ({
   const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
     new ButtonBuilder()
       .setCustomId('info/point')
-      .setLabel(t('pointInfos.title', { lang }))
+      .setLabel(t('pointInfos.title', { lng }))
       .setStyle(ButtonStyle.Secondary),
   ]);
 

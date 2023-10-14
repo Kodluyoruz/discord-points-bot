@@ -7,26 +7,25 @@ export const InteractionCreate: DiscordType.IEvent = {
       const command = client.slashCommands.get(interaction.commandName);
 
       if (command) {
-        command.execute({ client, interaction, lang: interaction.locale });
+        command.execute({ client, interaction, lng: interaction.locale });
       }
     } else if (interaction.isButton()) {
       const [customId] = interaction.customId.split('/');
       const button = client.buttons.get(customId);
 
       if (button) {
-        button.execute({ client, interaction, lang: interaction.locale });
+        button.execute({ client, interaction, lng: interaction.locale });
       }
     } else if (interaction.isAnySelectMenu()) {
       const selectMenu = client.selectMenus.get(interaction.customId);
 
       if (selectMenu) {
-        selectMenu.execute({ client, interaction, lang: interaction.locale });
+        selectMenu.execute({ client, interaction, lng: interaction.locale });
       }
-    }
-    else if(interaction.isModalSubmit()){
+    } else if (interaction.isModalSubmit()) {
       const modal = client.modals.get(interaction.customId);
       if (modal) {
-        modal.execute({ client, interaction, lang: interaction.locale });
+        modal.execute({ client, interaction, lng: interaction.locale });
       }
     }
   },
