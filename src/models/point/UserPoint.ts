@@ -6,6 +6,7 @@ import { PointUnitType, PointUnitsModel } from '../pointUnits';
 import { IUserPoint, ShowGlobalOrUserPointResult } from './dto';
 
 interface IUserPointModel extends Model<IUserPoint> {
+  getReferralData(props: ReferralDataParams): Promise<ReferralDataResult>;
   pointAdd(props: AddPointProps): Promise<void>;
   showGlobalOrUserPoint(
     props: ShowGlobalOrUserPoint,
@@ -19,6 +20,7 @@ type AddPointProps = {
   value: number;
   channelId?: string;
   categoryId?: string;
+  data?: unknown;
 };
 
 type ShowGlobalOrUserPoint = {
@@ -28,6 +30,16 @@ type ShowGlobalOrUserPoint = {
   limit?: number;
 };
 
+type ReferralDataResult = {
+  referrerId: string;
+  referredCount: number;
+};
+
+type ReferralDataParams = {
+  guildId: string;
+  userId: string;
+};
+
 const UserPointSchema = new Schema(
   {
     guildId: { type: String },
@@ -35,12 +47,13 @@ const UserPointSchema = new Schema(
     type: { type: Schema.Types.ObjectId, ref: 'PointUnits' },
     point: { type: Number },
     value: { type: Number },
+    data: { type: Schema.Types.Mixed },
   },
   {
     timestamps: true,
     toJSON: { virtuals: true },
     statics: {
-      async pointAdd({ guildId, userId, type, value, channelId, categoryId }: AddPointProps) {
+      async pointAdd({ guildId, userId, type, value, channelId, categoryId, data }: AddPointProps) {
         const channelIds = [guildId, channelId, categoryId].filter(
           (channel) => !!channel,
         ) as string[];
@@ -48,7 +61,7 @@ const UserPointSchema = new Schema(
           [PointUnitType.NONE]: { value: 0 },
           [PointUnitType.VOICE]: { channelIds, value },
           [PointUnitType.TEXT]: { channelIds, value },
-          [PointUnitType.INVITE]: { value },
+          [PointUnitType.INVITE]: { channelIds, value },
           [PointUnitType.REPLY]: { channelIds, value },
         };
 
@@ -78,10 +91,42 @@ const UserPointSchema = new Schema(
           guildId,
           type: new Types.ObjectId(_id),
           createdAt: { $gte: start, $lte: end },
+          data,
         };
 
         await this.findOneAndUpdate(filter, { $inc: { value: newValue }, point }, { upsert: true });
       },
+
+      async getReferralData({ guildId, userId }: ReferralDataParams): Promise<ReferralDataResult> {
+        const { _id: pointUnitId = null } =
+          (await PointUnitsModel.findOne({
+            guildId,
+            type: PointUnitType.INVITE,
+          })
+            .select({ _id: 1 })
+            .lean()) || {};
+
+        const [referrer, referredCount] = await Promise.all([
+          this.findOne({
+            guildId,
+            userId,
+            type: pointUnitId,
+            'data.referrer': { $exists: true },
+          })
+            .select({ data: 1 })
+            .sort({ createdAt: -1 })
+            .lean(),
+          this.countDocuments({
+            guildId,
+            userId,
+            type: pointUnitId,
+            'data.referred': { $exists: true },
+          }),
+        ]);
+
+        return { referrerId: referrer?.data?.referrer, referredCount };
+      },
+
       async showGlobalOrUserPoint({
         guildId,
         userId,
@@ -90,9 +135,9 @@ const UserPointSchema = new Schema(
       }: ShowGlobalOrUserPoint): Promise<
         ShowGlobalOrUserPointResult | ShowGlobalOrUserPointResult[]
       > {
-        const filterDate = !isEmpty(dates)
-          ? [{ $match: { guildId, createdAt: { $gte: dates.start, $lte: dates.end } } }]
-          : [];
+        const filterDate = isEmpty(dates)
+          ? []
+          : [{ $match: { guildId, createdAt: { $gte: dates.start, $lte: dates.end } } }];
 
         const filterUser = userId ? [{ $match: { userId } }] : [];
         const _limit = limit ? [{ $limit: limit }] : [];
@@ -108,7 +153,6 @@ const UserPointSchema = new Schema(
             },
           },
           { $sort: { totalPoints: -1 } },
-
           { $group: { _id: null, data: { $push: '$$ROOT' } } },
           { $unwind: { path: '$data', includeArrayIndex: 'rank' } },
           {
@@ -124,6 +168,7 @@ const UserPointSchema = new Schema(
           ...filterUser,
           ..._limit,
         ];
+
         const userPoints = await UserPointModel.aggregate(pipeline);
 
         return userId ? userPoints[0] : userPoints;
