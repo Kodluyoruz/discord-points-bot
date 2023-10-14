@@ -1,58 +1,54 @@
+import { ShowGlobalOrUserPointResult, UserPointModel } from '@discord-point-bot/models';
+
 import t from '@translation';
 import {
   ActionRowBuilder,
   ButtonBuilder,
+  ButtonInteraction,
   ButtonStyle,
   EmbedBuilder,
+  Locale,
   userMention,
 } from 'discord.js';
+import { chain } from 'lodash';
 import { Client } from 'src/structures/Client';
 
-type LeaderboardEmbedProps = {
+type leaderboardEmbedProps = {
   client: Client;
-  usersData: UsersPointsData[];
-  period: string;
-  lang: string;
-  userId: string;
+  interaction: ButtonInteraction;
+  lang: Locale;
+  dates?: { start: Date; end: Date };
+  footer: string;
+  title: string;
 };
 
-type UsersPointsData = {
-  points: number;
-  id: string;
-};
-
-export const leaderboardEmbed = ({
-  client,
-  usersData,
-  period,
+export const leaderboardEmbed = async ({
+  interaction,
   lang,
-  userId,
-}: LeaderboardEmbedProps) => {
-  const desc = usersData
-    .map((user, index) => {
-      const userString =
-        user.id === userId
-          ? `${userMention(user.id)} [- **${user.points}**](https://kodluyoruz.org)`
-          : `${userMention(user.id)} - **${user.points}**`;
-      switch (index) {
-        case 0:
-          return `🥇 ${userString}`;
-        case 1:
-          return `🥈 ${userString}`;
-        case 2:
-          return `🥉 ${userString}`;
-        default:
-          return `${index + 1}. ${userString}`;
-      }
-    })
-    .join('\n');
+  dates,
+  footer,
+  title,
+}: leaderboardEmbedProps) => {
+  const usersDatas = (await UserPointModel.showGlobalOrUserPoint({
+    guildId: interaction.guildId,
+    dates,
+  })) as ShowGlobalOrUserPointResult[];
+
+  const rankedUsers = chain(usersDatas)
+    .map((user, index) => ({
+      ...user,
+      formattedPoints: `**${user.totalPoints}**`,
+      rankEmoji: index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `${index + 1}.`,
+    }))
+    .map((user) => `${user.rankEmoji} ${userMention(user.userId)} - ${user.formattedPoints}`)
+    .join('\n')
+    .value();
+
   const line = '~~---------------------------------------------------------------------~~';
 
-  const footer = t('leaderboard.footer', { lang });
-  const title = t('leaderboard.title', { lang, period });
   const embed = new EmbedBuilder()
     .setTitle(title)
-    .setDescription(`${line}\n${desc}\n${line}\n${footer}`)
+    .setDescription(`${line}\n${rankedUsers}\n${line}\n${footer}`)
     .setColor(0x5865f2)
     .setImage(
       'https://cdn.discordapp.com/attachments/745992192891289661/1154089813260111912/image.png',

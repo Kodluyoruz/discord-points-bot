@@ -4,7 +4,7 @@ import translation from '@translation';
 import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ComponentType } from 'discord.js';
 import { pointInfoEmbed } from 'src/components/embeds/point/pointInfoEmbed';
 
-export const infoUserPointEmbed = async ({ client, interaction, lang }: DiscordType.ButtonArgs) => {
+export const infoUserPointEmbed = async ({ client, interaction }: DiscordType.ButtonArgs) => {
   const pointUnits = await PointUnitsModel.find({ guildId: interaction.guild.id })
     .select('description title')
     .lean();
@@ -63,9 +63,7 @@ export const infoUserPointEmbed = async ({ client, interaction, lang }: DiscordT
     collector.resetTimer();
   });
 
-  collector.on('end', (_, reason) => {
-    interaction.deleteReply();
+  collector.on('end', async () => {
+    await interaction.deleteReply();
   });
-
-  return;
 };
