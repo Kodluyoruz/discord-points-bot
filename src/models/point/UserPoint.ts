@@ -1,4 +1,5 @@
 import { endOfDay, startOfDay } from 'date-fns';
+import { Guild } from 'discord.js';
 import { isEmpty } from 'lodash';
 import { Model, PipelineStage, Schema, Types, model } from 'mongoose';
 
@@ -14,7 +15,7 @@ interface IUserPointModel extends Model<IUserPoint> {
 }
 
 type AddPointProps = {
-  guildId: string;
+  guild: Guild;
   userId: string;
   type: keyof typeof PointUnitType;
   value: number;
@@ -53,7 +54,8 @@ const UserPointSchema = new Schema(
     timestamps: true,
     toJSON: { virtuals: true },
     statics: {
-      async pointAdd({ guildId, userId, type, value, channelId, categoryId, data }: AddPointProps) {
+      async pointAdd({ guild, userId, type, value, channelId, categoryId, data }: AddPointProps) {
+        const guildId = guild.id;
         const channelIds = [guildId, channelId, categoryId].filter(
           (channel) => !!channel,
         ) as string[];

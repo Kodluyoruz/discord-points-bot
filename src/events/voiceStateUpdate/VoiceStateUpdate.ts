@@ -45,7 +45,7 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
     if (isMuted || (!newChannelId && oldChannelId)) {
       client.voices.delete(oldState.id);
       await UserPointModel.pointAdd({
-        guildId,
+        guild: oldState.guild,
         userId,
         type: 'VOICE',
         value,
@@ -55,7 +55,7 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
     } else if (newChannelId && oldChannelId && newChannelId !== oldChannelId) {
       client.voices.set(oldState.id, { date: now });
       await UserPointModel.pointAdd({
-        guildId,
+        guild: oldState.guild,
         userId,
         type: 'VOICE',
         value,
