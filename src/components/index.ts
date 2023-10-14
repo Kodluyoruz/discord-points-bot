@@ -5,4 +5,5 @@ export { soundRoomEmbed } from './embeds/soundRoom/soundRoomEmbed';
 
 export * as ButtonList from './buttons';
 export * from './embeds';
+export * as ModalList from './modals';
 export * as SelectMenuList from './selectMenu';

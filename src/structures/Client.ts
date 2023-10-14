@@ -1,4 +1,4 @@
-import { ButtonList, SelectMenuList } from '@discord-point-bot/components';
+import { ButtonList, ModalList, SelectMenuList } from '@discord-point-bot/components';
 import * as EventList from '@discord-point-bot/events';
 import * as SlashCommandList from '@discord-point-bot/slash-commands';
 
@@ -7,7 +7,6 @@ import { ActivityType, Collection, Client as Core, GatewayIntentBits } from 'dis
 import { map } from 'lodash';
 import { connect } from 'mongoose';
 import { createLogger, format, transports } from 'winston';
-import { PointModalUnit } from 'src/components/modals';
 
 export class Client extends Core {
   slashCommands = new Collection<string, DiscordType.ISlashCommand>();
@@ -65,7 +64,7 @@ export class Client extends Core {
     await Promise.all(map(buttons, async (button) => this.buttons.set(button.customId, button)));
   }
   private async loadModals() {
-    const modals: DiscordType.IModalSubmit[] = [PointModalUnit];
+    const modals: DiscordType.IModalSubmit[] = [...Object.values(ModalList)];
 
     await Promise.all(map(modals, async (modal) => this.modals.set(modal.customId, modal)));
   }
@@ -88,7 +87,7 @@ export class Client extends Core {
       this.loadButtons(),
       this.loadSelectMenu(),
       this.loadEvents(),
-      this.loadModals()
+      this.loadModals(),
     ]);
 
     await this.login(config.BOT_TOKEN);
