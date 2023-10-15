@@ -88,9 +88,9 @@
       "title": "Puan Listesinin Açıklanma Periyodu",
       "description": "Açıklama gelecek",
       "periods": {
-        "weekly": "Weekly",
-        "twoWeeks": "2 weeks",
-        "monthly": "Monthly"
+        "daily": "Günlük",
+        "weekly": "Haftalık",
+        "monthly": "Aylık"
       }
     },
     "logChannel": {

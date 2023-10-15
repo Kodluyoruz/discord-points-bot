@@ -22,7 +22,7 @@ export const SetupPeriodSelectMenu: DiscordType.ISelectMenu = {
       embed: {
         oldEmbed: interaction.message.embeds[0],
         title: translation('setup.period.selected', { lng }),
-        description: pointPeriod,
+        description: translation(`setup.period.periods.${pointPeriod.toLowerCase()}`, { lng }),
       },
       lng,
     });

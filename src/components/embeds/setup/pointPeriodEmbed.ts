@@ -1,4 +1,4 @@
-import { SelectMenuCustomId } from '@discord-point-bot/constants';
+import { SelectMenuCustomId, pointPeriod } from '@discord-point-bot/constants';
 import { GuildSettingsModel, IGuildSettings } from '@discord-point-bot/models';
 
 import translation from '@translation';
@@ -14,11 +14,11 @@ export const pointPeriodEmbed = async ({ client, interaction, lng }: DiscordType
     settings = await GuildSettingsModel.findOne({ guildId: guild.id }, 'point').lean();
   }
 
-  const periods = [
-    { label: translation('setup.period.periods.weekly', { lng }), value: '7' },
-    { label: translation('setup.period.periods.twoWeeks', { lng }), value: '14' },
-    { label: translation('setup.period.periods.monthly', { lng }), value: '30' },
-  ];
+  const periods = Object.values(pointPeriod).map((value) => ({
+    label: translation(`setup.period.periods.${value.toLowerCase()}`, { lng }),
+    value,
+    default: value === settings?.point?.period,
+  }));
 
   const periodsOptions = periods.map(({ label, value }) => ({
     label,
