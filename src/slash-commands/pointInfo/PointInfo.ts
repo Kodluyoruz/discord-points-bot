@@ -68,14 +68,14 @@ export const PointInfo: DiscordType.ISlashCommand = {
       const newEmbed = embed.setDescription(description);
       const newRow = row.setComponents(index > 0 ? [cancel, back, next] : [cancel, next]);
 
-      question.edit({ embeds: [newEmbed], components: [newRow] });
+      await question.edit({ embeds: [newEmbed], components: [newRow] });
 
-      button.deferUpdate();
+      await button.deferUpdate();
       collector.resetTimer();
     });
 
-    collector.on('end', (_, reason) => {
-      question.delete();
+    collector.on('end', async (_, reason) => {
+      await question.delete();
     });
   },
 };

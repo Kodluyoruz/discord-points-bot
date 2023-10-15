@@ -1,9 +1,9 @@
-import { Schema } from 'mongoose';
+import { Types } from 'mongoose';
 
 import { PointUnitType } from '../constants/PointUnitType';
 
 export interface IPointUnits {
-  _id: Schema.Types.ObjectId;
+  _id: Types.ObjectId;
   guildId: string;
   type: keyof typeof PointUnitType;
   title: string;

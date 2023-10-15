@@ -1,9 +1,6 @@
-/* eslint-disable no-var */
-import { PointUnitType, PointUnitsModel } from '@discord-point-bot/models';
+import { ButtonCustomId } from '@discord-point-bot/constants';
 
 import { ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } from 'discord.js';
-
-import { ButtonCustomId } from './../../../constants/customIds/ButtonCustomId';
 
 export const AddUnitButton: DiscordType.IButton = {
   customId: 'point_unit',
@@ -38,7 +35,5 @@ export const AddUnitButton: DiscordType.IButton = {
     modal.addComponents(firstActionRow, secondActionRow, thirdActionRow);
 
     await interaction.showModal(modal);
-
-
   },
 };

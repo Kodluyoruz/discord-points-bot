@@ -5,7 +5,6 @@ import {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
-  ComponentEmojiResolvable,
   ComponentType,
   EmbedBuilder,
   EmbedData,

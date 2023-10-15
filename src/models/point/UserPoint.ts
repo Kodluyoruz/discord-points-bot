@@ -38,7 +38,6 @@ type ReferralDataResult = {
   referredCount: number;
   pointUnit: IPointUnits;
 };
-
 type ReferralDataParams = {
   guildId: string;
   userId: string;
@@ -109,7 +108,7 @@ const UserPointSchema = new Schema<IUserPoint, IUserPointModel>(
           .lean();
 
         if (sendLog && userPoint) {
-          pointLog({
+          await pointLog({
             client: guild.client as Client,
             guild,
             userId,

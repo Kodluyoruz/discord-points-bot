@@ -4,7 +4,6 @@ import {
   AnySelectMenuInteraction,
   ApplicationCommand,
   ButtonInteraction,
-  CacheType,
   ChatInputCommandInteraction,
   ClientEvents,
   Locale,
@@ -20,12 +19,13 @@ declare global {
     export interface IVoice {
       date: number;
     }
+
     export interface SlashCommandArgs {
       client: Client;
       interaction:
-        | ChatInputCommandInteraction<CacheType>
-        | MessageContextMenuCommandInteraction<CacheType>
-        | UserContextMenuCommandInteraction<CacheType>;
+        | ChatInputCommandInteraction
+        | MessageContextMenuCommandInteraction
+        | UserContextMenuCommandInteraction;
       lng: Locale;
     }
 
@@ -44,27 +44,31 @@ declare global {
       lng: Locale;
     }
 
+    export interface SelectMenuArgs<T extends AnySelectMenuInteraction = AnySelectMenuInteraction> {
+      client: Client;
+      interaction: T;
+      lng: Locale;
+    }
+
     export interface IModalSubmit {
       customId: string;
       execute: (modalArgs: ModalArgs) => Promise<void> | void;
     }
+
     export interface ModalArgs {
       client: Client;
       interaction: ModalSubmitInteraction;
       lng: Locale;
     }
+
     export interface IButton {
       customId: keyof typeof ButtonCustomId;
-      execute: (buttondArgs: ButtonArgs) => Promise<unknown> | unknown;
+      execute: (buttonArgs: ButtonArgs) => Promise<unknown> | unknown;
     }
 
     export interface ISelectMenu<T extends AnySelectMenuInteraction = AnySelectMenuInteraction> {
       customId: keyof typeof SelectMenuCustomId;
-      execute: (buttondArgs: {
-        client: Client;
-        interaction: T;
-        lng: Locale;
-      }) => Promise<unknown> | unknown;
+      execute: (selectArgs: SelectMenuArgs<T>) => Promise<unknown> | unknown;
     }
 
     export interface IEvent {
