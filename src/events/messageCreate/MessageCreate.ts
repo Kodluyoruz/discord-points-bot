@@ -6,7 +6,9 @@ import { UserPointModel } from 'src/models/point';
 export const MessageCreate: DiscordType.IEvent = {
   name: Events.MessageCreate,
   execute: async (client, [message]: DiscordType.ArgsOf<'messageCreate'>) => {
-    if (message.author.bot || !message.guild) return;
+    if (message.author.bot || !message.guild) {
+      return;
+    }
 
     const [guild, userId, channelId, categoryId] = [
       message.guild,

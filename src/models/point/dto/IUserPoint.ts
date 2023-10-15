@@ -1,9 +1,15 @@
-export interface IUserPoint extends Document {
+import { Schema } from 'mongoose';
+import { IPointUnits } from 'src/models/pointUnits';
+
+export interface IUserPoint {
+  _id: Schema.Types.ObjectId;
   guildId: string;
   userId: string;
-  type: string;
+  type: IPointUnits;
   point: number;
   value: number;
   createdAt: Date;
   updatedAt: Date;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data?: any;
 }

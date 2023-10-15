@@ -1,11 +1,11 @@
 import { endOfDay, startOfDay } from 'date-fns';
 import { Guild } from 'discord.js';
 import { isEmpty } from 'lodash';
-import { Model, PipelineStage, Schema, Types, model } from 'mongoose';
+import { Model, PipelineStage, Schema, model } from 'mongoose';
 import { pointLog } from 'src/feature/logger/logger';
 import { Client } from 'src/structures/Client';
 
-import { PointUnitType, PointUnitsModel } from '../pointUnits';
+import { IPointUnits, PointUnitType, PointUnitsModel } from '../pointUnits';
 import { IUserPoint, ShowGlobalOrUserPointResult } from './dto';
 
 interface IUserPointModel extends Model<IUserPoint> {
@@ -36,6 +36,7 @@ type ShowGlobalOrUserPoint = {
 type ReferralDataResult = {
   referrerId: string;
   referredCount: number;
+  pointUnit: IPointUnits;
 };
 
 type ReferralDataParams = {
@@ -43,7 +44,7 @@ type ReferralDataParams = {
   userId: string;
 };
 
-const UserPointSchema = new Schema(
+const UserPointSchema = new Schema<IUserPoint, IUserPointModel>(
   {
     guildId: { type: String },
     userId: { type: String },
@@ -51,6 +52,8 @@ const UserPointSchema = new Schema(
     point: { type: Number },
     value: { type: Number },
     data: { type: Schema.Types.Mixed },
+    createdAt: { type: Date },
+    updatedAt: { type: Date },
   },
   {
     timestamps: true,
@@ -58,30 +61,28 @@ const UserPointSchema = new Schema(
     statics: {
       async pointAdd({ guild, userId, type, value, channelId, categoryId, data }: AddPointProps) {
         const guildId = guild.id;
-        const channelIds = [guildId, channelId, categoryId].filter(
-          (channel) => !!channel,
-        ) as string[];
-        const pointTypeList: Record<PointUnitType, { channelIds?: string[]; value: number }> = {
-          [PointUnitType.NONE]: { value: 0 },
-          [PointUnitType.VOICE]: { channelIds, value },
-          [PointUnitType.TEXT]: { channelIds, value },
-          [PointUnitType.INVITE]: { channelIds, value },
-          [PointUnitType.REPLY]: { channelIds, value },
+        const channelIds = [guildId, channelId, categoryId].filter((channel) => !!channel);
+        const pointTypeList: Record<PointUnitType, { channelIds?: string[] }> = {
+          [PointUnitType.NONE]: {},
+          [PointUnitType.VOICE]: { channelIds },
+          [PointUnitType.TEXT]: { channelIds },
+          [PointUnitType.INVITE]: {},
+          [PointUnitType.REPLY]: { channelIds },
         };
 
-        const { value: newValue, channelIds: ids } =
-          pointTypeList[type] || pointTypeList[PointUnitType.NONE];
+        const { channelIds: ids } = pointTypeList[type] || pointTypeList[PointUnitType.NONE];
+
+        const channelFilter = { channels: { $in: ids }, ignoreChannels: { $nin: ids } };
 
         const pointUnit = await PointUnitsModel.findOne({
           guildId,
           type,
-          channels: { $in: ids },
-          ignoreChannels: { $nin: ids },
+          ...(ids && channelFilter),
         })
           .select({ point: 1, _id: 1, sendLog: 1 })
           .lean();
 
-        if (!pointUnit || newValue < 1) {
+        if (!pointUnit || value < 1) {
           return;
         }
 
@@ -93,17 +94,30 @@ const UserPointSchema = new Schema(
         const filter = {
           userId,
           guildId,
-          type: new Types.ObjectId(_id),
+          type: _id,
           createdAt: { $gte: start, $lte: end },
           data,
         };
 
-        const object = await this.findOneAndUpdate(
+        const userPoint = await this.findOneAndUpdate(
           filter,
-          { $inc: { value: newValue }, point },
-          { upsert: true },
-        );
-        if (sendLog) pointLog(guild.client as Client, guild, userId, object.id, value);
+          { $inc: { value }, point },
+          { upsert: true, new: true },
+        )
+          .setOptions({ new: true, upsert: true })
+          .populate({ path: 'type' })
+          .lean();
+
+        if (sendLog && userPoint) {
+          pointLog({
+            client: guild.client as Client,
+            guild,
+            userId,
+            point: userPoint,
+            pointProp: { channelId, data },
+            value,
+          });
+        }
       },
 
       async getReferralData({ guildId, userId }: ReferralDataParams): Promise<ReferralDataResult> {
@@ -115,7 +129,7 @@ const UserPointSchema = new Schema(
             .select({ _id: 1 })
             .lean()) || {};
 
-        const [referrer, referredCount] = await Promise.all([
+        const [referrer, referredCount, pointUnit] = await Promise.all([
           this.findOne({
             guildId,
             userId,
@@ -131,9 +145,13 @@ const UserPointSchema = new Schema(
             type: pointUnitId,
             'data.referred': { $exists: true },
           }),
+          PointUnitsModel.findOne({
+            guildId,
+            type: PointUnitType.INVITE,
+          }).lean(),
         ]);
 
-        return { referrerId: referrer?.data?.referrer, referredCount };
+        return { referrerId: referrer?.data?.referrer, referredCount, pointUnit };
       },
 
       async showGlobalOrUserPoint({

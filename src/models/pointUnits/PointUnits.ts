@@ -1,11 +1,13 @@
 import { enumerate } from '@discord-point-bot/utils';
 
-import { Schema, model } from 'mongoose';
+import { Model, Schema, model } from 'mongoose';
 
 import { PointUnitType } from './constants/PointUnitType';
 import { IPointUnits } from './dto';
 
-const PointUnitsSchema = new Schema(
+type IUserPointModel = Model<IPointUnits>;
+
+export const PointUnitsSchema = new Schema<IPointUnits, IUserPointModel>(
   {
     guildId: { type: String, index: true, required: true },
     type: { type: String, index: true, required: true, enum: enumerate(PointUnitType) },
@@ -21,4 +23,4 @@ const PointUnitsSchema = new Schema(
   { timestamps: true, toJSON: { virtuals: true } },
 );
 
-export const PointUnitsModel = model<IPointUnits>('PointUnits', PointUnitsSchema);
+export const PointUnitsModel = model<IPointUnits, IUserPointModel>('PointUnits', PointUnitsSchema);

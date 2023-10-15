@@ -12,6 +12,8 @@ const GuildSettingsSchema = new Schema(
       period: { type: String },
       channelId: { type: String },
     },
+    createdAt: { type: Date },
+    updatedAt: { type: Date },
   },
   { timestamps: true, toJSON: { virtuals: true } },
 );

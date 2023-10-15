@@ -1,8 +1,11 @@
+import { Schema } from 'mongoose';
+
 import { PointUnitType } from '../constants/PointUnitType';
 
-export interface IPointUnits extends Document {
+export interface IPointUnits {
+  _id: Schema.Types.ObjectId;
   guildId: string;
-  type: PointUnitType;
+  type: keyof typeof PointUnitType;
   title: string;
   description: string;
   point: number;
@@ -11,4 +14,6 @@ export interface IPointUnits extends Document {
   ignoreChannels: string[];
   ignoreRoles: string[];
   sendLog: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 }

@@ -1,16 +1,18 @@
-import { GuildSettingsModel } from '@discord-point-bot/models';
+import { GuildSettingsModel, IUserPoint } from '@discord-point-bot/models';
 
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Guild } from 'discord.js';
-import { Types } from 'mongoose';
 import { Client } from 'src/structures/Client';
 
-async function pointLog(
-  client: Client,
-  guild: Guild,
-  userId: string,
-  _id: Types.ObjectId,
-  value: number,
-) {
+type PointLogParams = {
+  client: Client;
+  guild: Guild;
+  userId: string;
+  point: IUserPoint;
+  pointProp: { channelId?: string; data?: unknown };
+  value: number;
+};
+
+async function pointLog({ client, guild, userId, point, value }: PointLogParams) {
   const { logChannelId } = await GuildSettingsModel.findOne({ guildId: guild.id })
     .select('logChannelId')
     .lean();
@@ -37,18 +39,22 @@ async function pointLog(
   }
 
   if (!client.user) {
-    client.logger.error(`PointLog: client.user bulunamadı. `);
+    client.logger.error(`PointLog: client.user bulunamadı.`);
     return;
   }
 
   const logEmbed = new EmbedBuilder()
     .setColor(0x51da5e)
-    .setDescription(`<@${userId}>, ${value} puan kazandı!\n(${_id})`);
+    .setDescription(
+      `<@${userId}>, **${point.type?.title} (${
+        point.type?.type.toLowerCase() ?? 'none'
+      })** puan türünden \`${value * point.type.point}\` puan kazandı!`,
+    );
 
   const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
     new ButtonBuilder()
-      .setCustomId(`user_point_revert/${-value}/${_id}`)
-      .setLabel('Puanı Sil')
+      .setCustomId(`user_point_revert/${-value}/${point._id}`)
+      .setLabel('Puanı Geri Al')
       .setStyle(ButtonStyle.Primary),
   ]);
 

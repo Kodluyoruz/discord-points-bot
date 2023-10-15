@@ -1,4 +1,4 @@
-import { PointUnitType, UserPointModel } from '@discord-point-bot/models';
+import { IPointUnits, PointUnitType, UserPointModel } from '@discord-point-bot/models';
 
 import t from '@translation';
 import { Guild, GuildMember, Interaction, Locale, UserResolvable } from 'discord.js';
@@ -29,7 +29,7 @@ async function addPoints(guild: Guild, userId: string, referrerId: string) {
   });
 }
 
-type ReferralOutcome = 'default' | 'alreadyReferred' | 'userNotFound' | 'success';
+type ReferralOutcome = 'default' | 'alreadyReferred' | 'userNotFound' | 'success' | 'error';
 type ReferralResult = { result: ReferralOutcome; description?: string; referrer?: GuildMember };
 
 export async function getOutcome(params: ReferralParams): Promise<ReferralResult> {
@@ -38,7 +38,7 @@ export async function getOutcome(params: ReferralParams): Promise<ReferralResult
     guild,
     user: { id: userId },
   } = interaction;
-  const { referrerId, referredCount } = await UserPointModel.getReferralData({
+  const { referrerId, referredCount, pointUnit } = await UserPointModel.getReferralData({
     guildId: guild.id,
     userId,
   });
@@ -49,6 +49,8 @@ export async function getOutcome(params: ReferralParams): Promise<ReferralResult
 
   if (!selectedUser) {
     result = 'default';
+  } else if (!pointUnit) {
+    result = 'error';
   } else if (referrerMember) {
     result = 'alreadyReferred';
   } else if (!selectedMember || selectedMember.user.id === userId || selectedMember.user.bot) {
@@ -64,6 +66,7 @@ export async function getOutcome(params: ReferralParams): Promise<ReferralResult
     command: client.slashCommands.get(t('referral.command.name')),
     referredCount,
     referrer: referrerMember,
+    pointUnit,
     lang,
   });
 
@@ -84,6 +87,7 @@ export function getDescription({
   command,
   referredCount,
   referrer,
+  pointUnit,
   lang,
 }: {
   result: string;
@@ -91,6 +95,7 @@ export function getDescription({
   command: DiscordType.ISlashCommand;
   referredCount: number;
   referrer: GuildMember;
+  pointUnit: IPointUnits;
   lang: string;
 }) {
   return t(`referral.embed.${result}`, {
@@ -98,6 +103,11 @@ export function getDescription({
     command: { id: command.applicationCommand?.id, name: command.data.name },
     referredCount,
     referrer: referrer?.toString() || t('referral.embed.noReferral', { lang }),
+    pointUnit: pointUnit ?? {
+      title: t('referral.embed.noPointUnit', { lang }),
+      description: t('referral.embed.noPointUnit', { lang }),
+      point: 0,
+    },
     lang,
   });
 }

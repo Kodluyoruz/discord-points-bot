@@ -1,4 +1,4 @@
-export interface IGuildSettings extends Document {
+export interface IGuildSettings {
   guildId: string;
   adminChannelId?: string;
   logChannelId?: string;
