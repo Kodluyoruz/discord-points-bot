@@ -55,6 +55,24 @@
       "description": "Mevcut puan durumunuzu hakkında bilgi verir."
     }
   },
+  "pointLog": {
+    "embed": {
+      "prefix": "{{- user}}, {{- channel}}",
+      "suffix": "**{{givenPoints}}** puan alarak **{{totalPoints}}** puana ve **{{rank}}.** sıraya ulaştı.",
+      "type": {
+        "none": "$t(pointLog.embed.prefix) Bilinmiyor",
+        "invite": "$t(pointLog.embed.prefix){{refText}}\n$t(pointLog.embed.suffix)",
+        "voice": "$t(pointLog.embed.prefix) sesli kanalında geçirdiği **{{value}} dakika** sonucunda **{{point.type.title}}** görevini tamamladı.\n$t(pointLog.embed.suffix)",
+        "text": "$t(pointLog.embed.prefix) metin kanalında mesaj attığı için **{{point.type.title}}** görevini tamamladı.\n$t(pointLog.embed.suffix)",
+        "reply": "$t(pointLog.embed.type.text)"
+      },
+      "refText": {
+        "refferer": "arkadaşı <@{{refferer}}> tarafından davet edilerek **{{point.type.title}}** görevini tamamladı.",
+        "reffered": "arkadaşı <@{{reffered}}> kullanıcısını davet ederek **{{point.type.title}}** görevini tamamladı."
+      }
+    },
+    "revertButtonLabel": "Puanı Geri Al"
+  },
   "userPoints": {
     "description": "Tebrikler!\nSevgili **{{name}}**,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },

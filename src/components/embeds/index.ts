@@ -6,3 +6,5 @@ export { setupDoneEmbed } from './setup/setupDoneEmbed';
 export { settingsAdminEmbed } from './settings/settingsAdminEmbed';
 export { leaderboardEmbed } from './leaderboard/leaderboardEmbed';
 export { setupInfoEmbed } from './setup/setupInfoEmbed';
+export { soundRoomEmbed } from './soundRoom/soundRoomEmbed';
+export { pointLogEmbed } from './pointLog/pointLogEmbed';
