@@ -1,6 +1,13 @@
-import { GuildSettingsModel, IUserPoint } from '@discord-point-bot/models';
+import { pointLogEmbed } from '@discord-point-bot/components';
+import {
+  GuildSettingsModel,
+  IUserPoint,
+  ShowGlobalOrUserPointResult,
+  UserPointModel,
+} from '@discord-point-bot/models';
 
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Guild } from 'discord.js';
+import t from '@translation';
+import { Guild } from 'discord.js';
 import { Client } from 'src/structures/Client';
 
 type PointLogParams = {
@@ -12,7 +19,7 @@ type PointLogParams = {
   value: number;
 };
 
-async function pointLog({ client, guild, userId, point, value }: PointLogParams) {
+async function pointLog({ client, guild, userId, point, value, pointProp }: PointLogParams) {
   const { logChannelId } = await GuildSettingsModel.findOne({ guildId: guild.id })
     .select('logChannelId')
     .lean();
@@ -42,25 +49,45 @@ async function pointLog({ client, guild, userId, point, value }: PointLogParams)
     client.logger.error(`PointLog: client.user bulunamadı.`);
     return;
   }
+  const { channelId, data } = pointProp;
+  const { reffered, refferer } = data as { reffered?: string; refferer?: string };
+  const givenPoints = value * point.type.point;
+  const { rank, totalPoints } = (await UserPointModel.showGlobalOrUserPoint({
+    guildId: guild.id,
+    userId,
+  })) as ShowGlobalOrUserPointResult;
 
-  const logEmbed = new EmbedBuilder()
-    .setColor(0x51da5e)
-    .setDescription(
-      `<@${userId}>, **${point.type?.title} (${
-        point.type?.type.toLowerCase() ?? 'none'
-      })** puan türünden \`${value * point.type.point}\` puan kazandı!`,
-    );
+  const embedColor = {
+    TEXT: 0x57f287,
+    VOICE: 0x5865f2,
+    INVITE: 0xfee75c,
+    REPLY: 0xeb459e,
+    NONE: 0xed4245,
+  };
 
-  const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
-    new ButtonBuilder()
-      .setCustomId(`user_point_revert/${-value}/${point._id}`)
-      .setLabel('Puanı Geri Al')
-      .setStyle(ButtonStyle.Primary),
-  ]);
-
+  const description = t(`pointLog.embed.type.${point.type?.type.toLocaleLowerCase() ?? 'none'}`, {
+    user: `<@${userId}>`,
+    channel: channelId ? `<#${channelId}>` : '',
+    value,
+    totalPoints,
+    givenPoints,
+    rank,
+    point,
+    refText: refferer
+      ? t('pointLog.embed.refText.refferer', { refferer })
+      : reffered
+      ? t('pointLog.embed.refText.reffered', { reffered })
+      : null,
+  });
+  const embedProps = {
+    color: embedColor[point.type?.type],
+    description,
+    buttonId: `user_point_revert/${-value}/${point._id}`,
+  };
+  const { embed, row } = pointLogEmbed({ client, embedProps });
   try {
     await logChannel.send({
-      embeds: [logEmbed],
+      embeds: [embed],
       components: [row],
     });
   } catch (error) {
