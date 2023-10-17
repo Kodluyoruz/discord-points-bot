@@ -67,8 +67,8 @@
         "reply": "$t(pointLog.embed.type.text)"
       },
       "refText": {
-        "refferer": "arkadaşı <@{{refferer}}> tarafından davet edilerek **{{point.type.title}}** görevini tamamladı.",
-        "reffered": "arkadaşı <@{{reffered}}> kullanıcısını davet ederek **{{point.type.title}}** görevini tamamladı."
+        "refferer": "arkadaşı <@{{data.refferer}}> tarafından davet edilerek **{{point.type.title}}** görevini tamamladı.",
+        "reffered": "arkadaşı <@{{data.reffered}}> kullanıcısını davet ederek **{{point.type.title}}** görevini tamamladı."
       }
     },
     "revertButtonLabel": "Puanı Geri Al"
