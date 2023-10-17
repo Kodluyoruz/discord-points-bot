@@ -49,8 +49,8 @@ async function pointLog({ client, guild, userId, point, value, pointProp }: Poin
     client.logger.error(`PointLog: client.user bulunamadı.`);
     return;
   }
-  const { channelId, data } = pointProp;
-  const { reffered, refferer } = data as { reffered?: string; refferer?: string };
+  const { channelId } = pointProp;
+  const { data } = pointProp as { data: { refferer?: string; reffered?: string } };
   const givenPoints = value * point.type.point;
   const { rank, totalPoints } = (await UserPointModel.showGlobalOrUserPoint({
     guildId: guild.id,
@@ -73,10 +73,10 @@ async function pointLog({ client, guild, userId, point, value, pointProp }: Poin
     givenPoints,
     rank,
     point,
-    refText: refferer
-      ? t('pointLog.embed.refText.refferer', { refferer })
-      : reffered
-      ? t('pointLog.embed.refText.reffered', { reffered })
+    refText: data?.refferer
+      ? t('pointLog.embed.refText.refferer', { data })
+      : data?.reffered
+      ? t('pointLog.embed.refText.reffered', { data })
       : null,
   });
   const embedProps = {
