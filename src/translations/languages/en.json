@@ -1,7 +1,4 @@
 {
-  "ping": {
-    "success": "successful"
-  },
   "common": {
     "accept": "Accept",
     "decline": "Decline",
@@ -17,7 +14,7 @@
   },
   "pointInfos": {
     "title": "How Do I Earn Points?",
-    "author": "{{name}} Scoring Bot",
+    "author": "{{name}} Points Bot",
     "step": [
       {
         "description": "Earn **5 POINTS** by Sending Messages in Channels!\n\nStarting conversations and increasing interaction among our community members is one of our top priorities! You will earn points for each message that meets specific criteria!"
@@ -39,7 +36,11 @@
       }
     ],
     "command": {
-      "description": "Provides information about your current points status."
+      "description": "Provides information about your current points status.",
+      "builder": {
+        "description": "Provides information about your current score status.",
+        "name": "point"
+      }
     }
   },
   "userPoints": {
@@ -78,6 +79,18 @@
       "label": "Go to Admin Channel",
       "title": "Setup Completed",
       "description": "You can continue to other settings from the admin channel."
+    },
+    "infoChannel": {
+      "placeholder": "Select the Information Channel.",
+      "description": "Description will come",
+      "selected": "Information Channel Selected.",
+      "title": "Select Information Channel."
+    },
+    "pointChannel": {
+      "description": "Description will come",
+      "placeholder": "Select Point Channel.",
+      "selected": "Point Channel Selected.",
+      "title": "Select Point Channel."
     }
   },
   "settings": {
@@ -106,14 +119,73 @@
         }
       }
     },
-    "author": "{{name}} Scoring Bot",
+    "author": "{{name}} Points Bot",
     "embed": {
       "noReferral": "No Inviters",
       "success": "You have accepted the invitation from {{- referrer}}.\n\n\n$t(referral.embed.default)",
       "userNotFound": "Invitation code or user not found.\n\n\n$t(referral.embed.default)",
       "default": "Your invitation code: `{{code}}`\n\n\nYour friends can use </{{command.name}}:{{command.id}}> with this invitation code and you and your friends can earn up to 100 points when they sign up with your invitation code.\n\n\nUser who invited you: {{- referrer}}\n\n\nNumber of users who accepted your invitation: {{referredCount}}",
       "alreadyReferred": "You have already registered to the server with the reference of user {{- referrer}}.\n\n\n$t(referral.embed.default)",
-      "selectReferrer": "Select Inviter"
+      "selectReferrer": "Select Inviter",
+      "error": "An error has occurred or the invite system is not yet active on the server.",
+      "noPointUnit": "**Invitation System Not Active**"
     }
+  },
+  "askQuestion": {
+    "description": "Congratulations!\nDear **{{name}}**,\nYou contacted with people on the {{channel}} channel for any questions you may have and\nYou won {{roomPoint}}!\nBetween {{period}}\n**[your total score is {{points}} and you are ranked {{place}}!](https://kodluyoruz.org)**"
+  },
+  "info": {
+    "button": {
+      "howToEarnPoints": "How Do I Earn Points?"
+    }
+  },
+  "introduceYourself": {
+    "description": "Congratulations!\nDear **{{name}}**,\nYou won {{roomPoint}} for your network start step on {{channel}} channel!\nBetween {{period}}\n**[your total score is {{points}} and you are ranked {{place}}!](https://kodluyoruz.org)**"
+  },
+  "pointLog": {
+    "embed": {
+      "prefix": "{{- user}}, {{- channel}}",
+      "refText": {
+        "referred": "completed the quest **{{point.type.title}}** by inviting their friend <@{{data.referred}}>.",
+        "referrer": "invited by their friend <@{{data.referrer}}>, they completed the quest **{{point.type.title}}**."
+      },
+      "suffix": "by gaining **{{givenPoints}}** points, they reached **{{totalPoints}}** points and **{{rank}}**.",
+      "type": {
+        "none": "$t(pointLog.embed.prefix) Unknown",
+        "invite": "$t(pointLog.embed.prefix){{refText}}\n$t(pointLog.embed.suffix)",
+        "text": "$t(pointLog.embed.prefix) completed their quest **{{point.type.title}}** by sending a message in the text channel.\n$t(pointLog.embed.suffix)",
+        "reply": "$t(pointLog.embed.type.text)",
+        "voice": "$t(pointLog.embed.prefix) completed their **{{point.type.title}}** quest after **{{value}} minute(s)** spent on the voice channel.\n$t(pointLog.embed.suffix)"
+      }
+    },
+    "revertButtonLabel": "Revert Point"
+  },
+  "pointUnit": {
+    "command": {
+      "builder": {
+        "description": "Creating Point Notification",
+        "name": "unit"
+      }
+    },
+    "author": "{{name}} Points Bot",
+    "common": {
+      "addUnit": "Add New Point Unit",
+      "infoUnit": "See Point Units",
+      "roomSelection": "Return to Room Selection"
+    },
+    "description": "**Welcome to Point Units**\n\nHello our dear moderator,\nYou can organize point systems that will increase social and cultural sharing among users who add value to Kodluyoruz through the points unit.",
+    "title": "Kodluyoruz Points Bot"
+  },
+  "reference": {
+    "description": "Congratulations!\nDear **{{name}}**,\nWith the /reference command, your friend {{member}} joined Kodluyoruz and\nWe are excited for what you and your friend will contribute.\nYou earned {{roomPoint}} points!\nBetween {{period}}\n**[your total score is {{points}} and you are ranked {{place}}!](https://kodluyoruz.org)**"
+  },
+  "sendMessageToChannel": {
+    "description": "Congratulations!\nDear **{{name}}**,\nYou earned {{roomPoint}} for the message you sent to {{channel}}!\nBetween {{period}}\n**[your total score is {{points}} and you are ranked {{place}}!](https://kodluyoruz.org)**"
+  },
+  "soundRoom": {
+    "description": "Congratulations!\nDear **{{name}}**,\nThe time you spent on {{channel}} is {{spendingTime}}\nThe minutes you spare to develop/improve at Kodluyoruz are valuable to us.\nBecause it is valuable, you earn {{roomPoint}}, 2 points every minute!\nBetween {{period}}\n**[your total score is {{points}} and you are ranked {{place}}!](https://kodluyoruz.org)**"
+  },
+  "transferOfInformation": {
+    "description": "Congratulations!\nDear **{{name}}**,\nThank you for your shares on the #{{channel}} channel for adding value to Kodluyoruz members, you earned {{roomPoint}} points!\nBetween {{period}}\n**[your total score is {{points}} and you are ranked {{place}}!](https://kodluyoruz.org)**"
   }
 }
