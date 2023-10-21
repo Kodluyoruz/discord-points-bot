@@ -1,4 +1,4 @@
-import t, { localization } from '@translation';
+import { nameAndDescT } from '@translation';
 import {
   ActionRowBuilder,
   ButtonBuilder,
@@ -6,16 +6,12 @@ import {
   ComponentType,
   SlashCommandBuilder,
 } from 'discord.js';
-
-import { pointUnitEmbed } from '../../components/embeds/pointUnit/pointUnitEmbed';
+import { pointUnitEmbed } from 'src/components/embeds/pointUnit/pointUnitEmbed';
 
 export const PointUnit: DiscordType.ISlashCommand = {
-  data: new SlashCommandBuilder()
-    .setName('unit')
-    .setDescription(t('pointInfos.command.description'))
-    .setDescriptionLocalizations(localization('pointUnit.command.description')),
-  execute: async ({ client, interaction, lng }) => {
-    const { embed, roomSelection, addUnit, infoUnit } = pointUnitEmbed({ client });
+  data: nameAndDescT('pointUnit.command.builder', new SlashCommandBuilder()),
+  execute: async ({ client, interaction, t }) => {
+    const { embed, roomSelection, addUnit, infoUnit } = pointUnitEmbed({ client, t });
 
     roomSelection.setLabel(t('pointUnit.common.roomSelection', { first: '0' }));
     addUnit.setLabel(t('pointUnit.common.addUnit', { first: '1' }));
@@ -29,7 +25,7 @@ export const PointUnit: DiscordType.ISlashCommand = {
 
     const question = await interaction.reply({
       components: [row],
-      embeds: [embed.setDescription(t(`pointUnit.description`, { lng }))],
+      embeds: [embed.setDescription(t(`pointUnit.description`))],
     });
 
     const collector = question.createMessageComponentCollector({
@@ -39,6 +35,7 @@ export const PointUnit: DiscordType.ISlashCommand = {
 
     collector.on('collect', async (button: ButtonInteraction) => {
       if (button.customId === 'addUnit') {
+        /* empty */
       }
     });
   },

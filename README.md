@@ -16,7 +16,10 @@
 
 ## About the Project 📜
 
-Kodluyoruz team and Kodluyoruz Open Source volunteers have prepared a Discord points bot that is customizable, user-friendly and creates an automatic scoring system to be used on Discord servers. This scoring system is a tool to track the participation of members in activities on the server, reward active members, and help improve the community experience. It will assist server administrators in streamlining these processes.
+Kodluyoruz team and Kodluyoruz Open Source volunteers have prepared a Discord points bot that is customizable,
+user-friendly and creates an automatic scoring system to be used on Discord servers. This scoring system is a tool to
+track the participation of members in activities on the server, reward active members, and help improve the community
+experience. It will assist server administrators in streamlining these processes.
 
 ## Table of Contents 📑
 
@@ -26,7 +29,7 @@ Kodluyoruz team and Kodluyoruz Open Source volunteers have prepared a Discord po
   - [Installation](#installation)
   - [Versions](#versions)
 - [Screenshots 📷](#screenshots-)
-- [Features 🖥️](#features-️)
+- [Features 🖥️](#features-)
   - [User](#user)
   - [Moderation](#moderation)
 - [Contributors 👩‍💻](#contributors-)
@@ -40,21 +43,29 @@ Kodluyoruz team and Kodluyoruz Open Source volunteers have prepared a Discord po
 
 ### Requirements
 
-[Discord.js](https://discord.js.org/#/) v14.13.0 requires [TypeScript](https://www.typescriptlang.org/) v5.2.2 and [Node.js](https://nodejs.org/en/download) v16.11.0 or newer.
+[Discord.js](https://discord.js.org/#/) v14.13.0 requires [TypeScript](https://www.typescriptlang.org/) v5.2.2
+and [Node.js](https://nodejs.org/en/download) v16.11.0 or newer.
 
-To store project data, it requires [MongoDB](https://www.mongodb.com/) database. To make the bot work, you need to create a bot on the [Discord Developer Portal](https://discord.com/developers/applications). For detailed information on creating a Discord bot, you can refer to the [Discord Bot Application Instructions](./docs/BotRegistration.md) document.
+To store project data, it requires [MongoDB](https://www.mongodb.com/) database. To make the bot work, you need to
+create a bot on the [Discord Developer Portal](https://discord.com/developers/applications). For detailed information on
+creating a Discord bot, you can refer to the [Discord Bot Application Instructions](./docs/BotRegistration.md) document.
 
 ### Installation
 
 For more information on how to use and run the project, you can read the following text.
 
-Make sure you have Node.js installed, preferably the LTS version or a newer one. If Node.js is not installed, you can download and install it from the following website: <https://nodejs.org/en/>
+Make sure you have Node.js installed, preferably the LTS version or a newer one. If Node.js is not installed, you can
+download and install it from the following website: <https://nodejs.org/en/>
 
-Ensure that MongoDB is installed. If MongoDB is not installed, you can download and install it from the following website: <https://www.mongodb.com/>
+Ensure that MongoDB is installed. If MongoDB is not installed, you can download and install it from the following
+website: <https://www.mongodb.com/>
 
-You can also use an existing MongoDB database. To create a MongoDB database, you can use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+You can also use an existing MongoDB database. To create a MongoDB database, you can
+use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
 
-Clone this project or download it to your device by clicking the "Download ZIP" button under the "Code" button on the project page and extract the contents of the zip file to your working directory. To clone it, you can use the following command:
+Clone this project or download it to your device by clicking the "Download ZIP" button under the "Code" button on the
+project page and extract the contents of the zip file to your working directory. To clone it, you can use the following
+command:
 
 ```bash
 git clone https://github.com/Kodluyoruz/discord-points-bot
@@ -62,7 +73,9 @@ git clone https://github.com/Kodluyoruz/discord-points-bot
 
 In the console, run `yarn install` or `npm install` to install the required dependencies.
 
-Create a `.env` file and create a variable named `BOT_TOKEN` to assign your bot's token. You can obtain your token from the Discord Developer Portal. For the MongoDB database, create a variable named `DBACCESS` and assign the MongoDB connection string. You can create your configuration file as follows:
+Create a `.env` file and create a variable named `BOT_TOKEN` to assign your bot's token. You can obtain your token from
+the Discord Developer Portal. For the MongoDB database, create a variable named `DBACCESS` and assign the MongoDB
+connection string. You can create your configuration file as follows:
 
 ```sh
 BOT_TOKEN=your-discord-bot-token-goes-here
@@ -73,12 +86,12 @@ To run your bot, enter the following command in the console: `yarn start` or `np
 
 ### Versions
 
-| Technology  | Versions   |
-| ----------- | ---------- |
-| discord.js  | v14.13.0   |
-| i18next     | v23.5.1    |
-| Mongoose    | v7.5.1     |
-| Winston     | v3.10.0    |
+| Technology | Versions |
+| ---------- | -------- |
+| discord.js | v14.13.0 |
+| i18next    | v23.5.1  |
+| Mongoose   | v7.5.1   |
+| Winston    | v3.10.0  |
 
 <p align="right">(<a href="#readme-top"> back to top </a>)</p>
 
@@ -95,16 +108,22 @@ To run your bot, enter the following command in the console: `yarn start` or `np
 
 - ⚡ **Bot Guide** - You can become familiar with the system with a specially tailored guide on how to earn points.
 - ⚡ **Easy Join** - You can easily join the point system and start earning points quickly.
-- ⚡ **Earning Points** - You can earn points through various actions such as sending messages, inviting friends and being in voice channels.
-- ⚡ **Point Status** - Through a specially designed UI, you can easily access real-time point status and ranking of users.
-- ⚡ **User Activity** - With the user statistics card, you can personally track your activity on the server, including server rank, message statistics, and voice activity.
-- ⚡ **Dynamic Notifications** - You can easily follow notifications related to your point status and stay informed about your point activity.
+- ⚡ **Earning Points** - You can earn points through various actions such as sending messages, inviting friends and
+  being in voice channels.
+- ⚡ **Point Status** - Through a specially designed UI, you can easily access real-time point status and ranking of
+  users.
+- ⚡ **User Activity** - With the user statistics card, you can personally track your activity on the server, including
+  server rank, message statistics, and voice activity.
+- ⚡ **Dynamic Notifications** - You can easily follow notifications related to your point status and stay informed about
+  your point activity.
 - ...
 
 ### Moderation
 
-- ⚡ **Easy Setup** - After adding the bot to the server, you can easily and quickly set it up by following the instructions.
-- ⚡ **Dynamic Structure** - In addition to earning points with standard types such as voice, message, and invitation, it can be customized by the moderator.
+- ⚡ **Easy Setup** - After adding the bot to the server, you can easily and quickly set it up by following the
+  instructions.
+- ⚡ **Dynamic Structure** - In addition to earning points with standard types such as voice, message, and invitation, it
+  can be customized by the moderator.
 - ⚡ **Language Support** - Multi-language support can be provided with Turkish and English.
 - ⚡ **Point Management** - In case of abuse, the moderator can intervene in the user's points.
 - ⚡ **Period Management** - The ranking can be listed in different periods by the moderator.
@@ -115,6 +134,7 @@ To run your bot, enter the following command in the console: `yarn start` or `np
 ## Contributors 👩‍💻
 
 Thank you for contributions. We appreciate everyone who contributes.
+
 <table>
   <tbody>
     <tr>
@@ -224,14 +244,18 @@ Thank you for contributions. We appreciate everyone who contributes.
 
 ## Code of Conduct 🎯
 
-To ensure a safe and respectful environment for everyone in this community, we kindly ask you to adhere to the rules in the [CODE_OF_CONDUCT.md](/docs/CODE_OF_CONDUCT.md) file.
+To ensure a safe and respectful environment for everyone in this community, we kindly ask you to adhere to the rules in
+the [CODE_OF_CONDUCT.md](/docs/CODE_OF_CONDUCT.md) file.
 
 ## Contributing 👨‍💻
 
-If you would like to contribute to the project, please read the [CONTRIBUTING.md](/docs/CONTRIBUTING.md) file. This document contains information on how you can contribute to the project, coding and debugging instructions, feedback submission guidelines and other topics.
+If you would like to contribute to the project, please read the [CONTRIBUTING.md](/docs/CONTRIBUTING.md) file. This
+document contains information on how you can contribute to the project, coding and debugging instructions, feedback
+submission guidelines and other topics.
 
 ## License ©
 
-This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license. You can find details of this license in the [LICENSE](LICENSE) file.
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license. You can find details of this
+license in the [LICENSE](LICENSE) file.
 
 <p align="right">(<a href="#readme-top"> back to top </a>)</p>

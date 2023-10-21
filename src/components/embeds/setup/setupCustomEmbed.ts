@@ -1,8 +1,6 @@
-import { ButtonCustomId, SelectMenuCustomId } from '@discord-point-bot/constants';
-
 import {
-  APIMessageComponentEmoji,
   ActionRowBuilder,
+  APIMessageComponentEmoji,
   ButtonBuilder,
   ButtonStyle,
   ComponentType,
@@ -14,10 +12,14 @@ import {
 } from 'discord.js';
 import { Client } from 'src/structures/Client';
 
+import { ButtonCustomId, SelectMenuCustomId } from '@discord-point-bot/constants';
+
 type SetupPeriodEmbedProps = {
   client: Client;
   guild: Guild;
-  menu?: Partial<StringSelectMenuComponentData> & { customId?: keyof typeof SelectMenuCustomId };
+  menu?: Partial<StringSelectMenuComponentData> & {
+    customId?: keyof typeof SelectMenuCustomId;
+  };
   embed: EmbedData;
   button?: {
     customId?: keyof typeof ButtonCustomId;
@@ -29,7 +31,7 @@ type SetupPeriodEmbedProps = {
   };
 };
 
-export const setupCustumEmbed = async ({
+export const setupCustomEmbed = async ({
   guild,
   client,
   menu,
@@ -39,7 +41,7 @@ export const setupCustumEmbed = async ({
   const row = new ActionRowBuilder<StringSelectMenuBuilder | ButtonBuilder>();
 
   if (menu) {
-    const { customId, disabled, options, placeholder, type } = menu;
+    const { customId, disabled, options, placeholder } = menu;
     const select = new StringSelectMenuBuilder({
       customId,
       disabled,

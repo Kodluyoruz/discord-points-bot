@@ -1,16 +1,16 @@
+import { setupRoutes } from 'src/components/Buttons/setup/routes';
+
 import { ButtonCustomId } from '@discord-point-bot/constants';
 import { GuildSettingsModel } from '@discord-point-bot/models';
 
-import { setupRoutes } from './routes';
-
-export const SetupStartButton = async ({ client, interaction, lng }: DiscordType.ButtonArgs) => {
+export const SetupStartButton = async ({ client, interaction, lng, t }: DiscordType.ButtonArgs) => {
   const settings = await GuildSettingsModel.findOne({ guildId: interaction.guild.id })
     .select('logChannelId adminChannelId point infoChannelId')
     .lean();
 
   const { logChannelId, adminChannelId, point, infoChannelId } = settings || {};
 
-  const subCustumId: keyof (typeof ButtonCustomId)['setup'] = !logChannelId
+  const subCustomId: keyof (typeof ButtonCustomId)['setup'] = !logChannelId
     ? 'log_channel'
     : !adminChannelId
     ? 'admin_channel'
@@ -18,11 +18,11 @@ export const SetupStartButton = async ({ client, interaction, lng }: DiscordType
     ? 'info_channel'
     : !point?.channelId
     ? 'point_channel'
-    : !point?.period
-    ? 'point_period'
-    : 'done';
+    : point?.period
+    ? 'done'
+    : 'point_period';
 
-  const button = setupRoutes.find(({ custumId }) => custumId === subCustumId);
+  const button = setupRoutes.find(({ customId }) => customId === subCustomId);
 
-  return await button.execute({ client, interaction: interaction, lng });
+  return await button.execute({ client, interaction: interaction, lng, t });
 };

@@ -1,9 +1,8 @@
-import { ButtonCustomId } from '@discord-point-bot/constants';
-
-import t from '@translation';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from 'discord.js';
 
-export const setupInfoEmbed = async ({ client }: DiscordType.ButtonArgs) => {
+import { ButtonCustomId } from '@discord-point-bot/constants';
+
+export const setupInfoEmbed = async ({ client, t }: DiscordType.ButtonArgs) => {
   const howToEarnPointsButton = new ButtonBuilder()
     .setCustomId(ButtonCustomId.info.point)
     .setLabel(t('info.button.howToEarnPoints'))

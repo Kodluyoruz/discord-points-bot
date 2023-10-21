@@ -1,3 +1,7 @@
+import { translation } from '@translation';
+import { Guild } from 'discord.js';
+import { Client } from 'src/structures/Client';
+
 import { pointLogEmbed } from '@discord-point-bot/components';
 import {
   GuildSettingsModel,
@@ -6,20 +10,20 @@ import {
   UserPointModel,
 } from '@discord-point-bot/models';
 
-import t from '@translation';
-import { Guild } from 'discord.js';
-import { Client } from 'src/structures/Client';
-
 type PointLogParams = {
   client: Client;
   guild: Guild;
   userId: string;
   point: IUserPoint;
-  pointProp: { channelId?: string; data?: unknown };
+  pointProp: {
+    channelId?: string;
+    data?: unknown;
+  };
   value: number;
+  t: typeof translation;
 };
 
-async function pointLog({ client, guild, userId, point, value, pointProp }: PointLogParams) {
+async function pointLog({ client, guild, userId, point, value, pointProp, t }: PointLogParams) {
   const { logChannelId } = await GuildSettingsModel.findOne({ guildId: guild.id })
     .select('logChannelId')
     .lean();
@@ -50,7 +54,12 @@ async function pointLog({ client, guild, userId, point, value, pointProp }: Poin
     return;
   }
   const { channelId } = pointProp;
-  const { data } = pointProp as { data: { refferer?: string; reffered?: string } };
+  const { data } = pointProp as {
+    data: {
+      referrer?: string;
+      referred?: string;
+    };
+  };
   const givenPoints = value * point.type.point;
   const { rank, totalPoints } = (await UserPointModel.showGlobalOrUserPoint({
     guildId: guild.id,
@@ -73,10 +82,10 @@ async function pointLog({ client, guild, userId, point, value, pointProp }: Poin
     givenPoints,
     rank,
     point,
-    refText: data?.refferer
-      ? t('pointLog.embed.refText.refferer', { data })
-      : data?.reffered
-      ? t('pointLog.embed.refText.reffered', { data })
+    refText: data?.referrer
+      ? t('pointLog.embed.refText.referrer', { data })
+      : data?.referred
+      ? t('pointLog.embed.refText.referred', { data })
       : null,
   });
   const embedProps = {
@@ -84,7 +93,7 @@ async function pointLog({ client, guild, userId, point, value, pointProp }: Poin
     description,
     buttonId: `user_point_revert/${-value}/${point._id}`,
   };
-  const { embed, row } = pointLogEmbed({ client, embedProps });
+  const { embed, row } = pointLogEmbed({ client, embedProps, t });
   try {
     await logChannel.send({
       embeds: [embed],

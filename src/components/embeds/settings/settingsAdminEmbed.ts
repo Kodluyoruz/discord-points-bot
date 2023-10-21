@@ -1,6 +1,4 @@
-import { ButtonCustomId } from '@discord-point-bot/constants';
-
-import translation from '@translation';
+import { translation } from '@translation';
 import {
   ActionRowBuilder,
   ButtonBuilder,
@@ -11,18 +9,25 @@ import {
 } from 'discord.js';
 import { Client } from 'src/structures/Client';
 
-type SettingsAdminEmbed = { client: Client; guild: Guild; lng: Locale };
+import { ButtonCustomId } from '@discord-point-bot/constants';
 
-export const settingsAdminEmbed = async ({ guild, client, lng }: SettingsAdminEmbed) => {
+type SettingsAdminEmbed = {
+  client: Client;
+  guild: Guild;
+  lng: Locale;
+  t: typeof translation;
+};
+
+export const settingsAdminEmbed = async ({ guild, client, t }: SettingsAdminEmbed) => {
   const settingsButton = new ButtonBuilder()
     .setCustomId(ButtonCustomId.settings)
     .setStyle(ButtonStyle.Secondary)
-    .setLabel(translation('common.setting', { lng }));
+    .setLabel(t('common.setting'));
 
   const newPointUnitButton = new ButtonBuilder()
     .setCustomId(ButtonCustomId.point_unit.add)
     .setStyle(ButtonStyle.Success)
-    .setLabel(translation('settings.pointUnit', { lng }));
+    .setLabel(t('settings.pointUnit'));
 
   const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
     settingsButton,
@@ -31,13 +36,13 @@ export const settingsAdminEmbed = async ({ guild, client, lng }: SettingsAdminEm
 
   const embed = new EmbedBuilder()
     .setColor(0x0099ff)
-    .setTitle(translation('settings.menu', { lng }))
+    .setTitle(t('settings.menu'))
     .setAuthor({
-      name: translation('setup.firstEntry.author', { name: guild.name, lng }),
+      name: t('setup.firstEntry.author', { name: guild.name }),
       iconURL: client.user.displayAvatarURL(),
     })
     .setThumbnail(guild.iconURL())
-    .setDescription(translation('settings.description', { lng }));
+    .setDescription(t('settings.description'));
 
   return { embed, row };
 };

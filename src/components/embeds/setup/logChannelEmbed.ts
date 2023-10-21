@@ -1,13 +1,12 @@
+import { ChannelType } from 'discord.js';
+import { setupCustomEmbed } from 'src/components/embeds/setup/setupCustomEmbed';
+
 import { SelectMenuCustomId } from '@discord-point-bot/constants';
 import { GuildSettingsModel, IGuildSettings } from '@discord-point-bot/models';
 
-import translation from '@translation';
-import { ChannelType } from 'discord.js';
-import { setupCustumEmbed } from 'src/components/embeds/setup/setupCustumEmbed';
-
-export const logChannelEmbed = async ({ client, interaction, lng }: DiscordType.ButtonArgs) => {
+export const logChannelEmbed = async ({ client, interaction, t }: DiscordType.ButtonArgs) => {
   const { guild, customId } = interaction;
-  const [root, pathname, action] = customId.split('/');
+  const [, , action] = customId.split('/');
 
   let settings: IGuildSettings;
 
@@ -22,18 +21,18 @@ export const logChannelEmbed = async ({ client, interaction, lng }: DiscordType.
     default: id === settings?.logChannelId,
   }));
 
-  const { newEmbed, row } = await setupCustumEmbed({
+  const { newEmbed, row } = await setupCustomEmbed({
     client,
     guild,
     menu: {
       customId: SelectMenuCustomId.log_channel,
-      placeholder: translation('setup.logChannel.placeholder', { lng }),
+      placeholder: t('setup.logChannel.placeholder'),
       options,
     },
     embed: {
-      title: translation('setup.logChannel.title', { lng }),
-      author: { name: translation('setup.firstEntry.author', { name: guild.name, lng }) },
-      description: translation('setup.logChannel.description', { lng }),
+      title: t('setup.logChannel.title'),
+      author: { name: t('setup.firstEntry.author', { name: guild.name }) },
+      description: t('setup.logChannel.description'),
     },
   });
 

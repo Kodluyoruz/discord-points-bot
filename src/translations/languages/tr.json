@@ -7,7 +7,10 @@
     "description": "**Puan Birimlerine Hoşgeldiniz**\n\nMerhaba sevgili moderatörümüz,\nPuan birimi üzerinden Kodluyoruz'a deger katan kullanicilarn arasinda sosyal ve kültürel paylasimi arttirmayi saglayacak puanlama sistemlerini düzenleyebilirsin.",
     "author": "{{name}} Puanlama Botu",
     "command": {
-      "description": "Puan Bildirimi Oluşturma"
+      "builder": {
+        "name": "unit",
+        "description": "Puan Bildirimi Oluşturma"
+      }
     },
     "common": {
       "roomSelection": "Oda Seçimine Dön",
@@ -52,7 +55,10 @@
       }
     ],
     "command": {
-      "description": "Mevcut puan durumunuzu hakkında bilgi verir."
+      "builder": {
+        "name": "point",
+        "description": "Mevcut puan durumunuzu hakkında bilgi verir."
+      }
     }
   },
   "pointLog": {
@@ -67,8 +73,8 @@
         "reply": "$t(pointLog.embed.type.text)"
       },
       "refText": {
-        "refferer": "arkadaşı <@{{data.refferer}}> tarafından davet edilerek **{{point.type.title}}** görevini tamamladı.",
-        "reffered": "arkadaşı <@{{data.reffered}}> kullanıcısını davet ederek **{{point.type.title}}** görevini tamamladı."
+        "referrer": "arkadaşı <@{{data.referrer}}> tarafından davet edilerek **{{point.type.title}}** görevini tamamladı.",
+        "referred": "arkadaşı <@{{data.referred}}> kullanıcısını davet ederek **{{point.type.title}}** görevini tamamladı."
       }
     },
     "revertButtonLabel": "Puanı Geri Al"
@@ -157,10 +163,20 @@
   },
   "referral": {
     "command": {
-      "description": "Referans işlemleri için bu komutu kullanabilirsiniz",
-      "code": "kullanıcı davet kodu",
-      "user": "davet eden kullanıcı",
-      "name": "referans"
+      "builder": {
+        "name": "referans",
+        "description": "Referans işlemleri için bu komutu kullanabilirsiniz"
+      },
+      "options": {
+        "code": {
+          "name": "code",
+          "description": "kullanıcı davet kodu"
+        },
+        "user": {
+          "name": "user",
+          "description": "davet eden kullanıcı"
+        }
+      }
     },
     "embed": {
       "noReferral": "Davet Eden Kişi Yok",

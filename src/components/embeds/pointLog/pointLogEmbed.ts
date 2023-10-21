@@ -1,4 +1,4 @@
-import t from '@translation';
+import { translation } from '@translation';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from 'discord.js';
 import { Client } from 'src/structures/Client';
 
@@ -9,9 +9,10 @@ type PointLogEmbedProps = {
     description: string;
     buttonId: string;
   };
+  t: typeof translation;
 };
 
-export const pointLogEmbed = ({ embedProps }: PointLogEmbedProps) => {
+export const pointLogEmbed = ({ embedProps, t }: PointLogEmbedProps) => {
   const { color, description, buttonId } = embedProps;
   const embed = new EmbedBuilder().setColor(color).setDescription(description);
 

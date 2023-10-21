@@ -1,3 +1,4 @@
+import { getFixedT } from '@translation';
 import { Events } from 'discord.js';
 import { UserPointModel } from 'src/models/point';
 
@@ -9,7 +10,12 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
       { id: oldChannelId, parentId: oldParentId },
       { id: newChannelId, parentId: newParentId },
     ] = [oldState.channel || {}, newState.channel || {}];
-    const [guildId, userId] = [oldState.guild?.id, oldState.member?.id];
+    const [guildId, userId, preferredLocale] = [
+      oldState.guild?.id,
+      oldState.member?.id,
+      oldState.guild?.preferredLocale,
+    ];
+    const t = getFixedT(preferredLocale);
 
     // TODO: Kanalda başka kullanıcı var yok kontrolü yapılabilir.
     // kanaldan ayrılırken son bir kullanıcı kalmışsa kalan kullanıcıya puanı verilmeli
@@ -51,6 +57,7 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
         value,
         channelId: oldChannelId,
         categoryId: oldParentId,
+        t,
       });
     } else if (newChannelId && oldChannelId && newChannelId !== oldChannelId) {
       client.voices.set(oldState.id, { date: now });
@@ -61,6 +68,7 @@ export const VoiceStateUpdate: DiscordType.IEvent = {
         value,
         channelId: newChannelId,
         categoryId: newParentId,
+        t,
       });
     }
   },

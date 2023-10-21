@@ -1,4 +1,4 @@
-﻿ <a name="readme-top"></a>
+﻿<a name="readme-top"></a>
 
 # Kodluyoruz Discord Puan Botu
 
@@ -26,7 +26,7 @@ Kodluyoruz ekibi ve Kodluyoruz Açık Kaynak gönüllüleri tarafından hazırla
   - [Kurulum](#kurulum)
   - [Versiyonlar](#versiyonlar)
 - [Görseller 📷](#görseller-)
-- [Özellikler 🖥️](#özellikler-️)
+- [Özellikler 🖥️](#özellikler-)
   - [Kullanıcı](#kullanıcı)
   - [Moderasyon](#moderasyon)
 - [Katkı Sağlayanlar 👩‍💻](#katkı-sağlayanlar-)
@@ -233,6 +233,6 @@ Projeye katkıda bulunmak istiyorsanız, lütfen [CONTRIBUTING.md](../docs/CONTR
 
 ## Lisans ©
 
-Bu proje [MIT](https://choosealicense.com/licenses/mit/) lisansı altında lisanslanmıştır. Bu lisansın detayları için [LICENSE](LICENSE) dosyasına bakabilirsiniz.
+Bu proje [MIT](https://choosealicense.com/licenses/mit/) lisansı altında lisanslanmıştır. Bu lisansın detayları için [LICENSE](../LICENSE) dosyasına bakabilirsiniz.
 
 <p align="right">(<a href="#readme-top"> yukarı çık </a>)</p>

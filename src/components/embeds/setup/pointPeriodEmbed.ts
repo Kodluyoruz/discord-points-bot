@@ -1,12 +1,11 @@
-import { SelectMenuCustomId, pointPeriod } from '@discord-point-bot/constants';
+import { setupCustomEmbed } from 'src/components/embeds/setup/setupCustomEmbed';
+
+import { pointPeriod, SelectMenuCustomId } from '@discord-point-bot/constants';
 import { GuildSettingsModel, IGuildSettings } from '@discord-point-bot/models';
 
-import translation from '@translation';
-import { setupCustumEmbed } from 'src/components/embeds/setup/setupCustumEmbed';
-
-export const pointPeriodEmbed = async ({ client, interaction, lng }: DiscordType.ButtonArgs) => {
+export const pointPeriodEmbed = async ({ client, interaction, t }: DiscordType.ButtonArgs) => {
   const { guild, customId } = interaction;
-  const [root, pathname, action] = customId.split('/');
+  const [, , action] = customId.split('/');
 
   let settings: IGuildSettings;
 
@@ -15,7 +14,7 @@ export const pointPeriodEmbed = async ({ client, interaction, lng }: DiscordType
   }
 
   const periods = Object.values(pointPeriod).map((value) => ({
-    label: translation(`setup.period.periods.${value.toLowerCase()}`, { lng }),
+    label: t(`setup.period.periods.${value.toLowerCase()}`),
     value,
     default: value === settings?.point?.period,
   }));
@@ -26,18 +25,18 @@ export const pointPeriodEmbed = async ({ client, interaction, lng }: DiscordType
     default: value === settings?.point?.period,
   }));
 
-  const { newEmbed, row } = await setupCustumEmbed({
+  const { newEmbed, row } = await setupCustomEmbed({
     client,
     guild,
     menu: {
       customId: SelectMenuCustomId.point_period,
-      placeholder: translation('setup.period.placeholder', { lng }),
+      placeholder: t('setup.period.placeholder'),
       options: periodsOptions,
     },
     embed: {
-      title: translation('setup.period.title', { lng }),
-      author: { name: translation('setup.firstEntry.author', { name: guild.name, lng }) },
-      description: translation('setup.period.description', { lng }),
+      title: t('setup.period.title'),
+      author: { name: t('setup.firstEntry.author', { name: guild.name }) },
+      description: t('setup.period.description'),
     },
   });
 

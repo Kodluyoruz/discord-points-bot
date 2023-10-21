@@ -1,19 +1,18 @@
-import { GuildSettingsModel } from '@discord-point-bot/models';
-
-import translation from '@translation';
 import { ButtonStyle, TextChannel } from 'discord.js';
 
+import { GuildSettingsModel } from '@discord-point-bot/models';
+
 import { settingsAdminEmbed } from '../settings/settingsAdminEmbed';
-import { setupCustumEmbed } from './setupCustumEmbed';
+import { setupCustomEmbed } from './setupCustomEmbed';
 import { setupInfoEmbed } from './setupInfoEmbed';
 
-export const setupDoneEmbed = async ({ client, interaction, lng }: DiscordType.ButtonArgs) => {
+export const setupDoneEmbed = async ({ client, interaction, lng, t }: DiscordType.ButtonArgs) => {
   const { guild } = interaction;
   const settings = await GuildSettingsModel.findOne({ guildId: guild.id })
     .select('adminChannelId infoChannelId')
     .lean();
 
-  const { newEmbed, row } = await setupCustumEmbed({
+  const { newEmbed, row } = await setupCustomEmbed({
     client,
     guild,
     button: {
@@ -21,12 +20,12 @@ export const setupDoneEmbed = async ({ client, interaction, lng }: DiscordType.B
         guild.channels.cache.get(settings?.adminChannelId)?.url ||
         `https://discord.com/channels/${guild.id}`,
       style: ButtonStyle.Link,
-      label: translation('setup.done.label', { lng }),
+      label: t('setup.done.label'),
     },
     embed: {
-      title: translation('setup.done.title', { lng }),
-      author: { name: translation('setup.firstEntry.author', { name: guild.name, lng }) },
-      description: translation('setup.done.description', { lng }),
+      title: t('setup.done.title'),
+      author: { name: t('setup.firstEntry.author', { name: guild.name }) },
+      description: t('setup.done.description'),
     },
   });
 
@@ -34,13 +33,13 @@ export const setupDoneEmbed = async ({ client, interaction, lng }: DiscordType.B
   const infoChannel = guild.channels.cache.get(settings?.infoChannelId) as TextChannel;
 
   if (adminChannel) {
-    const { embed, row } = await settingsAdminEmbed({ client, guild, lng });
+    const { embed, row } = await settingsAdminEmbed({ client, guild, lng, t });
 
     await adminChannel.send({ components: [row], embeds: [embed] });
   }
 
   if (infoChannel) {
-    const { embed, row } = await setupInfoEmbed({ client, interaction, lng });
+    const { embed, row } = await setupInfoEmbed({ client, interaction, lng, t });
 
     await infoChannel.send({ components: [row], embeds: [embed] });
   }

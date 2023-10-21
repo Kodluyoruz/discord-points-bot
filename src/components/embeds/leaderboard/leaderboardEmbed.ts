@@ -1,6 +1,4 @@
-import { ShowGlobalOrUserPointResult, UserPointModel } from '@discord-point-bot/models';
-
-import t from '@translation';
+import { translation } from '@translation';
 import {
   ActionRowBuilder,
   ButtonBuilder,
@@ -13,21 +11,27 @@ import {
 import { chain } from 'lodash';
 import { Client } from 'src/structures/Client';
 
+import { ShowGlobalOrUserPointResult, UserPointModel } from '@discord-point-bot/models';
+
 type leaderboardEmbedProps = {
   client: Client;
   interaction: ButtonInteraction;
-  lng: Locale;
-  dates?: { start: Date; end: Date };
+  dates?: {
+    start: Date;
+    end: Date;
+  };
   footer: string;
   title: string;
+  lng: Locale;
+  t: typeof translation;
 };
 
 export const leaderboardEmbed = async ({
   interaction,
-  lng,
   dates,
   footer,
   title,
+  t,
 }: leaderboardEmbedProps) => {
   const usersDatas = (await UserPointModel.showGlobalOrUserPoint({
     guildId: interaction.guildId,
@@ -56,7 +60,7 @@ export const leaderboardEmbed = async ({
   const row = new ActionRowBuilder<ButtonBuilder>().addComponents([
     new ButtonBuilder()
       .setCustomId('info/point')
-      .setLabel(t('pointInfos.title', { lng }))
+      .setLabel(t('pointInfos.title'))
       .setStyle(ButtonStyle.Secondary),
   ]);
 

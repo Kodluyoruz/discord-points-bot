@@ -20,11 +20,12 @@
     "start": "ts-node src/index.ts",
     "dev": "nodemon src/index.ts",
     "lint": "eslint --fix",
+    "lint:check": "eslint .",
     "format": "prettier --write ."
   },
   "dependencies": {
     "date-fns": "^2.30.0",
-    "discord.js": "^14.13.0",
+    "discord.js": "^14.12.1",
     "dotenv": "^16.3.1",
     "envalid": "^8.0.0",
     "i18next": "^23.5.1",
@@ -37,7 +38,7 @@
     "winston": "^3.10.0"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@trivago/prettier-plugin-sort-imports": "^1.4.4",
     "@types/lodash": "^4.14.198",
     "@types/node-cron": "^3.0.8",
     "@typescript-eslint/eslint-plugin": "^6.7.4",

@@ -1,16 +1,12 @@
-import { soundRoomEmbed } from '@discord-point-bot/components';
-
 import { SlashCommandBuilder } from 'discord.js';
+
+import { soundRoomEmbed } from '@discord-point-bot/components';
 
 export const SoundRoom: DiscordType.ISlashCommand = {
   data: new SlashCommandBuilder()
     .setName('soundroom')
     .setDescription('Sesli Sohbet Odası durumunuzu gösterir.'),
-  execute: async ({ client, interaction, lng }) => {
-    const member = interaction.inCachedGuild()
-      ? interaction.member
-      : await interaction.guild.members.fetch(interaction.user.id);
-
+  execute: async ({ client, interaction, t }) => {
     const period = '10-17 Eylül'; // TODO:DB get period from db or something
     const soundRoomData = {
       spendingTime: 123,
@@ -23,7 +19,7 @@ export const SoundRoom: DiscordType.ISlashCommand = {
       displayName: 'DisplayNameHere',
     };
 
-    const { embed } = soundRoomEmbed({ client, soundRoomData, period });
+    const { embed } = soundRoomEmbed({ client, soundRoomData, period, t });
 
     await interaction.reply({
       embeds: [embed],

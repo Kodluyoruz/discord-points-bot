@@ -1,4 +1,4 @@
-import translation from '@translation';
+import { translation } from '@translation';
 import {
   ActionRowBuilder,
   ButtonBuilder,
@@ -8,27 +8,34 @@ import {
   Locale,
 } from 'discord.js';
 
-type ButtonProps = { customId: string };
-
-type CustomEmbedProps = {
-  nextButon: ButtonProps;
-  backButon: ButtonProps;
-  embed: { oldEmbed: Embed; title: string; description: string };
-  lng: Locale;
+type ButtonProps = {
+  customId: string;
 };
 
-export const setupCustomButtonEmbed = ({ embed, nextButon, backButon, lng }: CustomEmbedProps) => {
-  const nextButton = new ButtonBuilder()
-    .setCustomId(nextButon.customId)
-    .setLabel(translation('common.continue', { lng }))
+type CustomEmbedProps = {
+  nextButton: ButtonProps;
+  backButton: ButtonProps;
+  embed: {
+    oldEmbed: Embed;
+    title: string;
+    description: string;
+  };
+  lng: Locale;
+  t: typeof translation;
+};
+
+export const setupCustomButtonEmbed = ({ embed, nextButton, backButton, t }: CustomEmbedProps) => {
+  const next = new ButtonBuilder()
+    .setCustomId(nextButton.customId)
+    .setLabel(t('common.continue'))
     .setStyle(ButtonStyle.Success);
 
   const editButton = new ButtonBuilder()
-    .setCustomId(backButon.customId)
-    .setLabel(translation('common.edit', { lng }))
+    .setCustomId(backButton.customId)
+    .setLabel(t('common.edit'))
     .setStyle(ButtonStyle.Secondary);
 
-  const row = new ActionRowBuilder<ButtonBuilder>().setComponents(editButton, nextButton);
+  const row = new ActionRowBuilder<ButtonBuilder>().setComponents(editButton, next);
 
   const newEmbed = new EmbedBuilder(embed.oldEmbed.data)
     .setTitle(embed.title)

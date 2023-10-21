@@ -1,6 +1,5 @@
-import { ButtonCustomId } from '@discord-point-bot/constants';
-
 import { ActionRowBuilder, ButtonBuilder, EmbedBuilder, StringSelectMenuBuilder } from 'discord.js';
+import { SetupStartButton } from 'src/components/Buttons/setup/SetupStartButton';
 import {
   adminChannelEmbed,
   logChannelEmbed,
@@ -10,22 +9,22 @@ import {
 import { infoChannelEmbed } from 'src/components/embeds/setup/infoChannelEmbed';
 import { pointChannelEmbed } from 'src/components/embeds/setup/pointChannelEmbed';
 
-import { SetupStartButton } from './SetupStartButton';
+import { ButtonCustomId } from '@discord-point-bot/constants';
 
 type SetupRoutes = {
-  custumId: keyof (typeof ButtonCustomId)['setup'];
-  execute: ({ client, interaction, lng }: DiscordType.ButtonArgs) => Promise<{
+  customId: keyof (typeof ButtonCustomId)['setup'];
+  execute: ({ client, interaction, lng, t }: DiscordType.ButtonArgs) => Promise<{
     embed: EmbedBuilder;
     row: ActionRowBuilder<StringSelectMenuBuilder | ButtonBuilder>;
   }>;
 };
 
 export const setupRoutes: SetupRoutes[] = [
-  { custumId: 'start', execute: SetupStartButton },
-  { custumId: 'admin_channel', execute: adminChannelEmbed },
-  { custumId: 'log_channel', execute: logChannelEmbed },
-  { custumId: 'point_period', execute: pointPeriodEmbed },
-  { custumId: 'info_channel', execute: infoChannelEmbed },
-  { custumId: 'point_channel', execute: pointChannelEmbed },
-  { custumId: 'done', execute: setupDoneEmbed },
+  { customId: 'start', execute: SetupStartButton },
+  { customId: 'admin_channel', execute: adminChannelEmbed },
+  { customId: 'log_channel', execute: logChannelEmbed },
+  { customId: 'point_period', execute: pointPeriodEmbed },
+  { customId: 'info_channel', execute: infoChannelEmbed },
+  { customId: 'point_channel', execute: pointChannelEmbed },
+  { customId: 'done', execute: setupDoneEmbed },
 ];

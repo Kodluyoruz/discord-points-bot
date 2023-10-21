@@ -1,12 +1,12 @@
-import { referenceEmbed } from '@discord-point-bot/components';
-
 import { SlashCommandBuilder } from 'discord.js';
+
+import { referenceEmbed } from '@discord-point-bot/components';
 
 export const Reference: DiscordType.ISlashCommand = {
   data: new SlashCommandBuilder()
     .setName('reference')
     .setDescription('Referans durumunuzu gösterir.'),
-  execute: async ({ client, interaction, lng }) => {
+  execute: async ({ client, interaction, t }) => {
     const member = interaction.inCachedGuild()
       ? interaction.member
       : await interaction.guild.members.fetch(interaction.user.id);
@@ -22,7 +22,7 @@ export const Reference: DiscordType.ISlashCommand = {
       displayName: member.displayName,
     };
 
-    const { embed } = referenceEmbed({ client, referenceData, period });
+    const { embed } = referenceEmbed({ client, referenceData, period, t });
 
     await interaction.reply({
       embeds: [embed],

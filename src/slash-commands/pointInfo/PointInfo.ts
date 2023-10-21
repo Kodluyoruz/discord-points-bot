@@ -1,6 +1,4 @@
-import { pointInfoEmbed } from '@discord-point-bot/components';
-
-import t, { localization } from '@translation';
+import { nameAndDescT } from '@translation';
 import {
   ActionRowBuilder,
   ButtonBuilder,
@@ -9,19 +7,18 @@ import {
   SlashCommandBuilder,
 } from 'discord.js';
 
+import { pointInfoEmbed } from '@discord-point-bot/components';
+
 export const PointInfo: DiscordType.ISlashCommand = {
-  data: new SlashCommandBuilder()
-    .setName('point')
-    .setDescription(t('pointInfos.command.description'))
-    .setDescriptionLocalizations(localization('pointInfos.command.description')),
-  execute: async ({ client, interaction, lng }) => {
+  data: nameAndDescT('pointInfos.command.builder', new SlashCommandBuilder()),
+  execute: async ({ client, interaction, t }) => {
     const NUM_STEPS = 6;
     const contents = Array.from({ length: NUM_STEPS }, (_, i) =>
-      t(`pointInfos.step.${i}.description`, { lng }),
+      t(`pointInfos.step.${i}.description`),
     );
 
     const contentCount = contents.length;
-    const { embed, back, cancel, next } = pointInfoEmbed({ client });
+    const { embed, back, cancel, next } = pointInfoEmbed({ client, t });
 
     next.setLabel(t('common.next', { first: '2', second: contents.length }));
     back.setLabel(t('common.back', { first: '0', second: contents.length }));
@@ -74,7 +71,7 @@ export const PointInfo: DiscordType.ISlashCommand = {
       collector.resetTimer();
     });
 
-    collector.on('end', async (_, reason) => {
+    collector.on('end', async () => {
       await question.delete();
     });
   },

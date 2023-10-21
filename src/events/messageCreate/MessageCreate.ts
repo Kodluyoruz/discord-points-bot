@@ -1,7 +1,8 @@
-import { PointUnitType } from '@discord-point-bot/models';
-
+import { getFixedT } from '@translation';
 import { Events, TextChannel } from 'discord.js';
 import { UserPointModel } from 'src/models/point';
+
+import { PointUnitType } from '@discord-point-bot/models';
 
 export const MessageCreate: DiscordType.IEvent = {
   name: Events.MessageCreate,
@@ -18,6 +19,7 @@ export const MessageCreate: DiscordType.IEvent = {
     ];
 
     const type = message.reference ? PointUnitType.REPLY : PointUnitType.TEXT;
+    const t = getFixedT(guild.preferredLocale);
 
     await UserPointModel.pointAdd({
       guild,
@@ -26,6 +28,7 @@ export const MessageCreate: DiscordType.IEvent = {
       value: 1,
       channelId,
       categoryId,
+      t,
     });
   },
 };

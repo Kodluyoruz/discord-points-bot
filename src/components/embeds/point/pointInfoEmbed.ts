@@ -1,12 +1,13 @@
-import t from '@translation';
+import { translation } from '@translation';
 import { ButtonBuilder, ButtonStyle, EmbedBuilder } from 'discord.js';
 import { Client } from 'src/structures/Client';
 
 type PointsInfoEmbedProps = {
   client: Client;
+  t: typeof translation;
 };
 
-export const pointInfoEmbed = ({ client }: PointsInfoEmbedProps) => {
+export const pointInfoEmbed = ({ client, t }: PointsInfoEmbedProps) => {
   const [next, back, cancel] = [
     new ButtonBuilder().setCustomId('next').setStyle(ButtonStyle.Primary),
     new ButtonBuilder().setCustomId('back').setStyle(ButtonStyle.Secondary),

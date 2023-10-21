@@ -1,6 +1,6 @@
-import { enumerate } from '@discord-point-bot/utils';
+import { Model, model, Schema } from 'mongoose';
 
-import { Model, Schema, model } from 'mongoose';
+import { enumerate } from '@discord-point-bot/utils';
 
 import { PointUnitType } from './constants/PointUnitType';
 import { IPointUnits } from './dto';

@@ -1,11 +1,11 @@
-import { ButtonCustomId, SelectMenuCustomId } from '@discord-point-bot/constants';
-
+import { translation } from '@translation';
 import {
   AnySelectMenuInteraction,
   ApplicationCommand,
   ButtonInteraction,
   ChatInputCommandInteraction,
   ClientEvents,
+  Interaction,
   Locale,
   MessageContextMenuCommandInteraction,
   ModalSubmitInteraction,
@@ -13,6 +13,8 @@ import {
   UserContextMenuCommandInteraction,
 } from 'discord.js';
 import { Client } from 'src/structures/Client';
+
+import { ButtonCustomId, SelectMenuCustomId } from '@discord-point-bot/constants';
 
 declare global {
   namespace DiscordType {
@@ -27,6 +29,7 @@ declare global {
         | MessageContextMenuCommandInteraction
         | UserContextMenuCommandInteraction;
       lng: Locale;
+      t: typeof translation;
     }
 
     export type EventKeys = keyof ClientEvents;
@@ -38,28 +41,24 @@ declare global {
       execute: (slashCommandArgs: SlashCommandArgs) => Promise<void> | void;
     }
 
-    export interface ButtonArgs {
-      client: Client;
-      interaction: ButtonInteraction;
-      lng: Locale;
-    }
-
-    export interface SelectMenuArgs<T extends AnySelectMenuInteraction = AnySelectMenuInteraction> {
+    export interface IInteractionArgs<T extends Interaction = Interaction> {
       client: Client;
       interaction: T;
       lng: Locale;
+      t: typeof translation;
     }
+
+    export interface ButtonArgs extends IInteractionArgs<ButtonInteraction> {}
+
+    export interface SelectMenuArgs<T extends AnySelectMenuInteraction = AnySelectMenuInteraction>
+      extends IInteractionArgs<T> {}
 
     export interface IModalSubmit {
       customId: string;
       execute: (modalArgs: ModalArgs) => Promise<void> | void;
     }
 
-    export interface ModalArgs {
-      client: Client;
-      interaction: ModalSubmitInteraction;
-      lng: Locale;
-    }
+    export interface ModalArgs extends IInteractionArgs<ModalSubmitInteraction> {}
 
     export interface IButton {
       customId: keyof typeof ButtonCustomId;

@@ -1,16 +1,19 @@
+import { translation } from '@translation';
 import { endOfDay, startOfDay } from 'date-fns';
 import { Guild } from 'discord.js';
 import { isEmpty } from 'lodash';
-import { Model, PipelineStage, Schema, model } from 'mongoose';
+import { Model, model, PipelineStage, Schema } from 'mongoose';
 import { pointLog } from 'src/feature/logger/logger';
 import { Client } from 'src/structures/Client';
 
-import { IPointUnits, PointUnitType, PointUnitsModel } from '../pointUnits';
+import { IPointUnits, PointUnitsModel, PointUnitType } from '../pointUnits';
 import { IUserPoint, ShowGlobalOrUserPointResult } from './dto';
 
 interface IUserPointModel extends Model<IUserPoint> {
   getReferralData(props: ReferralDataParams): Promise<ReferralDataResult>;
+
   pointAdd(props: AddPointProps): Promise<void>;
+
   showGlobalOrUserPoint(
     props: ShowGlobalOrUserPoint,
   ): Promise<ShowGlobalOrUserPointResult | ShowGlobalOrUserPointResult[]>;
@@ -24,12 +27,16 @@ type AddPointProps = {
   channelId?: string;
   categoryId?: string;
   data?: unknown;
+  t: typeof translation;
 };
 
 type ShowGlobalOrUserPoint = {
   guildId: string;
   userId?: string;
-  dates?: { start: Date; end: Date };
+  dates?: {
+    start: Date;
+    end: Date;
+  };
   limit?: number;
 };
 
@@ -58,10 +65,24 @@ const UserPointSchema = new Schema<IUserPoint, IUserPointModel>(
     timestamps: true,
     toJSON: { virtuals: true },
     statics: {
-      async pointAdd({ guild, userId, type, value, channelId, categoryId, data }: AddPointProps) {
+      async pointAdd({
+        guild,
+        userId,
+        type,
+        value,
+        channelId,
+        categoryId,
+        data,
+        t,
+      }: AddPointProps) {
         const guildId = guild.id;
         const channelIds = [guildId, channelId, categoryId].filter((channel) => !!channel);
-        const pointTypeList: Record<PointUnitType, { channelIds?: string[] }> = {
+        const pointTypeList: Record<
+          PointUnitType,
+          {
+            channelIds?: string[];
+          }
+        > = {
           [PointUnitType.NONE]: {},
           [PointUnitType.VOICE]: { channelIds },
           [PointUnitType.TEXT]: { channelIds },
@@ -115,6 +136,7 @@ const UserPointSchema = new Schema<IUserPoint, IUserPointModel>(
             point: userPoint,
             pointProp: { channelId, data },
             value,
+            t,
           });
         }
       },

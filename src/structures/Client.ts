@@ -1,12 +1,12 @@
-import { ButtonList, ModalList, SelectMenuList } from '@discord-point-bot/components';
-import * as EventList from '@discord-point-bot/events';
-import * as SlashCommandList from '@discord-point-bot/slash-commands';
-
 import { config } from '@config';
-import { ActivityType, Collection, Client as Core, GatewayIntentBits } from 'discord.js';
+import { ActivityType, Client as Core, Collection, GatewayIntentBits } from 'discord.js';
 import { map } from 'lodash';
 import { connect } from 'mongoose';
 import { createLogger, format, transports } from 'winston';
+
+import { ButtonList, ModalList, SelectMenuList } from '@discord-point-bot/components';
+import * as EventList from '@discord-point-bot/events';
+import * as SlashCommandList from '@discord-point-bot/slash-commands';
 
 export class Client extends Core {
   slashCommands = new Collection<string, DiscordType.ISlashCommand>();
@@ -38,6 +38,19 @@ export class Client extends Core {
     });
   }
 
+  async connect() {
+    await Promise.all([
+      connect(config.DBACCESS),
+      this.loadSlashCommands(),
+      this.loadButtons(),
+      this.loadSelectMenu(),
+      this.loadEvents(),
+      this.loadModals(),
+    ]);
+
+    await this.login(config.BOT_TOKEN);
+  }
+
   private errorHandleInit() {}
 
   private async loadSelectMenu() {
@@ -63,11 +76,13 @@ export class Client extends Core {
 
     await Promise.all(map(buttons, async (button) => this.buttons.set(button.customId, button)));
   }
+
   private async loadModals() {
     const modals: DiscordType.IModalSubmit[] = [...Object.values(ModalList)];
 
     await Promise.all(map(modals, async (modal) => this.modals.set(modal.customId, modal)));
   }
+
   private async loadEvents() {
     this.errorHandleInit();
 
@@ -78,18 +93,5 @@ export class Client extends Core {
         this.on(event.name, (...args: unknown[]) => event.execute(this, [...args])),
       ),
     );
-  }
-
-  async connect() {
-    await Promise.all([
-      connect(config.DBACCESS),
-      this.loadSlashCommands(),
-      this.loadButtons(),
-      this.loadSelectMenu(),
-      this.loadEvents(),
-      this.loadModals(),
-    ]);
-
-    await this.login(config.BOT_TOKEN);
   }
 }

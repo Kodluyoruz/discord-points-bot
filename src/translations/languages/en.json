@@ -91,10 +91,20 @@
   },
   "referral": {
     "command": {
-      "description": "You can use this command for referral number operations.",
-      "code": "referral code",
-      "user": "referral",
-      "name": "referral"
+      "builder": {
+        "name": "referral",
+        "description": "You can use this command for referral number operations."
+      },
+      "options": {
+        "code": {
+          "name": "code",
+          "description": "referral code"
+        },
+        "user": {
+          "name": "user",
+          "description": "referral"
+        }
+      }
     },
     "author": "{{name}} Scoring Bot",
     "embed": {

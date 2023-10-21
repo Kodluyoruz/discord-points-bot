@@ -1,10 +1,9 @@
-import { ShowGlobalOrUserPointResult, UserPointModel } from '@discord-point-bot/models';
-
-import t from '@translation';
 import { format } from 'date-fns';
 import { EmbedBuilder } from 'discord.js';
 
-export const userRankEmbed = async ({ interaction, lng }: DiscordType.ButtonArgs) => {
+import { ShowGlobalOrUserPointResult, UserPointModel } from '@discord-point-bot/models';
+
+export const userRankEmbed = async ({ interaction, lng, t }: DiscordType.ButtonArgs) => {
   const { id } = interaction.user;
   const userPoint = await UserPointModel.showGlobalOrUserPoint({
     guildId: interaction.guildId,
@@ -31,7 +30,7 @@ export const userRankEmbed = async ({ interaction, lng }: DiscordType.ButtonArgs
 
   const embed = new EmbedBuilder()
     .setColor(0x5865f2)
-    .setDescription(t('userPoints.description', { id, points, place, period, lng }));
+    .setDescription(t('userPoints.description', { id, points, place, period }));
 
   await interaction.deferReply({ ephemeral: true, fetchReply: true });
 
