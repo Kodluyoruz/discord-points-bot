@@ -12,5 +12,8 @@ export async function initI18next() {
     supportedLngs: ['tr', 'en-US'],
     preload: ['tr', 'en-US'],
     resources: { tr: { translation: tr }, 'en-US': { translation: en } },
+    interpolation: {
+      skipOnVariables: false,
+    },
   });
 }

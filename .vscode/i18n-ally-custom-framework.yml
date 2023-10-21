@@ -18,6 +18,7 @@ usageMatchRegex:
   - "[^\\w\\d]translation\\(['\"`]({key})['\"`]"
   - "[^\\w\\d]t\\(['\"`]({key})['\"`]"
   - "[^\\w\\d]localization\\(['\"`]({key})['\"`]"
+  - "[^\\w\\d]\\$t\\(({key})\\)"
 
 # A RegEx to set a custom scope range. This scope will be used as a prefix when detecting keys
 # and works like how the i18next framework identifies the namespace scope from the
@@ -36,4 +37,4 @@ refactorTemplates:
   - localization('$1')
 
 # If set to true, only enables this custom framework (will disable all built-in frameworks)
-monopoly: true
+monopoly: false
