@@ -1,15 +1,12 @@
 {
-  "ping": {
-    "success": "başarılı"
-  },
   "pointUnit": {
     "title": "Kodluyoruz Puanlama Botu",
-    "description": "**Puan Birimlerine Hoşgeldiniz**\n\nMerhaba sevgili moderatörümüz,\nPuan birimi üzerinden Kodluyoruz'a deger katan kullanicilarn arasinda sosyal ve kültürel paylasimi arttirmayi saglayacak puanlama sistemlerini düzenleyebilirsin.",
+    "description": "**Puan Birimlerine Hoşgeldiniz**\n\nMerhaba sevgili moderatörümüz,\nPuan birimi üzerinden Kodluyoruz'a değer katan kullanıcıların arasında sosyal ve kültürel paylaşımı arttırmayı sağlayacak puanlama sistemlerini düzenleyebilirsin.",
     "author": "{{name}} Puanlama Botu",
     "command": {
       "builder": {
-        "name": "unit",
-        "description": "Puan Bildirimi Oluşturma"
+        "name": "birim",
+        "description": "Puan Birimi Oluşturma"
       }
     },
     "common": {
@@ -36,29 +33,36 @@
     "author": "{{name}} Puanlama Botu",
     "step": [
       {
-        "description": "Kanallardan Mesaj Atarak **5 PUAN** Kazanabilirsin!\n\nSohbet baslatmak ve topluluk üyelerimizin arasındaki etkileşimin artması en önemli önceliklerimizden biri! Belirli sartlara uyan her mesaj icin puan kazanacaksın!"
+        "description": "Kanallardan Mesaj Atarak **5 PUAN** Kazanabilirsin!\n\nSohbet başlatmak ve topluluk üyelerimizin arasındaki etkileşimin artması en önemli önceliklerimizden biri! Belirli şartlara uyan her mesaj için puan kazanacaksın!"
       },
       {
-        "description": "Kendini Tanıt **35 PUAN** Kazan!\n\nBirbirimizi tanımak, network’ümüzü genisletmek, hatta belki deprojelerimiz icin grup arkadasları bulmak! Bunun için kendini tanıtmanın cok onemli oldugunu dusunuyoruz.\n\n**#kendini-tanıt** kanalından kendini tanıtmayı unutma!"
+        "description": "Kendini Tanıt **35 PUAN** Kazan!\n\nBirbirimizi tanımak, network’ümüzü genişletmek, hatta belki de projelerimiz için grup arkadaşları bulmak! Bunun için kendini tanıtmanın çok önemli olduğunu düşünüyoruz.\n\n**#kendini-tanıt** kanalından kendini tanıtmayı unutma!"
       },
       {
-        "description": "Soru Sormayı Unutma! Soru sorarak **40 PUAN** Kazanabilirsin.\n\n**#soru-cevap** kanalından topluluk üyelerimizin sorularını sorabilecegi bir alanımız var. Buradan sordugun her soru icin puan kazanacaksın."
+        "description": "Soru Sormayı Unutma! Soru sorarak **40 PUAN** Kazanabilirsin.\n\n**#soru-cevap** kanalından topluluk üyelerimizin sorularını sorabileceği bir alanımız var. Buradan sorduğun her soru için puan kazanacaksın."
       },
       {
-        "description": "Bilgini paylasmaktan cekinme **50 PUANI** Kap!\n\nKodluyoruz’un en temel degerlerinden biri paylasmak! Bu ilke dogrultusunda sen de diger topluluk üyelerine yardımcı olabilecek kaynaklar paylastıgın takdirde puan toplayacaksın.\n\nBu paylaşımlarını **#showcase** kanalından yapabilirsin."
+        "description": "Bilgini paylaşmaktan çekinme **50 PUANI** Kap!\n\nKodluyoruz’un en temel değerlerinden biri paylaşmak! Bu ilke doğrultusunda sen de diğer topluluk üyelerine yardımcı olabilecek kaynaklar paylastıgın takdirde puan toplayacaksın.\n\nBu paylaşımlarını **#showcase** kanalından yapabilirsin."
       },
       {
-        "description": "Sesli Odalarda Arkadaslarınla Ol! Dakika başına **2 PUAN** kazan\n\nSesli odalarda arkadaslarınla birlikte aktif olarak gecirdigin her dakika icin puan kazanacaksın!"
+        "description": "Sesli Odalarda Arkadaşlarınla Ol! Dakika başına **2 PUAN** kazan\n\nSesli odalarda arkadaşlarınla birlikte aktif olarak geçirdiğin her dakika için puan kazanacaksın!"
       },
       {
-        "description": "Arkadasını Davet Et **100 PUAN** kazan!\n\nDavet kodun ile sisteme arkadaslarını davet edebilirsin. Arkadasın **/davet** komutunu kullanarak giris yaptıgında sen ve arkadasin ekstra puan kazanabilirsiniz."
+        "description": "Arkadaşını Davet Et **100 PUAN** kazan!\n\nDavet kodun ile sisteme arkadaşlarını davet edebilirsin. Arkadaşın **/davet** komutunu kullanarak giriş yaptığında sen ve arkadaşın ekstra puan kazanabilirsiniz."
       }
     ],
     "command": {
       "builder": {
-        "name": "point",
-        "description": "Mevcut puan durumunuzu hakkında bilgi verir."
-      }
+        "name": "puan",
+        "description": "Mevcut puan durumunuz hakkında bilgi verir."
+      },
+      "description": "Mevcut puan durumunuz hakkında bilgi verir."
+    },
+    "step[0]": {
+      "description": "Kanallardan Mesaj Atarak **5 PUAN** Kazanabilirsin!\n\nSohbet başlatmak ve topluluk üyelerimizin arasındaki etkileşimin artması en önemli önceliklerimizden biri! Belirli sartlara uyan her mesaj için puan kazanacaksın!"
+    },
+    "step[1]": {
+      "description": "Kendini Tanıt **35 PUAN** Kazan!\n\nBirbirimizi tanımak, network’ümüzü genişletmek, hatta belki de projelerimiz için grup arkadaşları bulmak! Bunun için kendini tanıtmanın çok önemli oldugunu düşünüyoruz.\n\n**#kendini-tanıt** kanalından kendini tanıtmayı unutma!"
     }
   },
   "pointLog": {
@@ -83,28 +87,28 @@
     "description": "Tebrikler!\nSevgili **{{name}}**,\n{{period}} arasındaki puanlama sisteminde şu ana kadar ulaştığınız\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "reference": {
-    "description": "Tebrikler!\nSevgili **{{name}}**,\n!referans komutuyla arkadasin {{member}}, Kodluyoruz'a katildi ve \n arkadasinla katacaklariniz icin heyecanliyiz. {{roomPoint}} puan kazandiniz! {{period}} arasindaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n/referans komutuyla arkadaşın {{member}}, Kodluyoruz'a katıldı ve \narkadaşınla katacaklarınız için heyecanlıyız. {{roomPoint}} puan kazandınız! {{period}} arasındaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "soundRoom": {
-    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalinda gecirdiginiz süre {{spendingTime}}\nKodluyoruz'da gelismek/gelistirmek icin ayirdiginiz dakikalar bizim icin\ndegerli oldugu icin her dakika 2 puan olacak sekilde {{roomPoint}} kazandiniz!\n{{period}} arasindaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalında geçirdiğiniz süre {{spendingTime}}\nKodluyoruz'da gelişmek/geliştirmek için ayirdiginiz dakikalar bizim için\ndeğerli olduğu için her dakika 2 puan olacak şekilde {{roomPoint}} kazandınız!\n{{period}} arasındaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "transferOfInformation": {
-    "description": "Tebrikler!\nSevgili **{{name}}**,\n#{{channel}} kanalinda paylasimlarinizla Kodluyoruz üyelerine\nkattiginiz deger icin tesekkur ederiz, {{roomPoint}} puan kazandiniz!{{period}} arasindaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n#{{channel}} kanalında paylaşımlarınızla Kodluyoruz üyelerine\nkattığınız değer için teşekkür ederiz, {{roomPoint}} puan kazandınız!\n{{period}} arasındaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "askQuestion": {
-    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalinda akliniza takilanlar icin iletisime gectiniz ve\n{{roomPoint}} kazandiniz!\n{{period}} arasindaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalında aklınıza takılanlar için iletişime geçtiniz ve\n{{roomPoint}} kazandınız!\n{{period}} arasındaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "introduceYourself": {
-    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalinda network baglangic adiminiz icin{{roomPoint}}\nkazandiniz!\n{{period}} arasindaki \n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalında network başlangıç adımınız için {{roomPoint}} kazandınız!\n{{period}} arasındaki\n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "sendMessageToChannel": {
-    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalina attiginiz mesaj icin {{roomPoint}} kazandiniz!\n{{period}} arasindaki \n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
+    "description": "Tebrikler!\nSevgili **{{name}}**,\n{{channel}} kanalına attığınız mesaj için {{roomPoint}} kazandiniz!\n{{period}} arasındaki \n**[toplam puanınız {{points}} ve {{place}}.sıradasınız!](https://kodluyoruz.org)**"
   },
   "setup": {
     "firstEntry": {
       "author": "{{name}} Puanlama Botu",
-      "title": "{{name}} Puanlama Botu Yardım Menüsüne",
-      "description": "Aşağıdaki butonları kullanarak kuruluma başlamdan önce\ndökümanı okuyabilir ve kuruluma başlayabilirsiniz."
+      "title": "{{name}} Puanlama Botu Yardım Menüsü",
+      "description": "Aşağıdaki butonları kullanarak kuruluma başlamadan önce\ndokümanı okuyabilir ve kuruluma başlayabilirsiniz."
     },
     "period": {
       "selected": "Periyot Seçildi",
@@ -136,9 +140,9 @@
       "description": "Açıklama gelecek"
     },
     "pointChannel": {
-      "selected": "Point Kanalı Seçildi.",
-      "placeholder": "Point Kanalını Seçiniz.",
-      "title": "Point Kanalını Seçin.",
+      "selected": "Puan Kanalı Seçildi.",
+      "placeholder": "Puan Kanalını Seçiniz.",
+      "title": "Puan Kanalını Seçin.",
       "description": "Açıklama gelecek"
     },
     "done": {
@@ -153,7 +157,7 @@
     "description": "bu kısma açıklama gelecektir"
   },
   "leaderboard": {
-    "footer": "Kazananları tebrik eder, sıralamaya giren her arkadaşımızın çabası icin teşekkur ederiz.\n**Unutmayın bu sırada yer alacak olan yarın sizsiniz!**",
+    "footer": "Kazananları tebrik eder, sıralamaya giren her arkadaşımızın çabası için teşekkür ederiz.\n**Unutmayın bu sırada yer alacak olan yarın sizsiniz!**",
     "title": "{{period}} Kazananları"
   },
   "info": {
@@ -185,7 +189,7 @@
       "selectReferrer": "Davet Eden Kişiyi Seçin",
       "default": "Davet kodunuz: `{{code}}`\nSizi davet eden kullanıcı: {{- referrer}}\nDavetinizi kabul eden kullanıcı sayısı: `{{referredCount}}`\n\nArkadaşlarınız bu davet koduyla </{{command.name}}:{{command.id}}> komutunu kullanabilir ve davet kodunuzla kaydolduklarında siz ve arkadaşlarınız {{pointUnit.point}} puan kazanabilirsiniz.\n\n{{pointUnit.title}}: {{pointUnit.description}}",
       "alreadyReferred": "Sunucuya zaten {{- referrer}} kullanıcısının referansı ile kayıt olmuşsunuz.\n\n$t(referral.embed.default)",
-      "error": "Bir hata oluştu yada sunucuda davet sistemi henüz aktif değil.",
+      "error": "Bir hata oluştu ya da sunucuda davet sistemi henüz aktif değil.",
       "noPointUnit": "**Davet Sistemi Aktif Değil**"
     },
     "author": "{{name}} Puanlama Botu"
