@@ -1,10 +1,8 @@
-export { setupEmbed } from './setup/setupEmbed';
-export { adminChannelEmbed } from './setup/adminChannelEmbed';
-export { logChannelEmbed } from './setup/logChannelEmbed';
+export { leaderboardEmbed } from './leaderboard/leaderboardEmbed';
+export { pointLogEmbed } from './pointLog/pointLogEmbed';
+export { settingsAdminEmbed } from './settings/settingsAdminEmbed';
 export { pointPeriodEmbed } from './setup/pointPeriodEmbed';
 export { setupDoneEmbed } from './setup/setupDoneEmbed';
-export { settingsAdminEmbed } from './settings/settingsAdminEmbed';
-export { leaderboardEmbed } from './leaderboard/leaderboardEmbed';
+export { setupEmbed } from './setup/setupEmbed';
 export { setupInfoEmbed } from './setup/setupInfoEmbed';
 export { soundRoomEmbed } from './soundRoom/soundRoomEmbed';
-export { pointLogEmbed } from './pointLog/pointLogEmbed';

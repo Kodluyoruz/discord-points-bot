@@ -24,7 +24,8 @@ export const InteractionCreate: DiscordType.IEvent = {
         button.execute({ interaction, ...defaultArgs });
       }
     } else if (interaction.isAnySelectMenu()) {
-      const selectMenu = client.selectMenus.get(interaction.customId);
+      const [customId] = interaction.customId.split('?');
+      const selectMenu = client.selectMenus.get(customId);
 
       if (selectMenu) {
         selectMenu.execute({ interaction, ...defaultArgs });

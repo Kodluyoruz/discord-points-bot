@@ -3,6 +3,8 @@ import i18next from 'i18next';
 
 export const { t: translation } = i18next;
 
+export const getDefLanguage = () => i18next.language;
+
 export const localization = (location: string, options?: object) => ({
   tr: translation(location, { lng: 'tr', ...options }),
   'en-US': translation(location, { lng: 'en-US', ...options }),

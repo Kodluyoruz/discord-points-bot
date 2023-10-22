@@ -10,7 +10,7 @@ export const pointPeriodEmbed = async ({ client, interaction, t }: DiscordType.B
   let settings: IGuildSettings;
 
   if (action === 'edit') {
-    settings = await GuildSettingsModel.findOne({ guildId: guild.id }, 'point').lean();
+    settings = await GuildSettingsModel.getSettings(guild.id);
   }
 
   const periods = Object.values(pointPeriod).map((value) => ({

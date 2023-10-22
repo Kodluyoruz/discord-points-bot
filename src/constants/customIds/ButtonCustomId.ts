@@ -1,20 +1,8 @@
 export const ButtonCustomId = {
   setup: {
-    admin_channel: {
-      add: 'setup/admin_channel/add',
-      edit: 'setup/admin_channel/edit',
-    },
-    log_channel: {
-      add: 'setup/log_channel/add',
-      edit: 'setup/log_channel/edit',
-    },
-    info_channel: {
-      add: 'setup/info_channel/add',
-      edit: 'setup/info_channel/edit',
-    },
-    point_channel: {
-      add: 'setup/point_channel/add',
-      edit: 'setup/point_channel/edit',
+    channel: {
+      add: 'setup/channel/add',
+      edit: 'setup/channel/edit',
     },
     point_period: {
       add: 'setup/point_period/add',
@@ -37,7 +25,7 @@ export const ButtonCustomId = {
     point: 'info/point',
     global_point: 'info/global_point',
     user: {
-      rank: 'info/user/ramk',
+      rank: 'info/user/rank',
     },
   },
 } as const;

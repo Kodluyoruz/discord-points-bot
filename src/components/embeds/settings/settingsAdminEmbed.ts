@@ -20,7 +20,7 @@ type SettingsAdminEmbed = {
 
 export const settingsAdminEmbed = async ({ guild, client, t }: SettingsAdminEmbed) => {
   const settingsButton = new ButtonBuilder()
-    .setCustomId(ButtonCustomId.settings)
+    .setCustomId(ButtonCustomId.setup.start)
     .setStyle(ButtonStyle.Secondary)
     .setLabel(t('common.setting'));
 

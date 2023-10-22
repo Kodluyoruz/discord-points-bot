@@ -10,6 +10,7 @@ import {
 
 type ButtonProps = {
   customId: string;
+  customIdParam?: string;
 };
 
 type CustomEmbedProps = {
@@ -26,12 +27,20 @@ type CustomEmbedProps = {
 
 export const setupCustomButtonEmbed = ({ embed, nextButton, backButton, t }: CustomEmbedProps) => {
   const next = new ButtonBuilder()
-    .setCustomId(nextButton.customId)
+    .setCustomId(
+      nextButton.customIdParam
+        ? `${nextButton.customId}?${nextButton.customIdParam}`
+        : nextButton.customId,
+    )
     .setLabel(t('common.continue'))
     .setStyle(ButtonStyle.Success);
 
   const editButton = new ButtonBuilder()
-    .setCustomId(backButton.customId)
+    .setCustomId(
+      backButton.customIdParam
+        ? `${backButton.customId}?${backButton.customIdParam}`
+        : backButton.customId,
+    )
     .setLabel(t('common.edit'))
     .setStyle(ButtonStyle.Secondary);
 

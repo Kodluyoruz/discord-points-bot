@@ -7,6 +7,10 @@ export const SetupButtonRoutes: DiscordType.IButton = {
     const button = setupRoutes.find(({ customId }) => customId === subCustomId);
     const { embed, row } = await button.execute({ client, interaction, lng, t });
 
-    await interaction.update({ components: [row], embeds: [embed] });
+    if (interaction.ephemeral) {
+      await interaction.update({ components: [row], embeds: [embed] });
+    } else {
+      await interaction.reply({ components: [row], embeds: [embed], ephemeral: true });
+    }
   },
 };

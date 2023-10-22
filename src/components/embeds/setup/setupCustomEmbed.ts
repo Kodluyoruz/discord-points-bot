@@ -19,6 +19,7 @@ type SetupPeriodEmbedProps = {
   guild: Guild;
   menu?: Partial<StringSelectMenuComponentData> & {
     customId?: keyof typeof SelectMenuCustomId;
+    customIdParam?: string;
   };
   embed: EmbedData;
   button?: {
@@ -41,9 +42,9 @@ export const setupCustomEmbed = async ({
   const row = new ActionRowBuilder<StringSelectMenuBuilder | ButtonBuilder>();
 
   if (menu) {
-    const { customId, disabled, options, placeholder } = menu;
+    const { customId, customIdParam, disabled, options, placeholder } = menu;
     const select = new StringSelectMenuBuilder({
-      customId,
+      customId: customIdParam ? `${customId}?${customIdParam}` : customId,
       disabled,
       options,
       placeholder,

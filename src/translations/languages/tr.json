@@ -55,14 +55,7 @@
       "builder": {
         "name": "puan",
         "description": "Mevcut puan durumunuz hakkında bilgi verir."
-      },
-      "description": "Mevcut puan durumunuz hakkında bilgi verir."
-    },
-    "step[0]": {
-      "description": "Kanallardan Mesaj Atarak **5 PUAN** Kazanabilirsin!\n\nSohbet başlatmak ve topluluk üyelerimizin arasındaki etkileşimin artması en önemli önceliklerimizden biri! Belirli sartlara uyan her mesaj için puan kazanacaksın!"
-    },
-    "step[1]": {
-      "description": "Kendini Tanıt **35 PUAN** Kazan!\n\nBirbirimizi tanımak, network’ümüzü genişletmek, hatta belki de projelerimiz için grup arkadaşları bulmak! Bunun için kendini tanıtmanın çok önemli oldugunu düşünüyoruz.\n\n**#kendini-tanıt** kanalından kendini tanıtmayı unutma!"
+      }
     }
   },
   "pointLog": {
@@ -121,29 +114,31 @@
         "monthly": "Aylık"
       }
     },
-    "logChannel": {
-      "selected": "Log Kanalı Seçildi.",
-      "placeholder": "Log Kanalını Seçiniz.",
-      "title": "Logların Düşeceği Odayı Seçin.",
-      "description": "Açıklama gelecek"
-    },
-    "adminChannel": {
-      "selected": "Yönetim Kanalı Seçildi.",
-      "placeholder": "Yönetim Kanalını Seçiniz.",
-      "title": "Yönetim Kanalını Seçin.",
-      "description": "Açıklama gelecek"
-    },
-    "infoChannel": {
-      "selected": "Bilgilendirme Kanalı Seçildi.",
-      "placeholder": "Bilgilendirme Kanalını Seçiniz.",
-      "title": "Bilgilendirme Kanalını Seçin.",
-      "description": "Açıklama gelecek"
-    },
-    "pointChannel": {
-      "selected": "Puan Kanalı Seçildi.",
-      "placeholder": "Puan Kanalını Seçiniz.",
-      "title": "Puan Kanalını Seçin.",
-      "description": "Açıklama gelecek"
+    "channel": {
+      "log": {
+        "selected": "Log Kanalı Seçildi.",
+        "placeholder": "Log Kanalını Seçiniz.",
+        "title": "Logların Düşeceği Odayı Seçin.",
+        "description": "Açıklama gelecek"
+      },
+      "admin": {
+        "selected": "Yönetim Kanalı Seçildi.",
+        "placeholder": "Yönetim Kanalını Seçiniz.",
+        "title": "Yönetim Kanalını Seçin.",
+        "description": "Açıklama gelecek"
+      },
+      "info": {
+        "selected": "Bilgilendirme Kanalı Seçildi.",
+        "placeholder": "Bilgilendirme Kanalını Seçiniz.",
+        "title": "Bilgilendirme Kanalını Seçin.",
+        "description": "Açıklama gelecek"
+      },
+      "point": {
+        "selected": "Point Kanalı Seçildi.",
+        "placeholder": "Point Kanalını Seçiniz.",
+        "title": "Point Kanalını Seçin.",
+        "description": "Açıklama gelecek"
+      }
     },
     "done": {
       "label": "Admin Kanalına git",
@@ -154,7 +149,14 @@
   "settings": {
     "pointUnit": "Yeni Puan Birimi Ekle",
     "menu": "Ayarlar Menüsü",
-    "description": "bu kısma açıklama gelecektir"
+    "description": "bu kısma açıklama gelecektir",
+    "channels": {
+      "errors": {
+        "notFound": "{{channel}} kanalı bulunamadı. Guild: {{guild.name}}({{guild.id}})",
+        "typeError": "{{channel}} ayarı olan {{logChannelId}} kanalı metin kanalı değil. Guild: {{guild.name}}({{guild.id}})",
+        "sendMessageError": "{{channel}} kanalına mesaj gönderilemedi. Guild: {{guild.name}}({{guild.id}}) - {error}"
+      }
+    }
   },
   "leaderboard": {
     "footer": "Kazananları tebrik eder, sıralamaya giren her arkadaşımızın çabası için teşekkür ederiz.\n**Unutmayın bu sırada yer alacak olan yarın sizsiniz!**",

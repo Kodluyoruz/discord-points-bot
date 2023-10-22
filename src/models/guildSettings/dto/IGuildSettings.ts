@@ -1,11 +1,15 @@
+import { pointPeriod } from '@discord-point-bot/constants';
+
 export interface IGuildSettings {
   guildId: string;
-  adminChannelId?: string;
-  logChannelId?: string;
-  infoChannelId?: string;
-  point?: {
+  channels: {
+    admin?: string;
+    log?: string;
+    info?: string;
     period?: string;
-    channelId?: string;
+  };
+  point?: {
+    period?: pointPeriod;
   };
   createdAt: Date;
   updatedAt: Date;

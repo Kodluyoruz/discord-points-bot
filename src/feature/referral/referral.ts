@@ -1,4 +1,4 @@
-import { translation } from '@translation';
+import { getDefLanguage, translation } from '@translation';
 import { Guild, GuildMember, Interaction, Locale, UserResolvable } from 'discord.js';
 import { Client } from 'src/structures/Client';
 
@@ -25,18 +25,20 @@ async function addPoints({ guild, userId, referrerId, t }: AddPointsParams) {
     type: PointUnitType.INVITE,
     value: 1,
   };
-  await UserPointModel.pointAdd({
+  const userPointData = {
     ...pointData,
     userId,
     data: { referrer: referrerId },
     t,
-  });
-  await UserPointModel.pointAdd({
+  };
+  const referrerPointData = {
     ...pointData,
     userId: referrerId,
     data: { referred: userId },
     t,
-  });
+  };
+  await UserPointModel.pointAdd(userPointData);
+  await UserPointModel.pointAdd(referrerPointData);
 }
 
 type ReferralOutcome = 'default' | 'alreadyReferred' | 'userNotFound' | 'success' | 'error';
@@ -59,25 +61,30 @@ export async function getOutcome(params: ReferralParams): Promise<ReferralResult
   let referrerMember = await getMember(interaction, referrerId);
   const selectedMember = await getMember(interaction, selectedUser);
 
-  let result: ReferralOutcome = 'success';
+  const result: ReferralOutcome = getReferralOutcome(
+    selectedUser,
+    pointUnit,
+    referrerMember,
+    selectedMember,
+    userId,
+  );
 
-  if (!selectedUser) {
-    result = 'default';
-  } else if (!pointUnit) {
-    result = 'error';
-  } else if (referrerMember) {
-    result = 'alreadyReferred';
-  } else if (!selectedMember || selectedMember.user.id === userId || selectedMember.user.bot) {
-    result = 'userNotFound';
-  } else {
-    await addPoints({ guild, userId, referrerId: selectedMember.id, t });
+  if (result === 'success') {
+    await addPoints({
+      guild,
+      userId,
+      referrerId: selectedMember.id,
+      t,
+    });
     referrerMember = selectedMember;
   }
 
   const description = getDescription({
     result,
     code: interaction.user.id,
-    command: client.slashCommands.get(t('referral.command.builder.name')),
+    command: client.slashCommands.get(
+      t('referral.command.builder.name', { lng: getDefLanguage() }),
+    ),
     referredCount,
     referrer: referrerMember,
     pointUnit,
@@ -92,21 +99,33 @@ export async function getOutcome(params: ReferralParams): Promise<ReferralResult
   };
 }
 
+function getReferralOutcome(
+  selectedUser: UserResolvable,
+  pointUnit: IPointUnits,
+  referrerMember: GuildMember,
+  selectedMember: GuildMember,
+  userId: string,
+): ReferralOutcome {
+  switch (true) {
+    case !selectedUser:
+      return 'default';
+    case !pointUnit:
+      return 'error';
+    case !!referrerMember:
+      return 'alreadyReferred';
+    case !selectedMember || selectedMember.user.id === userId || selectedMember.user.bot:
+      return 'userNotFound';
+    default:
+      return 'success';
+  }
+}
+
 export async function getMember(interaction: Interaction, user: UserResolvable) {
   return user && (await interaction.guild.members.fetch(user).catch(() => null));
 }
 
-export function getDescription({
-  result,
-  code,
-  command,
-  referredCount,
-  referrer,
-  pointUnit,
-  lng,
-  t,
-}: {
-  result: string;
+interface DescriptionParams {
+  result: ReferralOutcome;
   code: string;
   command: DiscordType.ISlashCommand;
   referredCount: number;
@@ -114,7 +133,10 @@ export function getDescription({
   pointUnit: IPointUnits;
   lng: string;
   t: typeof translation;
-}) {
+}
+
+export function getDescription(params: DescriptionParams) {
+  const { result, code, command, referredCount, referrer, pointUnit, t } = params;
   return t(`referral.embed.${result}`, 'referral.embed.default', {
     code,
     command: { id: command.applicationCommand?.id, name: command.data.name },
@@ -125,6 +147,5 @@ export function getDescription({
       description: '$t(referral.embed.noPointUnit)',
       point: 0,
     },
-    lng,
   });
 }

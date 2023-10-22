@@ -25,7 +25,7 @@ export const setupEmbed = async ({ guild, t }: SetupEmbedProps) => {
       url: 'https://www.example.com',
     },
     {
-      customId: ButtonCustomId.setup.start,
+      customId: ButtonCustomId.setup.channel.add,
       label: t('common.setup'),
       style: ButtonStyle.Success,
     },

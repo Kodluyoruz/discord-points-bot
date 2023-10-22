@@ -1,4 +1,4 @@
-import { ButtonCustomId, SelectMenuCustomId } from '@discord-point-bot/constants';
+import { ButtonCustomId, SelectMenuCustomId, pointPeriod } from '@discord-point-bot/constants';
 import { GuildSettingsModel } from '@discord-point-bot/models';
 
 import { setupCustomButtonEmbed } from './setupCustomButtonEmbed';
@@ -8,11 +8,7 @@ export const SetupPeriodSelectMenu: DiscordType.ISelectMenu = {
   execute: async ({ interaction, lng, t }) => {
     const [pointPeriod] = interaction.values;
 
-    await GuildSettingsModel.findOneAndUpdate(
-      { guildId: interaction.guildId },
-      { 'point.period': pointPeriod },
-      { upsert: true },
-    );
+    await GuildSettingsModel.setPeriod(interaction.guild.id, pointPeriod as pointPeriod);
 
     const { newEmbed, row } = setupCustomButtonEmbed({
       nextButton: { customId: ButtonCustomId.setup.done },

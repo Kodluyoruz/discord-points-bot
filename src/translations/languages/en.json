@@ -36,9 +36,8 @@
       }
     ],
     "command": {
-      "description": "Provides information about your current points status.",
       "builder": {
-        "description": "Provides information about your current score status.",
+        "description": "Provides information about your current points status.",
         "name": "point"
       }
     }
@@ -63,40 +62,49 @@
         "monthly": "Monthly"
       }
     },
-    "logChannel": {
-      "selected": "Log Channel Selected",
-      "placeholder": "Select the Log Channel",
-      "title": "Select the Channel for Logs",
-      "description": "Description will come here"
-    },
-    "adminChannel": {
-      "selected": "Admin Channel Selected",
-      "placeholder": "Select the Admin Channel",
-      "title": "Select the Admin Channel",
-      "description": "Description will come here"
+    "channel": {
+      "log": {
+        "selected": "Log Channel Selected",
+        "placeholder": "Select the Log Channel",
+        "title": "Select the Channel for Logs",
+        "description": "Description will come here"
+      },
+      "admin": {
+        "selected": "Admin Channel Selected",
+        "placeholder": "Select the Admin Channel",
+        "title": "Select the Admin Channel",
+        "description": "Description will come here"
+      },
+      "info": {
+        "description": "Description will come",
+        "placeholder": "Select the Information Channel.",
+        "selected": "Information Channel Selected.",
+        "title": "Select Information Channel."
+      },
+      "point": {
+        "description": "Description will come",
+        "placeholder": "Select Point Channel.",
+        "selected": "Point Channel Selected.",
+        "title": "Select Point Channel."
+      }
     },
     "done": {
       "label": "Go to Admin Channel",
       "title": "Setup Completed",
       "description": "You can continue to other settings from the admin channel."
-    },
-    "infoChannel": {
-      "placeholder": "Select the Information Channel.",
-      "description": "Description will come",
-      "selected": "Information Channel Selected.",
-      "title": "Select Information Channel."
-    },
-    "pointChannel": {
-      "description": "Description will come",
-      "placeholder": "Select Point Channel.",
-      "selected": "Point Channel Selected.",
-      "title": "Select Point Channel."
     }
   },
   "settings": {
     "pointUnit": "Add New Point Unit",
     "menu": "Settings Menu",
-    "description": "Description will come here"
+    "description": "Description will come here",
+    "channels": {
+      "errors": {
+        "notFound": "{{channel}} channel not found. \nGuild: {{guild.name}}({{guild.id}})",
+        "sendMessageError": "Failed to send message to {{channel}} channel. \nGuild: {{guild.name}}({{guild.id}}) - {error}",
+        "typeError": "The {{logChannelId}} channel with {{channel}} setting is not a text channel. \nGuild: {{guild.name}}({{guild.id}})"
+      }
+    }
   },
   "leaderboard": {
     "footer": "We congratulate the winners and thank each of our friends for their efforts.\n**Remember, you are the one who will be in this row tomorrow!**",
