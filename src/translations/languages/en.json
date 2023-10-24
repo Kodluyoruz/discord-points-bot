@@ -100,13 +100,13 @@
     "description": "Description will come here",
     "channels": {
       "errors": {
-        "notFound": "{{channel}} channel not found. \nGuild: {{guild.name}}({{guild.id}})",
-        "sendMessageError": "Failed to send message to {{channel}} channel. \nGuild: {{guild.name}}({{guild.id}}) - {error}",
-        "typeError": "The {{logChannelId}} channel with {{channel}} setting is not a text channel. \nGuild: {{guild.name}}({{guild.id}})"
+        "notFound": "{{channel}} channel not found.\nGuild: {{guild.name}}({{guild.id}})",
+        "sendMessageError": "Failed to send message to {{channel}} channel.\nGuild: {{guild.name}}({{guild.id}}) - {error}",
+        "typeError": "The {{logChannelId}} channel with {{channel}} setting is not a text channel.\nGuild: {{guild.name}}({{guild.id}})"
       }
     }
   },
-  "leaderboard": {
+  "leaderBoard": {
     "footer": "We congratulate the winners and thank each of our friends for their efforts.\n**Remember, you are the one who will be in this row tomorrow!**",
     "title": "{{period}} Winners"
   },

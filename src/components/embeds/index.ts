@@ -1,4 +1,4 @@
-export { leaderboardEmbed } from './leaderboard/leaderboardEmbed';
+export { leaderBoardEmbed } from './leaderBoard/leaderBoardEmbed';
 export { pointLogEmbed } from './pointLog/pointLogEmbed';
 export { settingsAdminEmbed } from './settings/settingsAdminEmbed';
 export { pointPeriodEmbed } from './setup/pointPeriodEmbed';

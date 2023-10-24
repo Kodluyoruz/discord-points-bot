@@ -1,11 +1,11 @@
-import { leaderboardEmbed } from 'src/components/embeds';
+import { leaderBoardEmbed } from 'src/components/embeds';
 
 export const GlobalPoints = async ({ client, interaction, lng, t }: DiscordType.ButtonArgs) => {
-  const { embed, row } = await leaderboardEmbed({
+  const { embed, row } = await leaderBoardEmbed({
     client,
     interaction,
-    footer: t('leaderboard.footer'),
-    title: t('leaderboard.title'),
+    footer: t('leaderBoard.footer'),
+    title: t('leaderBoard.title'),
     lng,
     t,
   });

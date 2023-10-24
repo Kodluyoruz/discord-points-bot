@@ -13,7 +13,7 @@ import { Client } from 'src/structures/Client';
 
 import { ShowGlobalOrUserPointResult, UserPointModel } from '@discord-point-bot/models';
 
-type leaderboardEmbedProps = {
+type leaderBoardEmbedProps = {
   client: Client;
   interaction: ButtonInteraction;
   dates?: {
@@ -26,19 +26,19 @@ type leaderboardEmbedProps = {
   t: typeof translation;
 };
 
-export const leaderboardEmbed = async ({
+export const leaderBoardEmbed = async ({
   interaction,
   dates,
   footer,
   title,
   t,
-}: leaderboardEmbedProps) => {
-  const usersDatas = (await UserPointModel.showGlobalOrUserPoint({
+}: leaderBoardEmbedProps) => {
+  const usersData = (await UserPointModel.showGlobalOrUserPoint({
     guildId: interaction.guildId,
     dates,
   })) as ShowGlobalOrUserPointResult[];
 
-  const rankedUsers = chain(usersDatas)
+  const rankedUsers = chain(usersData)
     .map((user, index) => ({
       ...user,
       formattedPoints: `**${user.totalPoints}**`,
